@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import path, { join } from 'path'
 import { defineConfig } from 'vite'
 
@@ -10,5 +11,8 @@ export default defineConfig({
                 setting: join(process.cwd(), './src/setting/index.html'),
             }
         }
+    },
+    test: {
+        environment: 'happy-dom'
     }
 })
