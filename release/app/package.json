@@ -1,1 +1,17 @@
-{}
+{
+  "name": "starter-electron",
+  "version": "0.0.0",
+  "main": "./dist/main.js",
+  "description": "",
+  "license": "GPL-2.0",
+  "author": {
+    "name": "starknt",
+    "email": "1431880400@qq.com"
+  },
+  "scripts": {
+    "electron-rebuild": "esno ../../.knt/scripts/electron-rebuild.ts",
+    "link-modules": "esno ../../.knt/scripts/link-modules.ts",
+    "postinstall": "pnpm electron-rebuild && pnpm link-modules"
+  },
+  "dependencies": {}
+}
