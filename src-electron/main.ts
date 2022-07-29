@@ -4,7 +4,7 @@ app.whenReady()
     .then(() => {
         const win = new BrowserWindow()
 
-        console.log("12345")
+        console.log(123456)
 
         win.loadURL(`http://127.0.0.1:5173`)
     })

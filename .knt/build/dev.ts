@@ -8,7 +8,7 @@ const rootPath = process.cwd()
 esbuild.build({
     platform: 'node',
     plugins: [esbuildDecorators()],
-    entryPoints: [path.join(rootPath, 'src/main.ts')],
+    entryPoints: [path.join(rootPath, 'src-electron/main.ts')],
     outdir: rootPath,
     external: [...builtinModules, "electron"],
     bundle: true,

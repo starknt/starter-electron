@@ -1,17 +1,16 @@
 /// <reference types="vitest" />
-import path, { join } from 'path'
 import { defineConfig } from 'vite'
+import Vue from '@vitejs/plugin-vue'
+import Unocss from 'unocss/vite'
+import Knt from './.knt/build/vitePlugin'
 
 export default defineConfig({
-    root: path.join(process.cwd(), './src/pages'),
-    build: {
-        rollupOptions: {
-            input: {
-                main: join(process.cwd(), './src/pages/index.html'),
-                setting: join(process.cwd(), './src/setting/index.html'),
-            }
-        }
-    },
+    root: 'src',
+    plugins: [
+        Vue({ reactivityTransform: true }),
+        Unocss({ configFile: 'unocss.config.ts' }),
+        Knt()
+    ],
     test: {
         environment: 'happy-dom'
     }

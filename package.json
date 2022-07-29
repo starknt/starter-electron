@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:uint": "vitest",
-    "postinstall": "esno ./.knt/scripts/check-native-deps.ts && electron-builder install-app-deps"
+    "postinstall": "esno ./.knt/scripts/check-native-deps.ts && electron-builder install-app-deps",
+    "typecheck": "vue-tsc --noEmit"
   },
   "keywords": [
     "electron",
@@ -27,6 +28,7 @@
     "@antfu/eslint-config": "^0.25.2",
     "@types/debug": "^4.1.7",
     "@types/node": "^18.0.6",
+    "@vitejs/plugin-vue": "^3.0.1",
     "concurrently": "^7.3.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.4",
@@ -45,7 +47,8 @@
     "typescript": "^4.7.4",
     "unocss": "^0.44.5",
     "vite": "^3.0.2",
-    "vitest": "^0.18.1"
+    "vitest": "^0.18.1",
+    "vue-tsc": "^0.39.2"
   },
   "simple-git-hooks": {
     "pre-commit": "lint-staged"
