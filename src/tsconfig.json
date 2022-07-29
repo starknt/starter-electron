@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "lib": [
+      "DOM"
+    ],
+    "skipLibCheck": true,
+    "types": []
+  },
+  "exclude": [
+    "tests"
+  ]
+}

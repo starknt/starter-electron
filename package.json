@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite -c ./src/vite.config.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:uint": "vitest",
@@ -21,7 +21,7 @@
     "hot",
     "fast"
   ],
-  "author": "",
+  "author": "starknt",
   "license": "GPL-2.0",
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.19",
@@ -30,7 +30,6 @@
     "@types/node": "^18.0.6",
     "@vitejs/plugin-vue": "^3.0.1",
     "concurrently": "^7.3.0",
-    "cross-env": "^7.0.3",
     "debug": "^4.3.4",
     "electron": "^19.0.8",
     "electron-builder": "^23.1.0",

@@ -12,6 +12,7 @@ export default defineConfig({
         Knt()
     ],
     test: {
-        environment: 'happy-dom'
+        environment: 'happy-dom',
+        globals: true
     }
 })

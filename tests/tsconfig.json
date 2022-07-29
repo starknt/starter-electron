@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../",
+    "types": [
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "../tests/*.ts",
+    "../src/tests/*.ts",
+    "../src-electron/tests/*.ts"
+  ]
+}

@@ -9,5 +9,15 @@
         "esModuleInterop": true,
         "jsx": "preserve",
         "baseUrl": "."
-    }
+    },
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ],
+    "exclude": [
+        "src",
+        "src-electron",
+        "tests"
+    ]
 }

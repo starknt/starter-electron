@@ -1,7 +1,7 @@
 # starter-electron
 Vite + Vitest + Esbuild + Electron
 
-## feture
+## Feture
 - Fast
 - Main Process Reload
 

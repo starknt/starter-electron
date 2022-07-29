@@ -1,7 +1,5 @@
-import test from 'node:test';
 import type { ElectronApplication } from 'playwright';
 import { _electron as electron } from 'playwright'
-import { afterAll, beforeAll } from 'vitest';
 
 let electronApplication: ElectronApplication
 

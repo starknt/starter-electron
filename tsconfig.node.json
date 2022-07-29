@@ -1,8 +1,12 @@
 {
     "compilerOptions": {
         "composite": true,
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+        "resolveJsonModule": true
     },
     "include": [
-        "vite.config.ts"
+        ".knt/**/*.ts",
+        "vite.config.ts",
     ]
 }
