@@ -2,6 +2,7 @@
   "name": "starter-electron",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@7.6.0",
   "description": "",
   "author": "starknt",
   "license": "GPL-2.0",
