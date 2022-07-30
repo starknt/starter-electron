@@ -13,6 +13,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - name: set env
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
@@ -25,12 +28,13 @@ jobs:
 
       - name: Lint
         run: pnpm run lint
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
   typecheck:
     runs-on: ubuntu-latest
     steps:
+      - name: set env
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
@@ -40,8 +44,6 @@ jobs:
 
       - name: Install
         run: pnpm install
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Typecheck
         run: pnpm run typecheck
@@ -56,6 +58,9 @@ jobs:
       fail-fast: false
 
     steps:
+      - name: set env
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
       - name: Set node ${{ matrix.node-version }}
@@ -67,8 +72,6 @@ jobs:
 
       - name: Install
         run: pnpm install
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Test
         run: pnpm run test

@@ -21,7 +21,7 @@
     "build": "vite -c ./src/vite.config.ts build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test:uint": "vitest",
+    "test": "vitest",
     "postinstall": "esno ./.knt/scripts/check-native-deps.ts && electron-builder install-app-deps",
     "typecheck": "vue-tsc --noEmit"
   },
@@ -65,10 +65,6 @@
       "git add"
     ],
     "*.{yml, yaml}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*": [
       "eslint --fix",
       "git add"
     ]
