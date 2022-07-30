@@ -24,10 +24,15 @@ try {
     fs.rmSync(srcElectronPackagePath)
 }
 
-if (!fs.existsSync(srcElectronModulesPath) && fs.existsSync(appModulesPath)) {
-  fs.symlinkSync(appModulesPath, srcElectronModulesPath, 'junction')
+try {
+  if (!fs.existsSync(srcElectronModulesPath) && fs.existsSync(appModulesPath)) {
+    fs.symlinkSync(appModulesPath, srcElectronModulesPath, 'junction')
+  }
+
+  if (!fs.existsSync(srcElectronPackagePath) && fs.existsSync(appPackagePath)) {
+    fs.symlinkSync(appPackagePath, srcElectronPackagePath, 'file')
+  }
+} catch (error) {
+
 }
 
-if (!fs.existsSync(srcElectronPackagePath) && fs.existsSync(appPackagePath)) {
-  fs.symlinkSync(appPackagePath, srcElectronPackagePath, 'file')
-}
