@@ -2,5 +2,7 @@
 </script>
 
 <template>
-  <div text-xl>App</div>
+  <div text-xl>
+    <Counter />
+  </div>
 </template>
