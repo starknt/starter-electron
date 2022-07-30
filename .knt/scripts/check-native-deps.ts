@@ -1,9 +1,8 @@
 import fs from 'fs'
 import { execSync } from 'child_process'
+// @ts-ignore
 import { dependencies } from '../../package.json'
 
-
-console.log('check native module')
 
 if (dependencies) {
   const dependenciesKeys = Object.keys(dependencies)

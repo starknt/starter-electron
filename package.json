@@ -26,11 +26,10 @@
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.19",
     "@antfu/eslint-config": "^0.25.2",
-    "@types/debug": "^4.1.7",
     "@types/node": "^18.0.6",
+    "@types/rimraf": "^3.0.2",
     "@vitejs/plugin-vue": "^3.0.1",
     "concurrently": "^7.3.0",
-    "debug": "^4.3.4",
     "electron": "^19.0.8",
     "electron-builder": "^23.1.0",
     "electron-rebuild": "^3.2.8",

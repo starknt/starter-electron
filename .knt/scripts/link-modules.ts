@@ -16,8 +16,10 @@ try {
     fs.rmSync(srcElectronPackagePath)
   }
 } catch {
-  fs.rmSync(srcElectronModulesPath)
-  fs.rmSync(srcElectronPackagePath)
+  if(fs.existsSync(srcElectronModulesPath))
+    fs.rmSync(srcElectronModulesPath)
+  if(fs.existsSync(srcElectronPackagePath))
+    fs.rmSync(srcElectronPackagePath)
 }
 
 if (!fs.existsSync(srcElectronModulesPath) && fs.existsSync(appModulesPath)) {

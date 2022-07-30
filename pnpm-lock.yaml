@@ -3,12 +3,11 @@ lockfileVersion: 5.4
 specifiers:
   '@anatine/esbuild-decorators': ^0.2.19
   '@antfu/eslint-config': ^0.25.2
-  '@types/debug': ^4.1.7
   '@types/node': ^18.0.6
+  '@types/rimraf': ^3.0.2
   '@vitejs/plugin-vue': ^3.0.1
   '@vueuse/core': ^9.0.0
   concurrently: ^7.3.0
-  debug: ^4.3.4
   electron: ^19.0.8
   electron-builder: ^23.1.0
   electron-rebuild: ^3.2.8
@@ -37,11 +36,10 @@ dependencies:
 devDependencies:
   '@anatine/esbuild-decorators': 0.2.19_esbuild@0.14.49
   '@antfu/eslint-config': 0.25.2_he2ccbldppg44uulnyq4rwocfa
-  '@types/debug': 4.1.7
   '@types/node': 18.0.6
+  '@types/rimraf': 3.0.2
   '@vitejs/plugin-vue': 3.0.1_vite@3.0.2+vue@3.2.37
   concurrently: 7.3.0
-  debug: 4.3.4
   electron: 19.0.8
   electron-builder: 23.1.0
   electron-rebuild: 3.2.8
@@ -528,7 +526,6 @@ packages:
       '@types/minimatch': 3.0.5
       '@types/node': 18.0.6
     dev: true
-    optional: true
 
   /@types/http-cache-semantics/4.0.1:
     resolution: {integrity: sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==}
@@ -561,7 +558,6 @@ packages:
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: true
-    optional: true
 
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
@@ -603,6 +599,13 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
+      '@types/node': 18.0.6
+    dev: true
+
+  /@types/rimraf/3.0.2:
+    resolution: {integrity: sha512-F3OznnSLAUxFrCEu/L5PY8+ny8DtcFRjx7fZZ9bycvXRi3KPTRS9HOitGZwvPg0juRhXFWIeKX58cnX5YqLohQ==}
+    dependencies:
+      '@types/glob': 7.2.0
       '@types/node': 18.0.6
     dev: true
 
