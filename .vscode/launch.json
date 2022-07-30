@@ -6,13 +6,18 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}/release/app",
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+      ],
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
       "windows": {
         "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
       },
       "args": [
-        "."
-      ]
+        "dist/main.js"
+      ],
+      "preLaunchTask": "Build"
     }
   ]
 }
