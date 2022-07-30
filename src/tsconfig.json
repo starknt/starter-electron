@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
     "jsx": "preserve",
-    "lib": [
-      "DOM"
-    ],
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": false,
     "skipLibCheck": true,
     "types": []
   },
