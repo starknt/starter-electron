@@ -67,6 +67,10 @@
     "*.{yml, yaml}": [
       "eslint --fix",
       "git add"
+    ],
+    "*": [
+      "eslint --fix",
+      "git add"
     ]
   }
 }
