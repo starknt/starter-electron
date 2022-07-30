@@ -11,7 +11,7 @@ const appPackagePath = path.join(appPath, 'package.json')
 
 try {
   if (!fs.statSync(srcElectronModulesPath).isSymbolicLink()) {
-    fs.rmSync(srcElectronModulesPath)
+    fs.rmdirSync(srcElectronModulesPath)
   }
 
   if (!fs.statSync(srcElectronPackagePath).isSymbolicLink()) {
@@ -19,7 +19,7 @@ try {
   }
 } catch {
   if (fs.existsSync(srcElectronModulesPath))
-    fs.rmSync(srcElectronModulesPath)
+    fs.rmdirSync(srcElectronModulesPath)
   if (fs.existsSync(srcElectronPackagePath))
     fs.rmSync(srcElectronPackagePath)
 }
