@@ -5,7 +5,7 @@ import path from 'path'
 import { appPath, srcElectronPath } from '../paths'
 import fs from 'fs'
 
-const { dependencies } = fs.readFileSync(path.resolve(process.cwd(), 'release/app/package.json')) as any
+const { dependencies } = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'release/app/package.json'), 'utf-8').toString()) as any
 
 export async function handleBuild() {
   await esbuild.build({
@@ -16,7 +16,7 @@ export async function handleBuild() {
     platform: 'node',
     target: ['node16'],
     external: ["electron", ...builtinModules, ...Object.keys(dependencies || {})],
-    outdir: path.join(appPath, 'main'),
+    outdir: path.join(appPath, 'dist'),
     entryPoints: [path.join(srcElectronPath, 'main/main.ts')]
   })
 }
