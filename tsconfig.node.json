@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "ESNext",
+    "target": "ESNext",
     "composite": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
@@ -8,6 +9,11 @@
   },
   "include": [
     ".knt/**/*.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/vite.config.ts",
+    "release/app/package.json"
+  ],
+  "exclude": [
+    "release/app/*.js"
   ]
 }

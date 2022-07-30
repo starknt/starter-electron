@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
@@ -33,5 +34,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['electron'],
     },
+    outDir: path.join(process.cwd(), 'release', 'app', 'dist'),
+    emptyOutDir: false,
   },
 })

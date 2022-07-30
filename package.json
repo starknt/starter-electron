@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "dev": "vite -c ./src/vite.config.ts",
+    "build": "vite -c ./src/vite.config.ts build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:uint": "vitest",

@@ -8,6 +8,7 @@
     "types": []
   },
   "exclude": [
-    "tests"
+    "tests",
+    "vite.config.ts"
   ]
 }

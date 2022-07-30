@@ -1,75 +1,10 @@
-import { PluginOption as VitePluginOption } from 'vite'
-import esbuild from 'esbuild'
-import { esbuildDecorators } from '@anatine/esbuild-decorators'
-import path from 'path'
-import { builtinModules } from 'module'
-import { ChildProcess, spawn, } from 'child_process'
-import electron from 'electron'
+import { Plugin } from 'vite'
 import { AddressInfo } from 'net'
-import debug from 'debug'
-
-const $ = debug('knt')
-
-let cp: ChildProcess
-
-function exitProcess() {
-  process.exit(0)
-}
-
-const rootPath = process.cwd()
-
-async function handleDev() {
-
-  await esbuild.build({
-    platform: 'node',
-    plugins: [esbuildDecorators()],
-    entryPoints: [path.join(rootPath, 'src-electron/main/main.ts')],
-    outdir: path.join(rootPath, 'release', 'app', 'dist'),
-    external: [...builtinModules, "electron"],
-    bundle: true,
-    sourcemap: true,
-    watch: {
-      onRebuild(error, result) {
-        if (error) {
-          console.error(error)
-        }
-
-        if (cp) {
-          cp.off('exit', exitProcess)
-
-          cp.kill()
-        }
-
-        $('rebuild')
+import { handleBuild } from './build'
+import { handleDev } from './dev'
 
 
-        cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')], {
-          stdio: 'inherit'
-        })
-          .on('exit', exitProcess)
-      }
-    }
-  })
-
-  cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')])
-    .on('exit', exitProcess)
-}
-
-async function handleBuild() {
-  await esbuild.build({
-    platform: 'node',
-    plugins: [esbuildDecorators()],
-    entryPoints: [path.join(rootPath, 'src-electron/main/main.ts')],
-    outdir: path.join(rootPath, 'release', 'app', 'dist'),
-    external: [...builtinModules, "electron"],
-    bundle: true,
-    sourcemap: false
-  })
-
-  // package
-}
-
-export default (): VitePluginOption => {
+export default (): Plugin => {
   return {
     name: 'vite-plugin-knt',
     config(config, env) {

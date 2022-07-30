@@ -2,20 +2,46 @@ import esbuild from 'esbuild'
 import { esbuildDecorators } from '@anatine/esbuild-decorators'
 import path from 'path'
 import { builtinModules } from 'module'
+import { ChildProcess, spawn } from 'child_process'
+import electron from 'electron'
+import { rootPath } from '../paths'
 
-const rootPath = process.cwd()
+let cp: ChildProcess
 
-esbuild.build({
-    platform: 'node',
-    plugins: [esbuildDecorators()],
-    entryPoints: [path.join(rootPath, 'src-electron/main.ts')],
-    outdir: rootPath,
-    external: [...builtinModules, "electron"],
-    bundle: true,
-    sourcemap: true,
-    watch: {
-        onRebuild(error, result) {
-            console.log('rebuild')
+export async function handleDev() {
+    await esbuild.build({
+        platform: 'node',
+        plugins: [esbuildDecorators()],
+        entryPoints: [path.join(rootPath, 'src-electron/main/main.ts')],
+        outdir: path.join(rootPath, 'release', 'app', 'dist'),
+        external: [...builtinModules, "electron"],
+        bundle: true,
+        sourcemap: true,
+        watch: {
+            onRebuild(error) {
+                if (error) {
+                    console.error(error)
+                    return
+                }
+
+                if (cp) {
+                    cp.off('exit', exitProcess)
+
+                    cp.kill()
+                }
+
+                cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')], {
+                    stdio: 'inherit'
+                })
+                    .on('exit', exitProcess)
+            }
         }
-    }
-})
+    })
+
+    cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')])
+        .on('exit', exitProcess)
+}
+
+function exitProcess(): any {
+    process.exit(0)
+}

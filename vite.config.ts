@@ -4,7 +4,6 @@ import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 
 export default defineConfig({
-  root: 'src',
   plugins: [
     Vue({ reactivityTransform: true }),
     Unocss({ configFile: 'unocss.config.ts' }),
