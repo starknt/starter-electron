@@ -26,7 +26,7 @@ jobs:
       - name: Lint
         run: pnpm run lint
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
   typecheck:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
       - name: Install
         run: pnpm install
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Typecheck
         run: pnpm run typecheck
@@ -68,7 +68,7 @@ jobs:
       - name: Install
         run: pnpm install
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Test
         run: pnpm run test
