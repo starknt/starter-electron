@@ -1,7 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import { appPath, srcElectronPath } from '../paths'
 
+const rootPath = path.resolve(process.cwd(), '../../')
+const srcElectronPath = path.join(rootPath, 'src-electron')
+const appPath = path.join(process.cwd())
 const srcElectronModulesPath = path.join(srcElectronPath, 'node_modules')
 const srcElectronPackagePath = path.join(srcElectronPath, 'package.json')
 const appModulesPath = path.join(appPath, 'node_modules')
@@ -16,9 +18,9 @@ try {
     fs.rmSync(srcElectronPackagePath)
   }
 } catch {
-  if(fs.existsSync(srcElectronModulesPath))
+  if (fs.existsSync(srcElectronModulesPath))
     fs.rmSync(srcElectronModulesPath)
-  if(fs.existsSync(srcElectronPackagePath))
+  if (fs.existsSync(srcElectronPackagePath))
     fs.rmSync(srcElectronPackagePath)
 }
 

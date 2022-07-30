@@ -1,23 +1,23 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "ES2022",
-        "moduleResolution": "Node",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "jsx": "preserve",
-        "baseUrl": "."
-    },
-    "references": [
-        {
-            "path": "./tsconfig.node.json"
-        }
-    ],
-    "exclude": [
-        "src",
-        "src-electron",
-        "tests"
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ES2022",
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "baseUrl": "."
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "exclude": [
+    "src",
+    "src-electron",
+    "tests"
+  ]
 }

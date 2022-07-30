@@ -13,25 +13,25 @@ export default defineConfig({
     AutoImport({
       dts: './auto-import.d.ts',
       dirs: [
-        './composable'
+        './composable',
       ],
       imports: [
         'vue',
         'vue/macros',
-        '@vueuse/core'
-      ]
+        '@vueuse/core',
+      ],
     }),
     AutoImportComponent({
       dts: './component.d.ts',
       dirs: [
-        "./components"
-      ]
+        './components',
+      ],
     }),
-    Knt()
+    Knt(),
   ],
   build: {
     rollupOptions: {
-      external: ["electron"]
-    }
-  }
+      external: ['electron'],
+    },
+  },
 })

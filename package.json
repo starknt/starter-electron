@@ -1,16 +1,10 @@
 {
   "name": "starter-electron",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "scripts": {
-    "dev": "vite -c ./src/vite.config.ts",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test:uint": "vitest",
-    "postinstall": "esno ./.knt/scripts/check-native-deps.ts && electron-builder install-app-deps",
-    "typecheck": "vue-tsc --noEmit"
-  },
+  "author": "starknt",
+  "license": "GPL-2.0",
   "keywords": [
     "electron",
     "electron-builder",
@@ -21,8 +15,18 @@
     "hot",
     "fast"
   ],
-  "author": "starknt",
-  "license": "GPL-2.0",
+  "scripts": {
+    "dev": "vite -c ./src/vite.config.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test:uint": "vitest",
+    "postinstall": "esno ./.knt/scripts/check-native-deps.ts && electron-builder install-app-deps",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.0.0",
+    "vue": "^3.2.37"
+  },
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.19",
     "@antfu/eslint-config": "^0.25.2",
@@ -58,9 +62,5 @@
       "eslint --fix",
       "git add"
     ]
-  },
-  "dependencies": {
-    "@vueuse/core": "^9.0.0",
-    "vue": "^3.2.37"
   }
 }

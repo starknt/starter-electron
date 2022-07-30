@@ -4,4 +4,4 @@ import 'uno.css'
 
 const app = createApp(AppVue)
 
-app.mount("#app")
+app.mount('#app')

@@ -5,5 +5,7 @@ const { inc, count } = useCounter(0)
 <template>
   <p>{{ count }}</p>
 
-  <button @click="() => inc()">点击 + 1</button>
+  <button @click="() => inc()">
+    点击 + 1
+  </button>
 </template>
