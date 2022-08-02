@@ -17,13 +17,14 @@
     "fast"
   ],
   "scripts": {
-    "dev": "vite -c ./src/vite.config.ts",
-    "build": "vite -c ./src/vite.config.ts build",
+    "dev": "pnpm clean && vite -c ./src/vite.config.ts",
+    "build": "pnpm clean && vite -c ./src/vite.config.ts build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
     "postinstall": "esno ./.knt/scripts/check-native-deps.ts && electron-builder install-app-deps",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "clean": "esno ./.knt/scripts/clean.ts"
   },
   "dependencies": {
     "@vueuse/core": "^9.0.0",

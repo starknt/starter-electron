@@ -11,12 +11,14 @@ let cp: ChildProcess
 export async function handleDev() {
     await esbuild.build({
         platform: 'node',
-        plugins: [esbuildDecorators()],
+        plugins: [esbuildDecorators({ tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json') })],
         entryPoints: [path.join(rootPath, 'src-electron/main/main.ts')],
         outdir: path.join(rootPath, 'release', 'app', 'dist'),
         external: [...builtinModules, "electron"],
         bundle: true,
         sourcemap: true,
+        color: true,
+        tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json'),
         watch: {
             onRebuild(error) {
                 if (error) {

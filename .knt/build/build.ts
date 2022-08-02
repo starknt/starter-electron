@@ -7,12 +7,10 @@ import fs from 'fs'
 
 const { dependencies } = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'release/app/package.json'), 'utf-8').toString()) as any
 
-console.log(process.env['DEBUG'])
-
 export async function handleBuild() {
   await esbuild.build({
     plugins: [
-      esbuildDecorators()
+      esbuildDecorators({ tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json') })
     ],
     bundle: true,
     platform: 'node',
@@ -20,6 +18,8 @@ export async function handleBuild() {
     external: ["electron", ...builtinModules, ...Object.keys(dependencies || {})],
     outdir: path.join(appPath, 'dist'),
     entryPoints: [path.join(srcElectronPath, 'main/main.ts')],
-    sourcemap: !!process.env['DEBUG']
+    sourcemap: !!process.env['DEBUG'],
+    tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json'),
+    color: true
   })
 }

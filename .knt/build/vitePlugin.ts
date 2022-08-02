@@ -13,7 +13,7 @@ export default (): Plugin => {
     async configureServer(server) {
       server.httpServer.on('listening', async () => {
         const address = server.httpServer.address() as AddressInfo
-        process.env['URL'] = `http://${address.address}:${address.port}`
+        process.env['DEV_URL'] = `http://${address.address}:${address.port}`
 
         handleDev()
       })
