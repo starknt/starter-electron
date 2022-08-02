@@ -7,4 +7,6 @@ build
 # log
 *.log
 
+auto-import.d.ts
+component.d.ts
 /src-electron/package.json
