@@ -19,6 +19,7 @@
   "scripts": {
     "dev": "pnpm clean && vite -c ./src/vite.config.ts",
     "build": "pnpm clean && vite -c ./src/vite.config.ts build",
+    "package": "pnpm build && electron-builder",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
@@ -38,7 +39,7 @@
     "@vitejs/plugin-vue": "^3.0.1",
     "concurrently": "^7.3.0",
     "electron": "^19.0.8",
-    "electron-builder": "^23.1.0",
+    "electron-builder": "^23.3.3",
     "electron-rebuild": "^3.2.8",
     "esbuild": "^0.14.49",
     "eslint": "^8.20.0",
