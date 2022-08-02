@@ -1,4 +1,4 @@
-interface UserConfigExport {
+export interface UserConfig {
   /**
    * Project root path
    * @default `/`
@@ -12,7 +12,7 @@ interface UserConfigExport {
   renderTsConfig?: string
 }
 
-export function defineConfig(config: UserConfigExport): UserConfigExport {
+export function defineConfig(config: UserConfig): UserConfig {
   return {
     ...config
   }

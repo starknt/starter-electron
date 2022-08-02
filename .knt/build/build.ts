@@ -23,8 +23,9 @@ export async function handleBuild() {
     minify: !!process.env['DEBUG'],
     color: true,
     define: {
-      'process.env.NODE_ENV': process.env['DEBUG'] ? '\'development\'' : '\'production\'',
-      'process.env.URL': process.env['DEBUG'] ? undefined : '\'./dist/index.html\''
+      'process.env.NODE_ENV': '\'production\'',
+      'process.env.URL': process.env['MODE'] === 'mpa' ? '\'./dist/pages\'' : '\'./dist/index.html\'',
+      'process.env.MODE': process.env['MODE'] === 'mpa' ? "\'mpa\'" : "\'spa\'"
     }
   })
 }

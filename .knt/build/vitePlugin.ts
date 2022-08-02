@@ -9,6 +9,10 @@ export default (): Plugin => {
     name: 'vite-plugin-knt',
     config(config, env) {
       process.env['NODE_ENV'] = env.mode
+      process.env['MODE'] = 'spa'
+      if (Object.keys(config?.build?.rollupOptions?.input || {}).length > 1) {
+        process.env['MODE'] = 'mpa'
+      }
     },
     configureServer(server) {
       server.httpServer.on('listening', () => {

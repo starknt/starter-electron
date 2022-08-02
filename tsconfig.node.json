@@ -11,7 +11,7 @@
     ".knt/**/*.ts",
     "vite.config.ts",
     "src/vite.config.ts",
-    "release/app/package.json"
+    "knt.config.ts"
   ],
   "exclude": [
     "release/app/*.js"

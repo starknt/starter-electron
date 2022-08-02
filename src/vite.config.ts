@@ -34,6 +34,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: ['electron'],
+      // SPA remove it, MPA require it
+      input: {
+        main: path.resolve(__dirname, 'pages', 'main', 'index.html'),
+        other: path.resolve(__dirname, 'pages', 'other', 'index.html'),
+      },
     },
     outDir: path.join(process.cwd(), 'release', 'app', 'dist'),
     emptyOutDir: false,
