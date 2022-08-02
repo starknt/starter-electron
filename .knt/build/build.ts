@@ -20,6 +20,11 @@ export async function handleBuild() {
     entryPoints: [path.join(srcElectronPath, 'main/main.ts')],
     sourcemap: !!process.env['DEBUG'],
     tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json'),
-    color: true
+    minify: !!process.env['DEBUG'],
+    color: true,
+    define: {
+      'process.env.NODE_ENV': process.env['DEBUG'] ? '\'development\'' : '\'production\'',
+      'process.env.URL': process.env['DEBUG'] ? undefined : '\'./dist/index.html\''
+    }
   })
 }

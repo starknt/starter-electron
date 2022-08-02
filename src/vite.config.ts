@@ -7,6 +7,7 @@ import AutoImportComponent from 'unplugin-vue-components/vite'
 import Knt from '../.knt/build/vitePlugin'
 
 export default defineConfig({
+  base: './',
   root: 'src',
   plugins: [
     Vue({ reactivityTransform: true }),

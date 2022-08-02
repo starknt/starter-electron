@@ -10,18 +10,18 @@ export default (): Plugin => {
     config(config, env) {
       process.env['NODE_ENV'] = env.mode
     },
-    async configureServer(server) {
-      server.httpServer.on('listening', async () => {
+    configureServer(server) {
+      server.httpServer.on('listening', () => {
         const address = server.httpServer.address() as AddressInfo
         process.env['DEV_URL'] = `http://${address.address}:${address.port}`
 
         handleDev()
       })
     },
-    closeBundle() {
+    async closeBundle() {
       if (process.env['NODE_ENV'] === 'development') return
 
-      handleBuild()
+      await handleBuild()
     }
   }
 }
