@@ -17,6 +17,7 @@
   },
   "exclude": [
     "tests",
-    "vite.config.ts"
+    "vite.config.ts",
+    "../env.d.ts"
   ]
 }

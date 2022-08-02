@@ -13,6 +13,7 @@
     ]
   },
   "exclude": [
-    "tests"
+    "tests",
+    "../env.d.ts"
   ]
 }
