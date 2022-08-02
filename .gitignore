@@ -6,3 +6,5 @@ build
 
 # log
 *.log
+
+./src-electron/package.json

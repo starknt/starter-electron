@@ -63,12 +63,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json}": [
-      "eslint . --fix",
-      "git add"
+      "eslint . --fix"
     ],
     "*.{yml, yaml}": [
-      "eslint . --fix",
-      "git add"
+      "eslint . --fix"
     ]
   }
 }
