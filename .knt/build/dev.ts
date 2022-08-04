@@ -5,14 +5,15 @@ import { builtinModules } from 'module'
 import { ChildProcess, spawn } from 'child_process'
 import electron from 'electron'
 import { rootPath } from '../paths'
+import { UserConfig } from '../knt'
 
 let cp: ChildProcess
 
-export async function handleDev() {
+export async function handleDev(config: UserConfig) {
     await esbuild.build({
         platform: 'node',
         plugins: [esbuildDecorators({ tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json') })],
-        entryPoints: [path.join(rootPath, 'src-electron/main/main.ts')],
+        entryPoints: [path.join(rootPath, config.entry)],
         outdir: path.join(rootPath, 'release', 'app', 'dist'),
         external: [...builtinModules, "electron"],
         bundle: true,

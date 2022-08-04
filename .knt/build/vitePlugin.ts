@@ -2,9 +2,10 @@ import { Plugin } from 'vite'
 import { AddressInfo } from 'net'
 import { handleBuild } from './build'
 import { handleDev } from './dev'
+import { UserConfig } from '../knt'
 
 
-export default (): Plugin => {
+export default (userConfig: UserConfig): Plugin => {
   return {
     name: 'vite-plugin-knt',
     config(config, env) {
@@ -19,13 +20,13 @@ export default (): Plugin => {
         const address = server.httpServer.address() as AddressInfo
         process.env['DEV_URL'] = `http://${address.address}:${address.port}`
 
-        handleDev()
+        handleDev(userConfig)
       })
     },
     async closeBundle() {
       if (process.env['NODE_ENV'] === 'development') return
 
-      await handleBuild()
+      await handleBuild(userConfig)
     }
   }
 }

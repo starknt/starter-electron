@@ -29,7 +29,9 @@ export default defineConfig({
         './components',
       ],
     }),
-    Knt(),
+    Knt({
+      entry: 'src-electron/main.ts',
+    }),
   ],
   build: {
     rollupOptions: {

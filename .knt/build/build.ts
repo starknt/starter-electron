@@ -4,10 +4,11 @@ import { builtinModules } from 'module'
 import path from 'path'
 import { appPath, srcElectronPath } from '../paths'
 import fs from 'fs'
+import { UserConfig } from '../knt'
 
 const { dependencies } = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'release/app/package.json'), 'utf-8').toString()) as any
 
-export async function handleBuild() {
+export async function handleBuild(config: UserConfig) {
   await esbuild.build({
     plugins: [
       esbuildDecorators({ tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json') })
