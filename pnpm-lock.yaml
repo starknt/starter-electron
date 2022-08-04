@@ -12,6 +12,7 @@ specifiers:
   electron-builder: ^23.3.3
   electron-rebuild: ^3.2.8
   esbuild: ^0.14.49
+  esbuild-plugin-alias-path: ^1.1.1
   eslint: ^8.20.0
   esno: ^0.16.3
   happy-dom: ^6.0.4
@@ -44,6 +45,7 @@ devDependencies:
   electron-builder: 23.3.3
   electron-rebuild: 3.2.8
   esbuild: 0.14.49
+  esbuild-plugin-alias-path: 1.1.1_esbuild@0.14.49
   eslint: 8.20.0
   esno: 0.16.3
   happy-dom: 6.0.4
@@ -1057,12 +1059,6 @@ packages:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       acorn: 8.8.0
-    dev: true
-
-  /acorn/8.7.1:
-    resolution: {integrity: sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
     dev: true
 
   /acorn/8.8.0:
@@ -2452,6 +2448,16 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /esbuild-plugin-alias-path/1.1.1_esbuild@0.14.49:
+    resolution: {integrity: sha512-krtTyCaooZsbG7gJffyrJ+PKvsJc7ZE2iQvZ2a44zk+ml632w9ZDa/lLGuks+gagdlG+KPrcgv4rRipdaap0DQ==}
+    peerDependencies:
+      esbuild: ^0.14.0
+    dependencies:
+      esbuild: 0.14.49
+      find-up: 5.0.0
+      jsonfile: 6.1.0
+    dev: true
 
   /esbuild-sunos-64/0.14.49:
     resolution: {integrity: sha512-4c8Zowp+V3zIWje329BeLbGh6XI9c/rqARNaj5yPHdC61pHI9UNdDxT3rePPJeWcEZVKjkiAS6AP6kiITp7FSw==}
@@ -3895,7 +3901,7 @@ packages:
     resolution: {integrity: sha512-qCRJWlbP2v6HbmKW7R3lFbeiVWHo+oMJ0j+MizwvauqnCV/EvtAeEeuCgoc/ErtsuoKgYB8U4Ih8AxJbXoE6/g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.7.1
+      acorn: 8.8.0
       eslint-visitor-keys: 3.3.0
       espree: 9.3.2
       semver: 7.3.7

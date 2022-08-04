@@ -10,10 +10,16 @@
     "baseUrl": ".",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@shared": [
+        "../libs/shared/index.ts"
+      ]
+    }
   },
   "exclude": [
     "tests",
-    "../env.d.ts"
+    "../env.d.ts",
+    "../libs"
   ]
 }

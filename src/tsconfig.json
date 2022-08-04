@@ -13,11 +13,18 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": false,
     "skipLibCheck": true,
-    "types": []
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+      "@shared": [
+        "../libs/shared/index.ts"
+      ]
+    }
   },
   "exclude": [
     "tests",
     "vite.config.ts",
-    "../env.d.ts"
+    "../env.d.ts",
+    "../libs"
   ]
 }

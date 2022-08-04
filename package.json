@@ -42,6 +42,7 @@
     "electron-builder": "^23.3.3",
     "electron-rebuild": "^3.2.8",
     "esbuild": "^0.14.49",
+    "esbuild-plugin-alias-path": "^1.1.1",
     "eslint": "^8.20.0",
     "esno": "^0.16.3",
     "happy-dom": "^6.0.4",

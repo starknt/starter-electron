@@ -1,4 +1,8 @@
 import { BrowserWindow, app } from 'electron'
+import { add } from '@shared'
+
+// eslint-disable-next-line no-console
+console.log(add(1, 2))
 
 app.whenReady()
   .then(() => {
