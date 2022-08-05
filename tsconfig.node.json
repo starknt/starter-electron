@@ -6,7 +6,10 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "allowJs": false
+    "allowJs": false,
+    "types": [
+      "node"
+    ]
   },
   "include": [
     ".knt/build/*.ts",

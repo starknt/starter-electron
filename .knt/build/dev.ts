@@ -14,20 +14,18 @@ export async function handleDev(config: UserConfig) {
     await esbuild.build({
         platform: 'node',
         plugins: [
-            esbuildDecorators({ tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json') }),
+            esbuildDecorators({ tsconfig: config.tsconfig }),
             esbuildPluginAliasPath({
-                alias: {
-                    '@starter/share': path.join(process.cwd(), './packages/share/src/index.ts')
-                }
+                alias: config.resolve.alias
             })
         ],
-        entryPoints: [path.join(rootPath, config.entry)],
-        outdir: path.join(rootPath, 'release', 'app', 'dist'),
-        external: [...builtinModules, "electron"],
+        entryPoints: [path.resolve(config.base, config.entry)],
+        outdir: config.outDir,
+        external: [...builtinModules, "electron", ...(config.external ?? [])],
         bundle: true,
         sourcemap: true,
         color: true,
-        tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json'),
+        tsconfig: config.tsconfig,
         watch: {
             onRebuild(error) {
                 if (error) {

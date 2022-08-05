@@ -3,7 +3,7 @@ import { AddressInfo } from 'net'
 import { handleBuild } from './build'
 import { handleDev } from './dev'
 import { UserConfig } from '../knt'
-import path from 'path'
+import path, { resolve } from 'path'
 import fs from 'fs'
 import { createConfigLoader, LoadConfigResult } from 'unconfig'
 
@@ -49,6 +49,7 @@ export default (userConfig?: UserConfig): Plugin => {
     name: 'vite-plugin-knt',
     async config(config, env) {
       userConfig = (await loadConfig()).config
+      userConfig.base = resolve(config.base!)
       process.env['NODE_ENV'] = env.mode
       process.env['MODE'] = 'spa'
       if (Object.keys(config?.build?.rollupOptions?.input || {}).length > 1) {

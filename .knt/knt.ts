@@ -16,9 +16,8 @@ export interface UserConfig {
   root?: string
   /**
    * Main Process Entry
-   * @default `src-electron/main.ts`
    */
-  entry?: string
+  entry: string
   preloadEntries?: string[]
   /**
    * If preloadEntries.length > 0, it will be invalided, you should set `outDir`
