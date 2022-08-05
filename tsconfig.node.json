@@ -13,6 +13,7 @@
     ".knt/scripts/*.ts",
     ".knt/*.ts",
     "vite.config.ts",
+    "app/web/vite.config.ts",
     "knt.config.ts",
     ".knt/scripts/check-native-deps.js"
   ],
