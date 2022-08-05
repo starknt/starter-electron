@@ -4,7 +4,7 @@ export default defineConfig({
   entry: 'app/electron/main.ts',
   resolve: {
     alias: {
-      '@shared': '',
+      '@starter/share': '',
     },
   },
 })

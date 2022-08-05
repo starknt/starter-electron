@@ -17,7 +17,7 @@ export async function handleDev(config: UserConfig) {
             esbuildDecorators({ tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json') }),
             esbuildPluginAliasPath({
                 alias: {
-                    '@shared': path.join(process.cwd(), './packages/shared/src/index.ts')
+                    '@starter/share': path.join(process.cwd(), './packages/share/src/index.ts')
                 }
             })
         ],

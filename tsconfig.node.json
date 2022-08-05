@@ -15,7 +15,8 @@
     "vite.config.ts",
     "app/web/vite.config.ts",
     "knt.config.ts",
-    ".knt/scripts/check-native-deps.js"
+    ".knt/scripts/check-native-deps.js",
+    "./alias.ts"
   ],
   "exclude": [
     "release/app",

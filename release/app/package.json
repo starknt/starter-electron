@@ -13,5 +13,6 @@
     "link-modules": "esno ../../.knt/scripts/link-modules.ts",
     "postinstall": "npm run electron-rebuild && npm run link-modules"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }

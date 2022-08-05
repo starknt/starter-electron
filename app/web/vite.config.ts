@@ -5,10 +5,14 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
 import Knt from '../../.knt/build/vitePlugin'
+import { alias } from '../../alias'
 
 export default defineConfig({
   base: './',
   root: 'app/web',
+  resolve: {
+    alias,
+  },
   plugins: [
     Vue({ reactivityTransform: true }),
     Unocss(),

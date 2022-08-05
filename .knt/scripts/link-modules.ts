@@ -24,6 +24,11 @@ try {
     fs.rmSync(srcElectronPackagePath)
 }
 
+// if dependencies is {}, pnpm can't generate `node_modules`
+if(!fs.existsSync(appModulesPath)) {
+  fs.mkdirSync(appModulesPath)
+}
+
 if (!fs.existsSync(srcElectronModulesPath) && fs.existsSync(appModulesPath)) {
   fs.symlinkSync(appModulesPath, srcElectronModulesPath, 'junction')
 }
