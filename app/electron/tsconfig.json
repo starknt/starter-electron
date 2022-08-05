@@ -13,8 +13,7 @@
     ]
   },
   "exclude": [
-    "tests",
-    "../env.d.ts"
+    "tests"
   ],
   "references": [
     {

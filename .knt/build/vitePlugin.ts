@@ -58,7 +58,7 @@ export default (userConfig?: UserConfig): Plugin => {
     configureServer(server) {
       server.httpServer!.on('listening', () => {
         const address = server.httpServer!.address() as AddressInfo
-        process.env['DEV_URL'] = `http://${address.address}:${address.port}`
+        process.env['URL'] = `http://${address.address}:${address.port}`
 
         handleDev(userConfig!)
       })

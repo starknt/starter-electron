@@ -12,7 +12,7 @@ app.whenReady()
 
     const resolvePage = (page?: string) => {
       if (process.env.NODE_ENV === 'development')
-        return isMpa() ? new URL(`pages/${page ?? 'main'}/`, process.env.DEV_URL).toString() : process.env.DEV_URL
+        return isMpa() ? new URL(`pages/${page ?? 'main'}/`, process.env.URL).toString() : process.env.URL
 
       return isMpa() ? new URL(`${process.env.URL}/${page}/index.html`, `file:///${__dirname}`).toString() : new URL(process.env.URL, `file:///${__dirname}`).toString()
     }

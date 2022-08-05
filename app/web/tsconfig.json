@@ -18,8 +18,7 @@
   },
   "exclude": [
     "tests",
-    "vite.config.ts",
-    "../env.d.ts"
+    "vite.config.ts"
   ],
   "references": [
     {
