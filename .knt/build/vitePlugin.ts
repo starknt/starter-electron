@@ -11,8 +11,6 @@ export default (userConfig?: UserConfigExport): Plugin => {
     configFile: !!userConfig ? userConfig.configFile ? isAbsolute(userConfig.configFile) ? userConfig.configFile : resolve(userConfig.base ?? process.cwd(), userConfig.configFile) : true : resolve(process.cwd(), 'knt.config.ts')
   } as UserConfig
 
-  console.log(internalConfig)
-
   return {
     name: 'vite-plugin-knt',
     async config(config, env) {
@@ -23,7 +21,6 @@ export default (userConfig?: UserConfigExport): Plugin => {
       }
 
       const loadedConfigResult = await loadConfig(resolve(internalConfig.base ?? config.base!), internalConfig)
-      console.log(loadedConfigResult)
       internalConfig = loadedConfigResult.config
     },
     configureServer(server) {
