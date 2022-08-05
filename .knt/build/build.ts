@@ -13,7 +13,8 @@ export async function handleBuild(config: ResolvedConfig) {
       esbuildPluginAliasPath({
         alias: config.resolve.alias,
         cwd: config.resolve.cwd
-      })
+      }),
+      ...(config.plugin ?? [])
     ],
     bundle: true,
     platform: 'node',

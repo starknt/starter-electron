@@ -21,7 +21,7 @@ export default (userConfig?: UserConfigExport): Plugin => {
       }
 
       const loadedConfigResult = await loadConfig(resolve(internalConfig.base ?? config.base!), internalConfig)
-      internalConfig = loadedConfigResult.config
+      internalConfig = resolveConfig(loadedConfigResult.config)
     },
     configureServer(server) {
       server.httpServer!.on('listening', () => {

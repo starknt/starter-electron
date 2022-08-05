@@ -1,6 +1,7 @@
 import { createConfigLoader, LoadConfigResult } from 'unconfig'
 import fs from 'fs'
 import { dirname, resolve } from 'path'
+import { Plugin } from 'esbuild'
 
 export interface ResolveOption {
   alias?: Record<string, string>
@@ -22,7 +23,14 @@ export interface UserConfigExport {
    * Main Process Entry
    */
   entry: string
+  /**
+   * Preload files entry
+   */
   preloadEntries?: string[]
+  /**
+   * esbuild plugin
+   */
+  plugin?: Plugin[]
   /**
    * If preloadEntries.length > 0, it will be invalided, you should set `outDir`
    */
@@ -80,6 +88,10 @@ export interface UserConfig {
    */
   entry: string
   preloadEntries: string[]
+  /**
+   * esbuild plugin
+   */
+  plugin?: Plugin[]
   /**
    * If preloadEntries.length > 0, it will be invalided, you should set `outDir`
    */
@@ -158,7 +170,7 @@ export async function loadConfig<U extends UserConfig>(cwd = process.cwd(), conf
   return result
 }
 
-export function resolveConfig(config: UserConfigExport): UserConfigExport {
+export function resolveConfig<T extends UserConfig>(config: T): T {
   return {
     ...config,
     base: config.base ?? '/',
@@ -168,5 +180,5 @@ export function resolveConfig(config: UserConfigExport): UserConfigExport {
 }
 
 export function defineConfig(config: UserConfigExport): UserConfigExport {
-  return resolveConfig(config)
+  return config
 }

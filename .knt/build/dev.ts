@@ -17,7 +17,8 @@ export async function handleDev(config: ResolvedConfig) {
             esbuildDecorators({ tsconfig: config.tsconfig }),
             esbuildPluginAliasPath({
                 alias: config.resolve.alias
-            })
+            }),
+            ...(config.plugin ?? [])
         ],
         entryPoints: [resolve(config.base, config.entry)],
         outdir: config.outDir,
