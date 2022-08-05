@@ -23,5 +23,8 @@
     "app",
     "tests",
     "packages"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
