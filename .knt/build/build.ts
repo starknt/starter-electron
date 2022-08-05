@@ -3,11 +3,10 @@ import { esbuildDecorators } from '@anatine/esbuild-decorators'
 import { esbuildPluginAliasPath } from 'esbuild-plugin-alias-path'
 import { builtinModules } from 'module'
 import path from 'path'
-import { appPath, srcElectronPath } from '../paths'
-import type { UserConfig } from '../knt'
+import type { ResolvedConfig } from '../knt'
 
 
-export async function handleBuild(config: UserConfig) {
+export async function handleBuild(config: ResolvedConfig) {
   await esbuild.build({
     plugins: [
       esbuildDecorators({ tsconfig: config.tsconfig }),

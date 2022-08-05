@@ -1,16 +1,16 @@
 import esbuild from 'esbuild'
 import { esbuildDecorators } from '@anatine/esbuild-decorators'
 import { esbuildPluginAliasPath } from 'esbuild-plugin-alias-path'
-import path from 'path'
 import { builtinModules } from 'module'
 import { ChildProcess, spawn } from 'child_process'
 import electron from 'electron'
 import { rootPath } from '../paths'
-import { UserConfig } from '../knt'
+import { ResolvedConfig } from '../knt'
+import { join, resolve } from 'path'
 
 let cp: ChildProcess
 
-export async function handleDev(config: UserConfig) {
+export async function handleDev(config: ResolvedConfig) {
     await esbuild.build({
         platform: 'node',
         plugins: [
@@ -19,7 +19,7 @@ export async function handleDev(config: UserConfig) {
                 alias: config.resolve.alias
             })
         ],
-        entryPoints: [path.resolve(config.base, config.entry)],
+        entryPoints: [resolve(config.base, config.entry)],
         outdir: config.outDir,
         external: [...builtinModules, "electron", ...(config.external ?? [])],
         bundle: true,
@@ -39,7 +39,7 @@ export async function handleDev(config: UserConfig) {
                     cp.kill()
                 }
 
-                cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')], {
+                cp = spawn(electron as any, [join(rootPath, 'release', 'app', 'dist', 'main.js')], {
                     stdio: 'inherit'
                 })
                     .on('exit', exitProcess)
@@ -48,7 +48,7 @@ export async function handleDev(config: UserConfig) {
         logLevel: 'info'
     })
 
-    cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')], {
+    cp = spawn(electron as any, [join(rootPath, 'release', 'app', 'dist', 'main.js')], {
         stdio: 'inherit'
     })
         .on('exit', exitProcess)

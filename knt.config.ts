@@ -5,10 +5,10 @@ import { alias } from './alias'
 
 const appPath = resolve(__dirname, 'release', 'app')
 const packagePath = resolve(appPath, 'package.json')
-const dependencies = JSON.parse(fs.readFileSync(packagePath, 'utf-8') || '{}')
+const { dependencies } = JSON.parse(fs.readFileSync(packagePath, 'utf-8') || '{}')
 
 export default defineConfig({
-  entry: 'app/electron/main.ts',
+  entry: resolve(__dirname, 'app/electron/main.ts'),
   resolve: {
     alias,
   },
