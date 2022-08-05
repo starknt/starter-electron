@@ -1,14 +1,14 @@
-import fs from 'fs'
+import { readFileSync, readdirSync, existsSync } from 'fs'
+import { resolve } from 'path'
 import { execSync } from 'child_process'
-// @ts-ignore
-import { dependencies } from '../../package.json'
 
+const dependencies = JSON.parse(readFileSync(resolve(process.cwd(), 'package.json'), 'utf-8') || "{}")
 
 if (dependencies) {
   const dependenciesKeys = Object.keys(dependencies)
 
-  const nativeDeps = fs.readdirSync('node_modules')
-    .filter((folder) => fs.existsSync(`node_modules/${folder}/binding.gyp`));
+  const nativeDeps = readdirSync('node_modules')
+    .filter((folder) => existsSync(`node_modules/${folder}/binding.gyp`));
 
   if (nativeDeps.length === 0) {
     process.exit(0)

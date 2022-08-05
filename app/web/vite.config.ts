@@ -4,16 +4,16 @@ import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
-import Knt from '../.knt/build/vitePlugin'
+import Knt from '../../.knt/build/vitePlugin'
 
 export default defineConfig({
   base: './',
-  root: 'src',
+  root: 'app/web',
   plugins: [
     Vue({ reactivityTransform: true }),
-    Unocss({ configFile: 'unocss.config.ts' }),
+    Unocss(),
     AutoImport({
-      dts: './auto-import.d.ts',
+      dts: './auto-imports.d.ts',
       dirs: [
         './composable',
       ],
@@ -24,14 +24,12 @@ export default defineConfig({
       ],
     }),
     AutoImportComponent({
-      dts: './component.d.ts',
+      dts: './components.d.ts',
       dirs: [
         './components',
       ],
     }),
-    Knt({
-      entry: 'src-electron/main.ts',
-    }),
+    Knt(),
   ],
   build: {
     rollupOptions: {

@@ -14,10 +14,10 @@ export async function handleDev(config: UserConfig) {
     await esbuild.build({
         platform: 'node',
         plugins: [
-            esbuildDecorators({ tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json') }),
+            esbuildDecorators({ tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json') }),
             esbuildPluginAliasPath({
                 alias: {
-                    '@shared': path.join(process.cwd(), './libs/shared/index.ts')
+                    '@shared': path.join(process.cwd(), './packages/shared/src/index.ts')
                 }
             })
         ],
@@ -27,7 +27,7 @@ export async function handleDev(config: UserConfig) {
         bundle: true,
         sourcemap: true,
         color: true,
-        tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json'),
+        tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json'),
         watch: {
             onRebuild(error) {
                 if (error) {

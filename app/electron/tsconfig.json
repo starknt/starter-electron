@@ -10,16 +10,15 @@
     "baseUrl": ".",
     "types": [
       "node"
-    ],
-    "paths": {
-      "@shared": [
-        "../libs/shared/index.ts"
-      ]
-    }
+    ]
   },
   "exclude": [
     "tests",
-    "../env.d.ts",
-    "../libs"
+    "../env.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../../tsconfig.json"
+    }
   ]
 }

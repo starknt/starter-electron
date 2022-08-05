@@ -14,17 +14,16 @@
     "suppressImplicitAnyIndexErrors": false,
     "skipLibCheck": true,
     "types": [],
-    "baseUrl": ".",
-    "paths": {
-      "@shared": [
-        "../libs/shared/index.ts"
-      ]
-    }
+    "baseUrl": "."
   },
   "exclude": [
     "tests",
     "vite.config.ts",
-    "../env.d.ts",
-    "../libs"
+    "../env.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../../tsconfig.json"
+    }
   ]
 }

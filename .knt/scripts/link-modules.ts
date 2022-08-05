@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const rootPath = path.resolve(process.cwd(), '../../')
-const srcElectronPath = path.join(rootPath, 'src-electron')
+const srcElectronPath = path.join(rootPath, 'app', 'electron')
 const appPath = path.join(process.cwd())
 const srcElectronModulesPath = path.join(srcElectronPath, 'node_modules')
 const srcElectronPackagePath = path.join(srcElectronPath, 'package.json')

@@ -1,7 +1,10 @@
 import { defineConfig } from './.knt/knt'
 
 export default defineConfig({
-  alias: {
-    '@shared': '',
+  entry: 'app/electron/main.ts',
+  resolve: {
+    alias: {
+      '@shared': '',
+    },
   },
 })

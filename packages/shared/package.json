@@ -1,0 +1,11 @@
+{
+  "name": "@starter/share",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "module": "./src/index.ts"
+}

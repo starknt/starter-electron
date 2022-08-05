@@ -5,15 +5,18 @@
     "composite": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true
   },
   "include": [
-    ".knt/**/*.ts",
+    ".knt/build/*.ts",
+    ".knt/scripts/*.ts",
+    ".knt/*.ts",
     "vite.config.ts",
-    "src/vite.config.ts",
-    "knt.config.ts"
+    "knt.config.ts",
+    ".knt/scripts/check-native-deps.js"
   ],
   "exclude": [
-    "release/app/*.js"
+    "release/app"
   ]
 }

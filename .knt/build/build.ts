@@ -5,17 +5,17 @@ import { builtinModules } from 'module'
 import path from 'path'
 import { appPath, srcElectronPath } from '../paths'
 import fs from 'fs'
-import { UserConfig } from '../knt'
+import type { UserConfig } from '../knt'
 
 const { dependencies } = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'release/app/package.json'), 'utf-8').toString()) as any
 
 export async function handleBuild(config: UserConfig) {
   await esbuild.build({
     plugins: [
-      esbuildDecorators({ tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json') }),
+      esbuildDecorators({ tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json') }),
       esbuildPluginAliasPath({
         alias: {
-          '@shared': path.join(process.cwd(), './libs/shared/index.ts')
+          '@shared': path.join(process.cwd(), './packages/shared/src/index.ts')
         }
       })
     ],
@@ -25,7 +25,7 @@ export async function handleBuild(config: UserConfig) {
     outdir: path.join(appPath, 'dist'),
     entryPoints: [path.join(srcElectronPath, 'main.ts')],
     sourcemap: !!process.env['DEBUG'],
-    tsconfig: path.join(process.cwd(), 'src-electron', 'tsconfig.json'),
+    tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json'),
     minify: !!process.env['DEBUG'],
     color: true,
     define: {

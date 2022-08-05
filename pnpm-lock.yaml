@@ -22,6 +22,7 @@ specifiers:
   rimraf: ^3.0.2
   simple-git-hooks: ^2.8.0
   typescript: ^4.7.4
+  unconfig: ^0.3.5
   unocss: ^0.44.5
   unplugin-auto-import: ^0.10.2
   unplugin-vue-components: ^0.21.2
@@ -55,6 +56,7 @@ devDependencies:
   rimraf: 3.0.2
   simple-git-hooks: 2.8.0
   typescript: 4.7.4
+  unconfig: 0.3.5
   unocss: 0.44.5_vite@3.0.2
   unplugin-auto-import: 0.10.2_eoeyecfahsv7t3box2fdmpuin4
   unplugin-vue-components: 0.21.2_vvmkdzn4f5kxexsdqzr7n6zmwa

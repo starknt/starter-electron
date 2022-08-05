@@ -7,7 +7,7 @@
   },
   "include": [
     "../tests/*.ts",
-    "../src/tests/*.ts",
-    "../src-electron/tests/*.ts"
+    "../app/web/tests/*.ts",
+    "../app/electron/tests/*.ts"
   ]
 }

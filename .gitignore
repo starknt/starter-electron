@@ -9,4 +9,4 @@ build
 
 auto-import.d.ts
 component.d.ts
-/src-electron/package.json
+/app/electron/package.json

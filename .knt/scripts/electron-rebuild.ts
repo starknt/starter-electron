@@ -1,9 +1,9 @@
 import path from "path";
 import { execSync } from "child_process";
 import fs from 'fs'
-import { dependencies } from '../../release/app/package.json'
 import { appPath, rootPath } from '../paths'
 
+const dependencies = JSON.parse(fs.readFileSync('../../release/app/package.json', 'utf-8') || "{}")
 const appModulesPath = path.join(appPath, 'node_modules')
 
 if (Object.keys(dependencies || {}).length > 0 && fs.existsSync(appModulesPath)) {
