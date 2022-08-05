@@ -46,7 +46,8 @@ export async function handleDev(config: UserConfig) {
                 })
                     .on('exit', exitProcess)
             }
-        }
+        },
+        logLevel: 'info'
     })
 
     cp = spawn(electron as any, [path.join(rootPath, 'release', 'app', 'dist', 'main.js')], {

@@ -10,7 +10,7 @@ import type { UserConfig } from '../knt'
 const { dependencies } = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'release/app/package.json'), 'utf-8').toString()) as any
 
 export async function handleBuild(config: UserConfig) {
-  await esbuild.build({
+  const result = await esbuild.build({
     plugins: [
       esbuildDecorators({ tsconfig: path.join(process.cwd(), 'app', 'electron', 'tsconfig.json') }),
       esbuildPluginAliasPath({
@@ -33,5 +33,6 @@ export async function handleBuild(config: UserConfig) {
       'process.env.URL': process.env['MODE'] === 'mpa' ? '\'./dist/pages\'' : '\'./dist/index.html\'',
       'process.env.MODE': process.env['MODE'] === 'mpa' ? "\'mpa\'" : "\'spa\'"
     },
+    logLevel: 'info',
   })
 }

@@ -1,68 +1,69 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@anatine/esbuild-decorators': ^0.2.19
-  '@antfu/eslint-config': ^0.25.2
-  '@types/node': ^18.0.6
-  '@types/rimraf': ^3.0.2
-  '@vitejs/plugin-vue': ^3.0.1
-  '@vueuse/core': ^9.0.0
-  concurrently: ^7.3.0
-  electron: ^19.0.8
-  electron-builder: ^23.3.3
-  electron-rebuild: ^3.2.8
-  esbuild: ^0.14.49
-  esbuild-plugin-alias-path: ^1.1.1
-  eslint: ^8.20.0
-  esno: ^0.16.3
-  happy-dom: ^6.0.4
-  lint-staged: ^13.0.3
-  playwright: ^1.24.0
-  pnpm: ^7.6.0
-  rimraf: ^3.0.2
-  simple-git-hooks: ^2.8.0
-  typescript: ^4.7.4
-  unconfig: ^0.3.5
-  unocss: ^0.44.5
-  unplugin-auto-import: ^0.10.2
-  unplugin-vue-components: ^0.21.2
-  vite: ^3.0.2
-  vitest: ^0.18.1
-  vue: ^3.2.37
-  vue-tsc: ^0.39.2
+importers:
 
-dependencies:
-  '@vueuse/core': 9.0.0_vue@3.2.37
-  vue: 3.2.37
-
-devDependencies:
-  '@anatine/esbuild-decorators': 0.2.19_esbuild@0.14.49
-  '@antfu/eslint-config': 0.25.2_he2ccbldppg44uulnyq4rwocfa
-  '@types/node': 18.0.6
-  '@types/rimraf': 3.0.2
-  '@vitejs/plugin-vue': 3.0.1_vite@3.0.2+vue@3.2.37
-  concurrently: 7.3.0
-  electron: 19.0.8
-  electron-builder: 23.3.3
-  electron-rebuild: 3.2.8
-  esbuild: 0.14.49
-  esbuild-plugin-alias-path: 1.1.1_esbuild@0.14.49
-  eslint: 8.20.0
-  esno: 0.16.3
-  happy-dom: 6.0.4
-  lint-staged: 13.0.3
-  playwright: 1.24.0
-  pnpm: 7.6.0
-  rimraf: 3.0.2
-  simple-git-hooks: 2.8.0
-  typescript: 4.7.4
-  unconfig: 0.3.5
-  unocss: 0.44.5_vite@3.0.2
-  unplugin-auto-import: 0.10.2_eoeyecfahsv7t3box2fdmpuin4
-  unplugin-vue-components: 0.21.2_vvmkdzn4f5kxexsdqzr7n6zmwa
-  vite: 3.0.2
-  vitest: 0.18.1_happy-dom@6.0.4
-  vue-tsc: 0.39.2_typescript@4.7.4
+  .:
+    specifiers:
+      '@anatine/esbuild-decorators': ^0.2.19
+      '@antfu/eslint-config': ^0.25.2
+      '@types/node': ^18.0.6
+      '@types/rimraf': ^3.0.2
+      '@vitejs/plugin-vue': ^3.0.1
+      '@vueuse/core': ^9.0.0
+      concurrently: ^7.3.0
+      electron: ^19.0.8
+      electron-builder: ^23.3.3
+      electron-rebuild: ^3.2.8
+      esbuild: ^0.14.49
+      esbuild-plugin-alias-path: ^1.1.1
+      eslint: ^8.20.0
+      esno: ^0.16.3
+      happy-dom: ^6.0.4
+      lint-staged: ^13.0.3
+      playwright: ^1.24.0
+      pnpm: ^7.6.0
+      rimraf: ^3.0.2
+      simple-git-hooks: ^2.8.0
+      typescript: ^4.7.4
+      unconfig: ^0.3.5
+      unocss: ^0.44.5
+      unplugin-auto-import: ^0.10.2
+      unplugin-vue-components: ^0.21.2
+      vite: ^3.0.2
+      vitest: ^0.18.1
+      vue: ^3.2.37
+      vue-tsc: ^0.39.2
+    dependencies:
+      '@vueuse/core': 9.0.0_vue@3.2.37
+      vue: 3.2.37
+    devDependencies:
+      '@anatine/esbuild-decorators': 0.2.19_esbuild@0.14.49
+      '@antfu/eslint-config': 0.25.2_he2ccbldppg44uulnyq4rwocfa
+      '@types/node': 18.0.6
+      '@types/rimraf': 3.0.2
+      '@vitejs/plugin-vue': 3.0.1_vite@3.0.2+vue@3.2.37
+      concurrently: 7.3.0
+      electron: 19.0.8
+      electron-builder: 23.3.3
+      electron-rebuild: 3.2.8
+      esbuild: 0.14.49
+      esbuild-plugin-alias-path: 1.1.1_esbuild@0.14.49
+      eslint: 8.20.0
+      esno: 0.16.3
+      happy-dom: 6.0.4
+      lint-staged: 13.0.3
+      playwright: 1.24.0
+      pnpm: 7.6.0
+      rimraf: 3.0.2
+      simple-git-hooks: 2.8.0
+      typescript: 4.7.4
+      unconfig: 0.3.5
+      unocss: 0.44.5_vite@3.0.2
+      unplugin-auto-import: 0.10.2_eoeyecfahsv7t3box2fdmpuin4
+      unplugin-vue-components: 0.21.2_vvmkdzn4f5kxexsdqzr7n6zmwa
+      vite: 3.0.2
+      vitest: 0.18.1_happy-dom@6.0.4
+      vue-tsc: 0.39.2_typescript@4.7.4
 
 packages:
 
@@ -1311,6 +1312,7 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    requiresBuild: true
     dev: true
 
   /binary-extensions/2.2.0:
