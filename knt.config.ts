@@ -9,6 +9,7 @@ const { dependencies } = JSON.parse(fs.readFileSync(packagePath, 'utf-8') || '{}
 
 export default defineConfig({
   entry: resolve(__dirname, 'app/electron/main.ts'),
+  preloadEntries: [resolve(__dirname, 'app/electron/preload/common.ts')],
   resolve: {
     alias,
   },

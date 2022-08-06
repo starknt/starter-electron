@@ -1,5 +1,5 @@
 import { BrowserWindow, app } from 'electron'
-import { add } from '@starter/share'
+import { add } from '@starter/shared'
 
 // eslint-disable-next-line no-console
 console.log(add(1, 2))

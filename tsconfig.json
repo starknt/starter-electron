@@ -10,7 +10,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@starter/share": ["packages/share/src/index.ts"]
+      "@starter/shared": ["packages/shared/src/index.ts"]
     },
     "composite": true
   },

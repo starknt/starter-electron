@@ -20,7 +20,7 @@ export async function handleDev(config: ResolvedConfig) {
             }),
             ...(config.plugin ?? [])
         ],
-        entryPoints: [resolve(config.base, config.entry)],
+        entryPoints: [resolve(config.base, config.entry), ...(config.preloadEntries ?? []).map((preloadEntry) => resolve(config.base, preloadEntry))],
         outdir: config.outDir,
         external: [...builtinModules, "electron", ...(config.external ?? [])],
         bundle: true,
