@@ -49,6 +49,7 @@ export default (userConfig?: MpaOptions): Plugin => {
 
   return {
     name: 'vite-plugin-knt-mpa',
+    enforce: 'pre',
     config(config, env) {
       const base = config.base!
       const root = config.root!

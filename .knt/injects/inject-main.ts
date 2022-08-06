@@ -1,21 +1,21 @@
 import { resolve } from 'path'
 
-export const main = () => true
-export const web = () => false
-export const renderer = () => false
-
-export const win = () => process.platform === 'win32'
-export const windows = () => win()
-export const mac = () => process.platform === 'darwin'
-export const macOS = () => mac()
-export const linux = () => process.platform === 'linux'
-export const dev = () => process.env.NODE_ENV === 'development'
-export const production = () => process.env.NODE_ENV === 'production'
-export const debug = () => process.env.NODE_ENV === 'debug'
-
+export const is = {
+ main: () => true,
+ web: () => false,
+ renderer: () => false,
+ win: () => process.platform === 'win32',
+ windows: () => is.win(),
+ mac: () => process.platform === 'darwin',
+ macOS: () => is.mac(),
+ linux: () => process.platform === 'linux',
+ dev: () => process.env.NODE_ENV === 'development',
+ production: () => process.env.NODE_ENV === 'production',
+ debug: () => process.env.NODE_ENV === 'debug',
+}
 
 export const __static = (() => {
-  if(dev()) {
+  if(is.dev()) {
     return resolve(__dirname, 'buildResources')
   }
 
