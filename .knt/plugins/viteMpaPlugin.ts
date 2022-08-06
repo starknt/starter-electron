@@ -63,8 +63,6 @@ export default (userConfig?: MpaOptions): Plugin => {
       })
 
       config.build.rollupOptions.input = rollupInput
-
-      console.log(config.build.rollupOptions.input)
     }
   }
 }

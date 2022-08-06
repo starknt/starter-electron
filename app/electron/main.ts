@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import { BrowserWindow, app } from 'electron'
 import { add } from '@starter/shared'
 
@@ -6,7 +7,11 @@ console.log(add(1, 2))
 
 app.whenReady()
   .then(() => {
-    const win = new BrowserWindow()
+    const win = new BrowserWindow({
+      webPreferences: {
+        preload: resolve(__dirname, './preload/common.js'),
+      },
+    })
 
     const isMpa = () => process.env.MODE === 'mpa'
 
