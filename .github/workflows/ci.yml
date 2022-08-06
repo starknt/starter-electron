@@ -50,7 +50,7 @@ jobs:
 
   test:
     env:
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: false
 
     runs-on: ${{ matrix.os }}
 
