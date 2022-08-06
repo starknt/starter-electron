@@ -13,6 +13,14 @@
           "DEBUG": "true"
         }
       }
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "pnpm",
+      "args": [
+        "clean"
+      ]
     }
   ]
 }

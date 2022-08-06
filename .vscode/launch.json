@@ -18,6 +18,17 @@
         "dist/main.js"
       ],
       "preLaunchTask": "Build"
+    },
+    {
+      "name": "Unit Test",
+      "type": "node",
+      "cwd": "${workspaceFolder}",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest.cmd"
+      },
+      "args": ["run", "unit"]
     }
   ]
 }
