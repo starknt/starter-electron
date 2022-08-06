@@ -20,8 +20,6 @@ export default (userConfig?: UserConfigExport): Plugin => {
         process.env['MODE'] = 'mpa'
       }
 
-      console.log(config?.build?.rollupOptions?.input)
-
       const loadedConfigResult = await loadConfig(resolve(internalConfig.base ?? config.base!), internalConfig)
       internalConfig = resolveConfig(loadedConfigResult.config)
     },
