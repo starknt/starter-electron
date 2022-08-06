@@ -28,6 +28,7 @@
     "test:e2e": "pnpm build && vitest run e2e --passWithNoTests",
     "test:watch": "vitest -u",
     "test:coverage": "rimraf coverage && vitest run --coverage --passWithNoTests",
+    "postinstall": "npx esno .knt/scripts/setup.ts",
     "typecheck": "vue-tsc --noEmit",
     "clean": "esno ./.knt/scripts/clean.ts"
   },
