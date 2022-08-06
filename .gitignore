@@ -10,6 +10,4 @@ coverage
 # log
 *.log
 
-auto-imports.d.ts
-components.d.ts
 /app/electron/package.json
