@@ -4,6 +4,9 @@ dist
 build
 *.local
 
+# coverage
+coverage
+
 # log
 *.log
 

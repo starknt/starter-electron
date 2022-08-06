@@ -6,8 +6,8 @@
     ]
   },
   "include": [
-    "../tests/*.ts",
-    "../app/web/tests/*.ts",
-    "../app/electron/tests/*.ts"
+    "../tests",
+    "../app/web/tests",
+    "../app/electron/tests"
   ]
 }
