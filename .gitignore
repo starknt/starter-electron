@@ -7,6 +7,6 @@ build
 # log
 *.log
 
-auto-import.d.ts
-component.d.ts
+auto-imports.d.ts
+components.d.ts
 /app/electron/package.json

@@ -38,12 +38,11 @@ export async function handleBuild(config: ResolvedConfig) {
     minify,
     color: true,
     define,
-    inject: ["./.knt/build/inject-main.ts"],
+    inject: ["./.knt/injects/inject-main.ts"],
     logLevel: 'info',
   })
 
   const preloadOutDir = join(config.outDir, 'preload')
-
   // preload (renderer process)
   await esbuild.build({
     entryPoints: (config.preloadEntries ?? []).map((preloadEntry) => resolve(config.base, preloadEntry)),
@@ -54,8 +53,9 @@ export async function handleBuild(config: ResolvedConfig) {
     tsconfig,
     minify,
     color: true,
+    external,
     define,
-    inject: ["./.knt/build/inject-renderer.ts"],
+    inject: ["./.knt/injects/inject-renderer.ts"],
     logLevel: 'info'
   })
 }

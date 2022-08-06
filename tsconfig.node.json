@@ -12,13 +12,14 @@
     ]
   },
   "include": [
-    ".knt/build/*.ts",
-    ".knt/scripts/*.ts",
     ".knt/*.ts",
+    ".knt/build/*.ts",
+    ".knt/injects/*.ts",
+    ".knt/plugins/*.ts",
+    ".knt/scripts/*.ts",
     "vite.config.ts",
     "app/web/vite.config.ts",
     "knt.config.ts",
-    ".knt/scripts/check-native-deps.js",
     "./alias.ts"
   ],
   "exclude": [

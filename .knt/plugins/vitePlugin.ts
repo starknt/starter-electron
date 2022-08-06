@@ -1,7 +1,7 @@
 import { Plugin } from 'vite'
 import { AddressInfo } from 'net'
-import { handleBuild } from './build'
-import { handleDev } from './dev'
+import { handleBuild } from '../build/build'
+import { handleDev } from '../build/dev'
 import { loadConfig, resolveConfig, UserConfig, UserConfigExport } from '../knt'
 import { isAbsolute, resolve } from 'path'
 
