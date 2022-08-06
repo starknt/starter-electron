@@ -1,13 +1,29 @@
 {
   "compilerOptions": {
-    "baseUrl": "../",
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
     "types": [
       "vitest/globals"
-    ]
+    ],
+    "baseUrl": "../",
+    "paths": {
+      "@starter/shared": [
+        "packages/shared/src/index.ts"
+      ]
+    }
   },
   "include": [
     "../tests",
     "../app/web/tests",
     "../app/electron/tests"
+  ],
+  "references": [
+    {
+      "path": "../tsconfig.json"
+    }
   ]
 }

@@ -23,10 +23,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
-    "test:unit": "vitest run",
+    "test:unit": "vitest run unit",
     "test:e2e": "pnpm build && vitest run e2e",
-    "test:watch": "vitest",
-    "coverage": "vitest --coverage",
+    "test:watch": "vitest -u",
+    "test:coverage": "rimraf coverage && vitest run --coverage",
     "typecheck": "vue-tsc --noEmit",
     "clean": "esno ./.knt/scripts/clean.ts"
   },

@@ -15,7 +15,11 @@ afterAll(async () => {
 
 test('Main window web content', async () => {
   const page = await electronApplication.firstWindow()
-  const element = await page.$('#app', { strict: true })
-  expect(element, 'Was unable to find the root element').toBeDefined()
-  expect((await element.innerHTML()).trim(), 'Window content was empty').not.equal('')
+  page.on('domcontentloaded', async () => {
+    const element = await page.$('#app', { strict: true })
+    expect(element, 'Was unable to find the root element').toBeDefined()
+
+    const innerHTML = await element.innerHTML()
+    expect(innerHTML.trim(), 'Window content was empty').not.equal('')
+  })
 })
