@@ -6,9 +6,11 @@ import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
 import Knt from '../../.knt/plugins/vitePlugin'
 import KntMpa from '../../.knt/plugins/viteMpaPlugin'
+import KntIs from '../../.knt/plugins/viteIsPlugin'
 import { alias } from '../../alias'
 
 export default defineConfig({
+  clearScreen: false,
   base: './',
   root: 'app/web',
   resolve: {
@@ -39,6 +41,7 @@ export default defineConfig({
     KntMpa({
       scan: 'pages',
     }),
+    KntIs(),
   ],
   build: {
     rollupOptions: {
