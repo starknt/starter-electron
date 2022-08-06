@@ -2,8 +2,9 @@
   "name": "starter-electron",
   "type": "module",
   "version": "1.0.0",
+  "private": true,
   "packageManager": "pnpm@7.6.0",
-  "description": "",
+  "description": "An electron template based on Vite and Esbuild.",
   "author": "starknt",
   "license": "GPL-2.0",
   "keywords": [
