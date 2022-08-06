@@ -8,6 +8,7 @@ export default defineConfig({
   },
   test: {
     environment: 'happy-dom',
+    hookTimeout: 10000 * 3,
     globals: true,
     coverage: {
       reporter: ['html'],
