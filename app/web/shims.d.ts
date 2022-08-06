@@ -15,6 +15,8 @@ declare module 'knt-is' {
   export const main: () => boolean
   export const dev: () => boolean
   export const production: () => boolean
+  export const x64: () => boolean
+  export const x86: () => boolean
 }
 
 declare global {

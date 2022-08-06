@@ -49,6 +49,8 @@ function generateModuleCode() {
     export const main = () => !isElectronRenderer && !web()
     export const dev = () => _IsDev
     export const production = () => !_IsDev
+    export const x64 = () => _IsX64
+    export const x86 = () => _IsX86
 
     const is = {
       windows: () => windows(),
@@ -61,6 +63,8 @@ function generateModuleCode() {
       main: () => main(),
       dev: () => dev(),
       production: () => production(),
+      x64: () => x64(),
+      x86: () => x86()
     }
 
     export default is
