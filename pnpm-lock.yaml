@@ -65,7 +65,7 @@ importers:
       vitest: 0.18.1_happy-dom@6.0.4
       vue-tsc: 0.39.2_typescript@4.7.4
 
-  packages/share:
+  packages/shared:
     specifiers: {}
 
   release/app:
