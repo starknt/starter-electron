@@ -40,7 +40,10 @@ test('Main window state', async () => {
 
 test('Main window web content', async () => {
   const page = await electronApplication.firstWindow()
-  const element = await page.$('#app', { strict: true })
-  expect(element, 'Was unable to find the root element').toBeDefined()
-  expect((await element.innerText()).trim(), 'Window content was empty').not.equal('')
+
+  const element = page.locator('#app')
+
+  expect(element, 'Was unable to find the root element').toBeTruthy()
+
+  expect((await element.innerHTML()).trim(), 'Window content was empty').not.equal('')
 })
