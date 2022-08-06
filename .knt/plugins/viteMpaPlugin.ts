@@ -7,7 +7,7 @@ export interface MpaOptions {
    * page dir
    * @default `src/pages`
    */
-  scanPage?: string
+  scan?: string
 
   /**
    * entry file name
@@ -23,7 +23,7 @@ interface Page {
 
 function getMpaPage(root: string, options: MpaOptions) {
   const pages: Page[] = []
-  const pagesDirectory = join(root, options.scanPage)
+  const pagesDirectory = join(root, options.scan)
 
   if (fs.existsSync(pagesDirectory)) {
     const scans = fs.readdirSync(pagesDirectory, { withFileTypes: true })
@@ -43,7 +43,7 @@ function getMpaPage(root: string, options: MpaOptions) {
 
 export default (userConfig?: MpaOptions): Plugin => {
   const options: Required<MpaOptions> = {
-    scanPage: 'src/pages',
+    scan: 'src/pages',
     filename: 'index.html'
   }
 

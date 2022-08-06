@@ -37,7 +37,7 @@ export default defineConfig({
     Knt(),
     // SPA remove it and pages dir, MPA require it
     KntMpa({
-      scanPage: 'pages',
+      scan: 'pages',
     }),
   ],
   build: {
