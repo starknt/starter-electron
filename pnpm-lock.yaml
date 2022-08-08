@@ -11,7 +11,7 @@ importers:
       '@vueuse/core': ^9.1.0
       c8: ^7.12.0
       concurrently: ^7.3.0
-      eevi: ^0.0.9
+      eevi: ^0.1.3
       electron: ^19.0.11
       electron-builder: ^23.3.3
       electron-rebuild: ^3.2.9
@@ -41,7 +41,7 @@ importers:
       '@vitejs/plugin-vue': 3.0.1_vite@3.0.4+vue@3.2.37
       c8: 7.12.0
       concurrently: 7.3.0
-      eevi: 0.0.9_h5oq7hwdf2cun4ocfs5avfklua
+      eevi: 0.1.3_h5oq7hwdf2cun4ocfs5avfklua
       electron: 19.0.11
       electron-builder: 23.3.3
       electron-rebuild: 3.2.9
@@ -252,20 +252,20 @@ packages:
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
 
-  /@eevi/config/0.0.9_h5oq7hwdf2cun4ocfs5avfklua:
-    resolution: {integrity: sha512-+d2C73HNSVYIqL5cWdinMXQWjQVTL5u4JH0tDaEkrfkmHwe9PQXGBj0iSCLKnDyWSsQW5R0gjXsLKVxMz/LpLA==}
+  /@eevi/config/0.1.3_h5oq7hwdf2cun4ocfs5avfklua:
+    resolution: {integrity: sha512-fWEa2xr0mNuyr12xUKt+OTOHYWm2ECTcVaTAcHIpHLk8qOSTmPvJ1ID7HQmkBn66JwAg6rGozNRpGWYAhkRdRg==}
     peerDependencies:
       vite: ~3.0.4
     dependencies:
-      '@eevi/core': 0.0.9_electron@19.0.11
+      '@eevi/core': 0.1.3_electron@19.0.11
       unconfig: 0.3.5
       vite: 3.0.4
     transitivePeerDependencies:
       - electron
     dev: true
 
-  /@eevi/core/0.0.9_electron@19.0.11:
-    resolution: {integrity: sha512-8iNawP0MjAjyTxgmOKWE7Ur6AnuBmR1ti4xnqFHGyAI617dnxGjOkSXE0aQ5wgn2oNHFt8fstTM4U829/N32qA==}
+  /@eevi/core/0.1.3_electron@19.0.11:
+    resolution: {integrity: sha512-1tE+hQ3zsIq5WzwldYOqeGMguiHuQlzK7J3PbO0hZS5QxrxZa770a4sRGBnDUgCPkvGQ7xEGMJf8qkh+CTAFKw==}
     peerDependencies:
       electron: '*'
     dependencies:
@@ -2190,13 +2190,13 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /eevi/0.0.9_h5oq7hwdf2cun4ocfs5avfklua:
-    resolution: {integrity: sha512-YqgydIkIsO6Wi6VV4ruKm3wE/N5lQ3IGY/HrUd75W8FhJWJ9JxTpEbXJ41MZPZaiZlQFWFbOCvydM3/hBAIHrw==}
+  /eevi/0.1.3_h5oq7hwdf2cun4ocfs5avfklua:
+    resolution: {integrity: sha512-nhQ9aoQx7dBQkJHcOnTjPuAr6ZnaEAWBa8AggIwilpQGuJrb1OobkRbn4b9qOkhV+OCTd4CQMXdq0FT1El8dIw==}
     peerDependencies:
       vite: ~3.0.1
     dependencies:
-      '@eevi/config': 0.0.9_h5oq7hwdf2cun4ocfs5avfklua
-      '@eevi/core': 0.0.9_electron@19.0.11
+      '@eevi/config': 0.1.3_h5oq7hwdf2cun4ocfs5avfklua
+      '@eevi/core': 0.1.3_electron@19.0.11
       vite: 3.0.4
     transitivePeerDependencies:
       - electron
