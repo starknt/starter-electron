@@ -12,6 +12,7 @@ importers:
       '@vueuse/core': ^9.1.0
       c8: ^7.12.0
       concurrently: ^7.3.0
+      eevi: ^0.0.9
       electron: ^19.0.11
       electron-builder: ^23.3.3
       electron-rebuild: ^3.2.9
@@ -45,6 +46,7 @@ importers:
       '@vitejs/plugin-vue': 3.0.1_vite@3.0.4+vue@3.2.37
       c8: 7.12.0
       concurrently: 7.3.0
+      eevi: 0.0.9_h5oq7hwdf2cun4ocfs5avfklua
       electron: 19.0.11
       electron-builder: 23.3.3
       electron-rebuild: 3.2.9
@@ -256,6 +258,29 @@ packages:
     dependencies:
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+    dev: true
+
+  /@eevi/config/0.0.9_h5oq7hwdf2cun4ocfs5avfklua:
+    resolution: {integrity: sha512-+d2C73HNSVYIqL5cWdinMXQWjQVTL5u4JH0tDaEkrfkmHwe9PQXGBj0iSCLKnDyWSsQW5R0gjXsLKVxMz/LpLA==}
+    peerDependencies:
+      vite: ~3.0.4
+    dependencies:
+      '@eevi/core': 0.0.9_electron@19.0.11
+      unconfig: 0.3.5
+      vite: 3.0.4
+    transitivePeerDependencies:
+      - electron
+    dev: true
+
+  /@eevi/core/0.0.9_electron@19.0.11:
+    resolution: {integrity: sha512-8iNawP0MjAjyTxgmOKWE7Ur6AnuBmR1ti4xnqFHGyAI617dnxGjOkSXE0aQ5wgn2oNHFt8fstTM4U829/N32qA==}
+    peerDependencies:
+      electron: '*'
+    dependencies:
+      '@anatine/esbuild-decorators': 0.2.19_esbuild@0.14.53
+      electron: 19.0.11
+      esbuild: 0.14.53
+      esbuild-plugin-alias-path: 1.1.1_esbuild@0.14.53
     dev: true
 
   /@electron/get/1.14.1:
@@ -2171,6 +2196,18 @@ packages:
 
   /eastasianwidth/0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
+    dev: true
+
+  /eevi/0.0.9_h5oq7hwdf2cun4ocfs5avfklua:
+    resolution: {integrity: sha512-YqgydIkIsO6Wi6VV4ruKm3wE/N5lQ3IGY/HrUd75W8FhJWJ9JxTpEbXJ41MZPZaiZlQFWFbOCvydM3/hBAIHrw==}
+    peerDependencies:
+      vite: ~3.0.1
+    dependencies:
+      '@eevi/config': 0.0.9_h5oq7hwdf2cun4ocfs5avfklua
+      '@eevi/core': 0.0.9_electron@19.0.11
+      vite: 3.0.4
+    transitivePeerDependencies:
+      - electron
     dev: true
 
   /ejs/3.1.8:
@@ -5410,6 +5447,7 @@ packages:
   /slice-ansi/3.0.0:
     resolution: {integrity: sha512-pSyv7bSTC7ig9Dcgbw9AuRNUb5k5V6oDudjZoMBSr13qpLBG7tB+zgCkARjq7xIUgdz5P1Qe8u+rSGdouOOIyQ==}
     engines: {node: '>=8'}
+    requiresBuild: true
     dependencies:
       ansi-styles: 4.3.0
       astral-regex: 2.0.0
