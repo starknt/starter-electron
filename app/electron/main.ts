@@ -1,9 +1,10 @@
 import { resolve } from 'path'
 import { BrowserWindow, app } from 'electron'
 import { add } from '@starter/shared'
+import { web } from 'eevi-is'
 
 // eslint-disable-next-line no-console
-console.log(add(1, 2))
+console.log(add(1, 2), web())
 
 app.whenReady()
   .then(() => {

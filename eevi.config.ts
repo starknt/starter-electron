@@ -1,6 +1,7 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
 import { defineConfig } from 'eevi'
+import { esbuildIsPlugin } from 'eevi/esbuild'
 import { alias } from './alias'
 
 const appPath = resolve(__dirname, 'release', 'app')
@@ -27,4 +28,5 @@ export default defineConfig({
   external: [...Object.keys(dependencies || {})],
   tsconfig: 'tsconfig.json',
   define,
+  plugin: [esbuildIsPlugin()],
 })
