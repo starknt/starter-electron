@@ -19,7 +19,6 @@
     ".knt/scripts/*.ts",
     "vite.config.ts",
     "app/web/vite.config.ts",
-    "knt.config.ts",
     "./alias.ts"
   ],
   "exclude": [

@@ -4,9 +4,7 @@ import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
-import Knt from '../../.knt/plugins/vitePlugin'
-import KntMpa from '../../.knt/plugins/viteMpaPlugin'
-import KntIs from '../../.knt/plugins/viteIsPlugin'
+import { EeviCorePlugin, EeviIsPlugin, EeviMpaPlugin } from 'eevi/vite'
 import { alias } from '../../alias'
 
 export default defineConfig({
@@ -36,12 +34,12 @@ export default defineConfig({
         './components',
       ],
     }),
-    Knt(),
+    EeviCorePlugin(),
     // SPA remove it and pages dir, MPA require it
-    KntMpa({
+    EeviMpaPlugin({
       scan: 'pages',
     }),
-    KntIs(),
+    EeviIsPlugin(),
   ],
   build: {
     rollupOptions: {
