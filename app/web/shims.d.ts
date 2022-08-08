@@ -4,7 +4,7 @@ declare module '*.vue' {
   export default Component
 }
 
-declare module 'knt-is' {
+declare module 'is' {
   export const windows: () => boolean
   export const osx: () => boolean
   export const macOS: () => boolean
