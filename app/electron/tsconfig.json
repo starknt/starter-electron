@@ -11,14 +11,14 @@
     "types": [
       "node",
       "eevi/eevi-is"
-    ]
+    ],
+    "paths": {
+      "@starter/shared": [
+        "../../packages/shared/src/index.ts"
+      ]
+    }
   },
   "exclude": [
     "tests"
-  ],
-  "references": [
-    {
-      "path": "../../tsconfig.json"
-    }
   ]
 }

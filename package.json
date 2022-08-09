@@ -29,7 +29,9 @@
     "test:watch": "vitest -u",
     "test:coverage": "rimraf coverage && vitest run --coverage --passWithNoTests",
     "postinstall": "npx esno .knt/scripts/setup.ts",
-    "typecheck": "vue-tsc --noEmit",
+    "typecheck:electron": "npx tsc --noEmit -p app/electron/tsconfig.json",
+    "typecheck:web": "vue-tsc --noEmit -p app/web/tsconfig.json",
+    "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
     "clean": "esno ./.knt/scripts/clean.ts"
   },
   "dependencies": {

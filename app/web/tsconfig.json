@@ -13,16 +13,17 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": false,
     "skipLibCheck": true,
-    "types": [],
-    "baseUrl": "."
+    "types": [
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@starter/shared": [
+        "../../packages/shared/src/index.ts"
+      ]
+    }
   },
   "exclude": [
     "tests",
     "vite.config.ts"
-  ],
-  "references": [
-    {
-      "path": "../../tsconfig.json"
-    }
   ]
 }

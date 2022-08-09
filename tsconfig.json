@@ -12,10 +12,7 @@
     "paths": {
       "@starter/shared": ["packages/shared/src/index.ts"]
     },
-    "composite": true,
-    "types": [
-      "eevi/eevi-is"
-    ]
+    "composite": true
   },
   "references": [
     {
