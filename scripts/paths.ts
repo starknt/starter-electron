@@ -1,4 +1,4 @@
-import path from "path";
+import path from 'path'
 
 const rootPath = process.cwd()
 const appPath = path.resolve(rootPath, 'release', 'app')
@@ -13,5 +13,5 @@ export {
   srcElectronPath,
   srcPath,
   distPath,
-  buildPath
+  buildPath,
 }

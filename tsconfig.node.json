@@ -16,10 +16,11 @@
     ".knt/build/*.ts",
     ".knt/injects/*.ts",
     ".knt/plugins/*.ts",
-    ".knt/scripts/*.ts",
+    "scripts/*.ts",
     "vite.config.ts",
     "app/web/vite.config.ts",
-    "./alias.ts"
+    "./alias.ts",
+    "scripts"
   ],
   "exclude": [
     "release/app",

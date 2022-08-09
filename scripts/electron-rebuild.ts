@@ -1,9 +1,9 @@
-import path from "path";
-import { execSync } from "child_process";
+import path from 'path'
+import { execSync } from 'child_process'
 import fs from 'fs'
-import { appPath, rootPath } from '../paths'
+import { appPath, rootPath } from './paths'
 
-const dependencies = JSON.parse(fs.readFileSync('package.json', 'utf-8') || "{}")
+const dependencies = JSON.parse(fs.readFileSync('package.json', 'utf-8') || '{}')
 const appModulesPath = path.join(appPath, 'node_modules')
 
 if (Object.keys(dependencies || {}).length > 0 && fs.existsSync(appModulesPath)) {
@@ -14,6 +14,6 @@ if (Object.keys(dependencies || {}).length > 0 && fs.existsSync(appModulesPath))
   execSync(cmd, {
     cwd: appPath,
     stdio: 'inherit',
-    env: process.env
+    env: process.env,
   })
 }

@@ -9,9 +9,9 @@
   "license": "GPL-2.0",
   "main": "./dist/main.js",
   "scripts": {
-    "electron-rebuild": "esno ../../.knt/scripts/electron-rebuild.ts",
-    "link-modules": "esno ../../.knt/scripts/link-modules.ts",
-    "postinstall": "npm run electron-rebuild && npm run link-modules"
+    "electron-rebuild": "npx esno ../../scripts/electron-rebuild.ts",
+    "link-modules": "npx esno ../../scripts/link-modules.ts",
+    "postinstall": "pnpm run electron-rebuild && pnpm run link-modules"
   },
   "dependencies": {
   }

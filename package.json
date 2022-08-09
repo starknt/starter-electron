@@ -28,11 +28,11 @@
     "test:e2e": "pnpm build && vitest run e2e --passWithNoTests",
     "test:watch": "vitest -u",
     "test:coverage": "rimraf coverage && vitest run --coverage --passWithNoTests",
-    "postinstall": "npx esno .knt/scripts/setup.ts",
+    "postinstall": "npx esno scripts/setup.ts",
     "typecheck:electron": "npx tsc --noEmit -p app/electron/tsconfig.json",
     "typecheck:web": "vue-tsc --noEmit -p app/web/tsconfig.json",
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
-    "clean": "esno ./.knt/scripts/clean.ts"
+    "clean": "esno scripts/clean.ts"
   },
   "dependencies": {
     "@vueuse/core": "^9.1.0",

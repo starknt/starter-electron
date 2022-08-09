@@ -6,11 +6,10 @@ const gitDirectoryPath = resolve(process.cwd(), '.git')
 const preCommitFilePath = join(gitDirectoryPath, 'hooks', 'pre-commit')
 
 // no git
-if(!fs.existsSync(gitDirectoryPath)) {
+if (!fs.existsSync(gitDirectoryPath))
   process.exit(0)
-}
 
 // no setup simple-git-hooks
-if(!fs.existsSync(preCommitFilePath)) {
+if (!fs.existsSync(preCommitFilePath))
   execSync('npx simple-git-hooks')
-}
+
