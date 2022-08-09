@@ -7,6 +7,7 @@ const addResult = add(1, 2)
 <template>
   <div text-xl>
     <p>addResult: {{ addResult }}</p>
+    <img src="app://icons/icon.ico/">
     <Counter />
   </div>
 </template>

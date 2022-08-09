@@ -1,33 +1,68 @@
-import { resolve } from 'path'
-import { BrowserWindow, app } from 'electron'
+import { join, resolve } from 'path'
+import fs from 'fs'
+import { BrowserWindow, app, protocol } from 'electron'
 import { add } from '@starter/shared'
 import { web } from 'eevi-is'
 
-// eslint-disable-next-line no-console
-console.log(add(1, 2), web())
-
-app.whenReady()
-  .then(() => {
-    const win = new BrowserWindow({
-      webPreferences: {
-        preload: resolve(__dirname, './preload/common.js'),
+async function bootstrap() {
+  protocol.registerSchemesAsPrivileged([
+    {
+      scheme: 'app',
+      privileges: {
+        secure: true,
+        standard: true,
+        stream: true,
+        bypassCSP: true,
+        supportFetchAPI: true,
+        corsEnabled: true,
       },
-    })
+    },
+  ])
+}
 
-    const isMpa = () => process.env.MODE === 'mpa'
+async function beforeReady() {
 
-    const resolvePage = (page?: string) => {
-      if (process.env.NODE_ENV === 'development')
-        return isMpa() ? new URL(`pages/${page ?? 'main'}/`, process.env.URL).toString() : process.env.URL
+}
 
-      return isMpa() ? new URL(`${process.env.URL}/${page}/index.html`, `file:///${__dirname}`).toString() : new URL(process.env.URL, `file:///${__dirname}`).toString()
-    }
+async function afterReady() {
+  protocol.registerStreamProtocol('app', (request, cb) => {
+    const url = new URL(request.url)
+    const rootPath = process.cwd()
 
-    // eslint-disable-next-line no-console
-    console.log(process.env.MODE, resolvePage('main'))
-
-    win.loadURL(resolvePage('main'))
-
-    win.webContents.openDevTools()
+    cb(fs.createReadStream(join(rootPath, 'buildResources', url.hostname, url.pathname)))
   })
-  .catch(err => console.error(err))
+
+  // eslint-disable-next-line no-console
+  console.log(add(1, 2), web())
+
+  const win = new BrowserWindow({
+    webPreferences: {
+      preload: resolve(__dirname, './preload/common.js'),
+    },
+  })
+
+  const isMpa = () => process.env.MODE === 'mpa'
+
+  const resolvePage = (page?: string) => {
+    if (process.env.NODE_ENV === 'development')
+      return isMpa() ? new URL(`pages/${page ?? 'main'}/`, process.env.URL).toString() : process.env.URL
+
+    return isMpa() ? new URL(`${process.env.URL}/${page}/index.html`, `file:///${__dirname}`).toString() : new URL(process.env.URL, `file:///${__dirname}`).toString()
+  }
+
+  // eslint-disable-next-line no-console
+  console.log(process.env.MODE, resolvePage('main'))
+
+  win.loadURL(resolvePage('main'))
+
+  win.webContents.openDevTools()
+}
+
+bootstrap()
+  .then(async () => await beforeReady())
+  .then(async () => await app.whenReady())
+  .then(async () => await afterReady())
+  .catch((err) => {
+    console.error(err)
+    process.exit(0)
+  })
