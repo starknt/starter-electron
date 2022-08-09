@@ -61,6 +61,12 @@ importers:
       vitest: 0.18.1_c8@7.12.0+happy-dom@6.0.4
       vue-tsc: 0.39.5_typescript@4.7.4
 
+  packages/eioc:
+    specifiers:
+      reflect-metadata: ^0.1.13
+    dependencies:
+      reflect-metadata: 0.1.13
+
   packages/shared:
     specifiers: {}
 
@@ -5174,6 +5180,10 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /reflect-metadata/0.1.13:
+    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
+    dev: false
 
   /regexp-tree/0.1.24:
     resolution: {integrity: sha512-s2aEVuLhvnVJW6s/iPgEGK6R+/xngd2jNQ+xy4bXNDKxZKJH6jpPHY6kVeVv1IeLCHgswRj+Kl3ELaDjG6V1iw==}
