@@ -15,9 +15,6 @@
     "paths": {
       "@starter/shared": [
         "../../packages/shared/src/index.ts"
-      ],
-      "@starter/eioc": [
-        "../../packages/eioc/src/index.ts"
       ]
     }
   },
