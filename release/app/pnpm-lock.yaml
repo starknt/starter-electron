@@ -1,0 +1,31 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@livemoe/tool': ^0.0.14
+
+dependencies:
+  '@livemoe/tool': 0.0.14
+
+packages:
+
+  /@livemoe/tool/0.0.14:
+    resolution: {integrity: sha512-w96yIFYmxNNzlVTE//Ax6sb2sV0N1eo6qOa/USa+ACkafqh5cxuPe7FHIPVx09uASUh1/kBv6Ao6UXzIKtsrnA==}
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      node-addon-api: 5.0.0
+    dev: false
+
+  /bindings/1.5.0:
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    dependencies:
+      file-uri-to-path: 1.0.0
+    dev: false
+
+  /file-uri-to-path/1.0.0:
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    dev: false
+
+  /node-addon-api/5.0.0:
+    resolution: {integrity: sha512-CvkDw2OEnme7ybCykJpVcKH+uAOLV2qLqiyla128dN9TkEWfrYmxG6C2boDe5KcNQqZF3orkqzGgOMvZ/JNekA==}
+    dev: false

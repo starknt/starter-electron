@@ -9,10 +9,11 @@
   "license": "GPL-2.0",
   "main": "./dist/main.js",
   "scripts": {
-    "electron-rebuild": "npx esno ../../scripts/electron-rebuild.ts",
-    "link-modules": "npx esno ../../scripts/link-modules.ts",
-    "postinstall": "pnpm run electron-rebuild && pnpm run link-modules"
+    "electron-rebuild": "node ../../scripts/electron-rebuild.mjs",
+    "link-modules": "node ../../scripts/link-modules.mjs",
+    "postinstall": "npm run electron-rebuild && npm run link-modules"
   },
   "dependencies": {
+    "@livemoe/tool": "^0.0.14"
   }
 }

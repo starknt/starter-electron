@@ -3,6 +3,10 @@ import fs from 'fs'
 import { BrowserWindow, app, protocol } from 'electron'
 import { add } from '@starter/shared'
 import { web } from 'eevi-is'
+import { GetSysListViewIconRect } from '@livemoe/tool'
+
+// eslint-disable-next-line no-console
+console.log(GetSysListViewIconRect())
 
 async function bootstrap() {
   protocol.registerSchemesAsPrivileged([
