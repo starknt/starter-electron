@@ -7,7 +7,7 @@ const appModulesPath = join(process.cwd(), 'node_modules')
 const rootPath = join(process.cwd(), '../../')
 
 if (Object.keys(dependencies || {}).length > 0 && fs.existsSync(appModulesPath)) {
-  const electronRebuildCmd = join(rootPath, 'node_modules/.bin/electron-rebuild').concat(' --force --types prod,dev,optional --module-dir .')
+  const electronRebuildCmd = join(rootPath, 'node_modules/.bin/electron-rebuild').concat(' --force --types prod --module-dir .')
 
   const cmd = process.platform === 'win32' ? electronRebuildCmd.replace(/\//, '\\') : electronRebuildCmd
 

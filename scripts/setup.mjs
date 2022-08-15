@@ -8,8 +8,6 @@ const releaseAppPath = join(process.cwd(), 'release', 'app')
 const appPackagePath = join(releaseAppPath, 'package.json')
 const appModulesPath = join(releaseAppPath, 'node_modules')
 
-// execSync('npm install', { cwd: releaseAppPath })
-
 // if dependencies is {}, pnpm can't generate `node_modules`
 if (!fs.existsSync(appModulesPath))
   fs.mkdirSync(appModulesPath)
