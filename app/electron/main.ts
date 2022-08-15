@@ -43,6 +43,7 @@ async function afterReady() {
     webPreferences: {
       preload: resolve(__dirname, './preload/common.js'),
     },
+    show: false,
   })
 
   const isMpa = () => process.env.MODE === 'mpa'
@@ -53,6 +54,8 @@ async function afterReady() {
 
     return isMpa() ? new URL(`${process.env.URL}/${page}/index.html`, `file:///${__dirname}`).toString() : new URL(process.env.URL, `file:///${__dirname}`).toString()
   }
+
+  win.once('ready-to-show', () => win.show())
 
   // eslint-disable-next-line no-console
   console.log(process.env.MODE, resolvePage('main'))
