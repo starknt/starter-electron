@@ -2,7 +2,7 @@ import { join, resolve } from 'path'
 import fs from 'fs'
 import { BrowserWindow, app, protocol } from 'electron'
 import { add } from '@starter/shared'
-import { web } from 'eevi-is'
+import { production, web } from 'eevi-is'
 import { GetSysListViewIconRect } from '@livemoe/tool'
 
 // eslint-disable-next-line no-console
@@ -31,7 +31,7 @@ async function beforeReady() {
 async function afterReady() {
   protocol.registerStreamProtocol('app', (request, cb) => {
     const url = new URL(request.url)
-    const rootPath = process.cwd()
+    const rootPath = production() ? process.resourcesPath : process.cwd()
 
     cb(fs.createReadStream(join(rootPath, 'buildResources', url.hostname, url.pathname)))
   })
