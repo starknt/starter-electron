@@ -3,6 +3,9 @@
     "target": "ESNext",
     "module": "ES2022",
     "moduleResolution": "Node",
+    "lib": [
+      "ES6"
+    ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
@@ -10,7 +13,8 @@
     "baseUrl": ".",
     "types": [
       "node",
-      "eevi/eevi-is"
+      "eevi/eevi-is",
+      "electron"
     ],
     "paths": {
       "@starter/shared": [

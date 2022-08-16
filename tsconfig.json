@@ -21,7 +21,6 @@
     }
   ],
   "include": [
-    "app/electron",
     "app/web",
     "packages"
   ],
