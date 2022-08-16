@@ -1,9 +1,12 @@
 # starter-electron
 Vite + Vitest + Esbuild + Electron
 
-## Feture
+## Feature
 - Fast
 - Main Process Reload
 
 ## Progress
 `WIP`
+
+## License
+`MIT`
