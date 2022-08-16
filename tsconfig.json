@@ -13,13 +13,9 @@
       "@starter/shared": [
         "./packages/shared/src/index.ts"
       ]
-    },
-    "composite": true
+    }
   },
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
     {
       "path": "./tsconfig.test.json"
     }

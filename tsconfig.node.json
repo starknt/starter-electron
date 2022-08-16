@@ -2,7 +2,6 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "ESNext",
-    "composite": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "resolveJsonModule": true,
