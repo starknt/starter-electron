@@ -9,21 +9,17 @@
     "types": [
       "vitest/globals"
     ],
-    "baseUrl": "../",
+    "baseUrl": "./",
     "paths": {
       "@starter/shared": [
-        "packages/shared/src/index.ts"
+        "./packages/shared/src/index.ts"
       ]
-    }
+    },
+    "composite": true
   },
   "include": [
-    "../tests",
-    "../app/web/tests",
-    "../app/electron/tests"
-  ],
-  "references": [
-    {
-      "path": "../tsconfig.json"
-    }
+    "tests",
+    "./app/electron/tests",
+    "./app/web/tests"
   ]
 }

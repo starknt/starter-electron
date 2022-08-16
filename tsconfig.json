@@ -8,11 +8,20 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@starter/shared": [
+        "./packages/shared/src/index.ts"
+      ]
+    },
+    "composite": true
   },
   "references": [
     {
       "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.test.json"
     }
   ],
   "include": [
@@ -21,8 +30,6 @@
     "packages"
   ],
   "exclude": [
-    "node_modules",
-    "app/electron/tests",
-    "app/web/tests"
+    "node_modules"
   ]
 }

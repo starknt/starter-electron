@@ -1,13 +1,13 @@
 import fs from 'fs'
-import path from 'path'
+import { join, resolve } from 'path'
 
-const rootPath = path.resolve(process.cwd(), '../../')
-const srcElectronPath = path.join(rootPath, 'app', 'electron')
-const appPath = path.join(process.cwd())
-const srcElectronModulesPath = path.join(srcElectronPath, 'node_modules')
-const srcElectronPackagePath = path.join(srcElectronPath, 'package.json')
-const appModulesPath = path.join(appPath, 'node_modules')
-const appPackagePath = path.join(appPath, 'package.json')
+const rootPath = resolve(process.cwd(), '../../')
+const srcElectronPath = join(rootPath, 'app', 'electron')
+const appPath = join(process.cwd())
+const srcElectronModulesPath = join(srcElectronPath, 'node_modules')
+const srcElectronPackagePath = join(srcElectronPath, 'package.json')
+const appModulesPath = join(appPath, 'node_modules')
+const appPackagePath = join(appPath, 'package.json')
 
 try {
   if (!fs.statSync(srcElectronModulesPath).isSymbolicLink())
