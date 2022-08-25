@@ -41,7 +41,7 @@ test('Main window state', async () => {
 test('Main window web content', async () => {
   const page = await electronApplication.firstWindow()
 
-  const element = page.locator('#app')
+  const element = page.locator('div[id=app]')
 
   expect(element, 'Was unable to find the root element').toBeTruthy()
 
