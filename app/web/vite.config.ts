@@ -37,7 +37,23 @@ export default defineConfig({
     EeviCorePlugin(),
     // SPA remove it and pages dir, MPA require it
     EeviMpaPlugin({
-      scan: 'pages',
+      template: './index.html',
+      pages: [
+        {
+          name: 'main',
+          entry: './pages/main.ts',
+          data: {
+            title: 'Main Page',
+          },
+        },
+        {
+          name: 'other',
+          entry: './pages/other.ts',
+          data: {
+            title: 'Other Page',
+          },
+        },
+      ],
     }),
     EeviIsPlugin(),
   ],

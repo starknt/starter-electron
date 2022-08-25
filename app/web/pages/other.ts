@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { web } from 'eevi-is'
-import AppVue from './App.vue'
+import AppVue from '../App.vue'
 import 'uno.css'
 
 // eslint-disable-next-line no-console
