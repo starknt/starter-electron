@@ -51,14 +51,15 @@ async function afterReady() {
     return isMpa() ? new URL(`${process.env.URL}/${page}/index.html`, `file:///${__dirname}`).toString() : new URL(process.env.URL, `file:///${__dirname}`).toString()
   }
 
-  win.once('ready-to-show', () => win.show())
+  win.once('ready-to-show', () => {
+    win.show()
+    win.webContents.openDevTools({ mode: 'detach' })
+  })
 
   // eslint-disable-next-line no-console
   console.log(process.env.MODE, resolvePage('main'))
 
   win.loadURL(resolvePage('main'))
-
-  win.webContents.openDevTools()
 }
 
 bootstrap()
