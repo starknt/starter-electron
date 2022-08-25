@@ -29,7 +29,13 @@
     "icon": "buildResources/icons/icon.icns"
   },
   "linux": {
-    "target": "AppImage"
+    "target": [
+      {
+        "arch": "x64",
+        "target": "AppImage"
+      }
+    ],
+    "icon": "buildResources/icons/32x32.png"
   },
   "nsis": {
     "oneClick": false,
