@@ -34,7 +34,7 @@
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
     "clean": "esno scripts/clean.ts",
     "prepare": "npx simple-git-hooks",
-    "commit": "git-cz"
+    "commit": "git add . && git cz"
   },
   "dependencies": {
     "@vueuse/core": "^9.1.0",
