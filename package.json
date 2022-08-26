@@ -33,7 +33,8 @@
     "typecheck:web": "vue-tsc --noEmit -p app/web/tsconfig.json",
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
     "clean": "esno scripts/clean.ts",
-    "prepare": "npx simple-git-hooks"
+    "prepare": "npx simple-git-hooks",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@vueuse/core": "^9.1.0",
@@ -46,7 +47,9 @@
     "@types/rimraf": "^3.0.2",
     "@vitejs/plugin-vue": "^3.0.3",
     "c8": "^7.12.0",
+    "commitizen": "^4.2.5",
     "concurrently": "^7.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eevi": "^0.2.3",
     "electron": "^19.0.12",
     "electron-builder": "^23.3.3",
@@ -80,5 +83,10 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
