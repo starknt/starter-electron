@@ -1,4 +1,8 @@
-# starter-electron
+# Documentation
+
+[中文](./README_ZH_CN.md)
+
+## starter-electron
 
 Vite + Vitest + Esbuild + Electron
 
@@ -23,4 +27,4 @@ see more [Changelog](./CHANGELOG.md)
 
 ## License
 
-<img src="https://img.shields.io/badge/license-MIT-green"> </img>
+<img src="https://img.shields.io/badge/license-MIT-green"></img>
