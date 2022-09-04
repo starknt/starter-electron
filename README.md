@@ -9,9 +9,13 @@ Vite + Vitest + Esbuild + Electron
 - minify
 - typescript support
 
-## Progress
+## Project structure
 
-`WIP`
+- `app` project source code
+
+- `release`
+
+- > `app` you should 
 
 ## Changelog
 
@@ -19,4 +23,4 @@ see more [Changelog](./CHANGELOG.md)
 
 ## License
 
-<img src="https://img.shields.io/badge/license-MIT-green" />
+<img src="https://img.shields.io/badge/license-MIT-green"> </img>
