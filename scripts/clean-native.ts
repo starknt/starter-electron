@@ -138,7 +138,7 @@ export const cleanFiles = async () => {
         )
           break
 
-        const regexp = new RegExp(`${markFile.name}${ext.startsWith('.') ? ext : `.${ext}`}\$`, 'ig')
+        const regexp = new RegExp(`${markFile.name}${!ext ? ext : ext.startsWith('.') ? ext : `.${ext}`}\$`, 'ig')
         if (file.name.match(regexp))
           return join(p, file.name)
       }
