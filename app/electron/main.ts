@@ -3,6 +3,7 @@ import fs from 'fs'
 import { BrowserWindow, app, protocol } from 'electron'
 import { add } from '@starter/shared'
 import { production, web } from 'eevi-is'
+import Database from 'better-sqlite3'
 
 async function bootstrap() {
   protocol.registerSchemesAsPrivileged([
@@ -18,6 +19,12 @@ async function bootstrap() {
       },
     },
   ])
+
+  // sqlite 3 code test
+  if (production()) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const dbInstance = new Database(join(process.resourcesPath, 'sqlite.db'))
+  }
 }
 
 async function beforeReady() {

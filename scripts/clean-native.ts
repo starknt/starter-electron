@@ -32,6 +32,8 @@ export const cleanNativeModule = async () => {
     const releasePath = join(buildPath, 'Release')
     const depsPath = join(buildPath, 'deps')
 
+    tasks.push(rimraf(join(p, 'deps')))
+
     if (fs.existsSync(binPath)) {
       const abi = nodeAbi.getAbi(/\d/.test(devDependencies.electron[0]) ? devDependencies.electron : devDependencies.electron.slice(1), 'electron')
 
@@ -67,4 +69,95 @@ export const cleanNativeModule = async () => {
     await sequence(tasks)
   else
     await Promise.all(tasks)
+}
+
+export const cleanFiles = async () => {
+  interface IMarkFile {
+    name: string
+    ext?: string[]
+    type?: 'dir' | 'file'
+  }
+
+  const tasks: Promise<void>[] = []
+  const files: IMarkFile[] = [
+    {
+      name: 'readme',
+      ext: ['md', 'html', 'txt'],
+    },
+    {
+      name: 'license',
+      ext: [],
+    },
+    {
+      name: 'changelog',
+      ext: ['md', 'html'],
+    },
+    {
+      name: 'history',
+      ext: ['md', 'html'],
+    },
+    {
+      name: '.github',
+      type: 'dir',
+    },
+    {
+      name: 'CONTRIBUTING',
+      ext: ['md', 'html'],
+    },
+    {
+      name: 'GOVERNANCE',
+      ext: ['md', 'html'],
+    },
+    {
+      name: '.travis',
+      ext: ['yml', 'yaml'],
+    },
+    {
+      name: 'test',
+      type: 'dir',
+    },
+    {
+      name: 'examples?',
+      type: 'dir',
+    },
+  ]
+
+  const findMarkFile = (p: string, markFile: IMarkFile) => {
+    if (!markFile.ext)
+      markFile.ext = []
+    if (!markFile.type)
+      markFile.type = 'file'
+    markFile.ext.push('')
+    const files = fs.readdirSync(p, { withFileTypes: true }).filter(Boolean)
+
+    for (const file of files) {
+      for (const ext of markFile.ext) {
+        if (
+          (file.isDirectory() && markFile.type !== 'dir')
+          || (file.isFile() && markFile.type !== 'file')
+        )
+          break
+
+        const regexp = new RegExp(`${markFile.name}${ext.startsWith('.') ? ext : `.${ext}`}\$`, 'ig')
+        if (file.name.match(regexp))
+          return join(p, file.name)
+      }
+    }
+  }
+
+  const modules = fs.readdirSync(node_modules, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .filter(Boolean)
+    .map(d => join(node_modules, d.name))
+
+  for (const file of files) {
+    modules.forEach((module) => {
+      const markFile = findMarkFile(module, file)
+
+      if (markFile)
+        tasks.push(rimraf(markFile))
+    })
+  }
+
+  await Promise.allSettled(tasks)
 }

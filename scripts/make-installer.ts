@@ -2,10 +2,12 @@ import consola from 'consola'
 import type { Configuration } from 'electron-builder'
 import builder from 'electron-builder'
 import fileConfiguration from '../$electron-builder.json'
-import { cleanNativeModule } from './clean-native'
+import { cleanFiles, cleanNativeModule } from './clean-native'
 
 async function beforeMake() {
   consola.info('before make installer')
+
+  await cleanFiles()
 
   const configuration: Configuration = {
     ...fileConfiguration as any,
