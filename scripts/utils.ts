@@ -14,7 +14,7 @@ export const rimraf = async function remove(path: string): Promise<void> {
   }
 }
 
-export function sequence<T>(promiseFactories: Promise<T>[]): Promise<T[]> {
+export async function sequence<T>(promiseFactories: Promise<T>[]): Promise<T[]> {
   const results: T[] = []
   let index = 0
   const len = promiseFactories.length
@@ -23,7 +23,7 @@ export function sequence<T>(promiseFactories: Promise<T>[]): Promise<T[]> {
     return index < len ? promiseFactories[index++] : null
   }
 
-  function thenHandler(result: any): Promise<any> {
+  async function thenHandler(result: any): Promise<any> {
     if (result !== undefined && result !== null)
       results.push(result)
 
@@ -31,8 +31,8 @@ export function sequence<T>(promiseFactories: Promise<T>[]): Promise<T[]> {
     if (n)
       return n.then(thenHandler)
 
-    return Promise.resolve(results)
+    return await Promise.resolve(results)
   }
 
-  return Promise.resolve(null).then(thenHandler)
+  return await Promise.resolve(null).then(thenHandler)
 }

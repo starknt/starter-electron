@@ -1,30 +1,21 @@
-# Documentation
+# 文档
 
-[中文](./README_ZH_CN.md)
+[中文](./README.md) | [English](./README_en.md)
 
 ## starter-electron
 
-Vite + Vitest + Esbuild + Electron
+基于 `Vite` 和 `Esbuild` 用于快速构建 Electron 应用的模板。
 
-## Feature
+## 特性
 
-- Fast
-- Main Process Reload
-- minify
-- typescript support
+- 🚀 极速启动
+- ⚡ 主进程快速重载
+- ✈ 多平台构建
+- 🎉 减少构建产物体积(PS: 自动清理 `Native Module` 的无效文件)
+- 🍛 双 `package.json` 结构, 分离原生模块和非原生模块
 
-## Project structure
+## 项目结构
 
-- `app` project source code
+## 开源许可 <img src="https://img.shields.io/badge/license-MIT-green" />
 
-- `release`
-
-- > `app` you should 
-
-## Changelog
-
-see more [Changelog](./CHANGELOG.md)
-
-## License
-
-<img src="https://img.shields.io/badge/license-MIT-green"></img>
+[MIT](./LICENSE)
