@@ -14,7 +14,11 @@
     "target": [
       {
         "target": "nsis",
-        "arch": ["x64", "ia32", "arm64"]
+        "arch": [
+          "x64",
+          "ia32",
+          "arm64"
+        ]
       }
     ],
     "icon": "buildResources/icons/icon.ico"
@@ -23,7 +27,10 @@
     "target": [
       {
         "target": "dmg",
-        "arch": ["x64", "arm64"]
+        "arch": [
+          "x64",
+          "arm64"
+        ]
       }
     ],
     "type": "distribution",
@@ -89,15 +96,27 @@
     "target": [
       {
         "target": "deb",
-        "arch": ["x64", "arm64", "armv7l"]
+        "arch": [
+          "x64",
+          "arm64",
+          "armv7l"
+        ]
       },
       {
         "target": "AppImage",
-        "arch": ["x64", "arm64", "armv7l"]
+        "arch": [
+          "x64",
+          "arm64",
+          "armv7l"
+        ]
       },
       {
         "target": "rpm",
-        "arch": ["x64", "arm64", "armv7l"]
+        "arch": [
+          "x64",
+          "arm64",
+          "armv7l"
+        ]
       }
     ]
   },
@@ -111,6 +130,5 @@
       "from": "buildResources",
       "to": "buildResources"
     }
-  ],
-  "beforeBuild": "./scripts/afterAllArtifactBuild.cjs"
+  ]
 }

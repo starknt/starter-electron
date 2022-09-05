@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "vite -c ./app/web/vite.config.ts",
     "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
-    "package": "pnpm build && electron-builder",
+    "package": "pnpm build && esno ./scripts/make-installer.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "pnpm build && vitest run --passWithNoTests",

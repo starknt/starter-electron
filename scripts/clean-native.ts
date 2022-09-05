@@ -7,56 +7,64 @@ const { devDependencies } = JSON.parse(fs.readFileSync(join(process.cwd(), 'pack
 
 const node_modules = resolve(process.cwd(), 'release', 'app', 'node_modules')
 
-const nativeModules = fs.readdirSync(node_modules, { withFileTypes: true })
-  .filter(d => d.isDirectory() && d.name !== '.pnpm')
-  .map(d => d.name)
-  .map((d) => {
-    if (!d.includes('@'))
-      return d
-
-    return fs.readdirSync(join(node_modules, d), { withFileTypes: true })
-      .filter(dd => dd.isDirectory())
-      .map(dd => join(d, dd.name))
-  })
-  .flat(3)
-  .filter(d => fs.existsSync(join(node_modules, d, 'binding.gyp')))
-
-nativeModules.forEach(async (module) => {
-  const p = join(node_modules, module)
-  const binPath = join(p, 'bin')
-  const buildPath = join(p, 'build')
-  const releasePath = join(buildPath, 'Release')
-  const depsPath = join(buildPath, 'deps')
+export const cleanNativeModule = async () => {
   const tasks: Promise<void>[] = []
+  let mode: 'sequence' | 'parallel' = 'sequence'
 
-  if (fs.existsSync(binPath)) {
-    const abi = nodeAbi.getAbi(/\d/.test(devDependencies.electron[0]) ? devDependencies.electron : devDependencies.electron.slice(1), 'electron')
+  const nativeModules = fs.readdirSync(node_modules, { withFileTypes: true })
+    .filter(d => d.isDirectory() && d.name !== '.pnpm')
+    .map(d => d.name)
+    .map((d) => {
+      if (!d.includes('@'))
+        return d
 
-    if (fs.existsSync(join(binPath, `${process.platform}-${process.arch}-${abi}`)))
-      tasks.push(rimraf(buildPath))
+      return fs.readdirSync(join(node_modules, d), { withFileTypes: true })
+        .filter(dd => dd.isDirectory())
+        .map(dd => join(d, dd.name))
+    })
+    .flat(3)
+    .filter(d => fs.existsSync(join(node_modules, d, 'binding.gyp')))
 
-    tasks.push(fs.mkdir(buildPath))
-    const m = module.split(sep)
-    tasks.push(fs.copyFile(join(binPath, `${process.platform}-${process.arch}-${abi}`, `${m[m.length - 1]}.node`), join(buildPath, `${m[m.length - 1]}.node`)))
-    tasks.push(rimraf(binPath))
+  nativeModules.forEach(async (module) => {
+    const p = join(node_modules, module)
+    const binPath = join(p, 'bin')
+    const buildPath = join(p, 'build')
+    const releasePath = join(buildPath, 'Release')
+    const depsPath = join(buildPath, 'deps')
+
+    if (fs.existsSync(binPath)) {
+      const abi = nodeAbi.getAbi(/\d/.test(devDependencies.electron[0]) ? devDependencies.electron : devDependencies.electron.slice(1), 'electron')
+
+      if (fs.existsSync(join(binPath, `${process.platform}-${process.arch}-${abi}`)))
+        tasks.push(rimraf(buildPath))
+
+      tasks.push(fs.mkdir(buildPath))
+      const m = module.split(sep)
+      tasks.push(fs.copyFile(join(binPath, `${process.platform}-${process.arch}-${abi}`, `${m[m.length - 1]}.node`), join(buildPath, `${m[m.length - 1]}.node`)))
+      tasks.push(rimraf(binPath))
+      tasks.push(rimraf(depsPath))
+
+      mode = 'sequence'
+
+      return
+    }
+
+    if (!fs.existsSync(join(p, 'build')) || !fs.existsSync(releasePath))
+      return
+
+    const des = fs.readdirSync(releasePath)
+
     tasks.push(rimraf(depsPath))
 
-    await sequence(tasks)
-    return
-  }
+    des.forEach((de) => {
+      if (!de.endsWith('.node'))
+        tasks.push((rimraf(join(releasePath, de))))
+    })
 
-  if (!fs.existsSync(join(p, 'build')) || !fs.existsSync(releasePath))
-    return
-
-  const des = fs.readdirSync(releasePath)
-
-  tasks.push(rimraf(depsPath))
-
-  des.forEach((de) => {
-    if (!de.endsWith('.node'))
-      tasks.push((rimraf(join(releasePath, de))))
+    mode = 'parallel'
   })
-
-  await Promise.all(tasks)
-})
-
+  if (mode === 'sequence')
+    await sequence(tasks)
+  else
+    await Promise.all(tasks)
+}
