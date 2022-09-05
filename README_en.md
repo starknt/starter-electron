@@ -25,6 +25,6 @@ Vite + Vitest + Esbuild + Electron
 
 see more [Changelog](./CHANGELOG.md)
 
-## License
+## License <img src="https://img.shields.io/badge/license-MIT-green" />
 
-<img src="https://img.shields.io/badge/license-MIT-green"></img>
+[MIT](./LICENSE)
