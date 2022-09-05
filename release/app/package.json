@@ -9,9 +9,9 @@
   "license": "GPL-2.0",
   "main": "./dist/main.js",
   "scripts": {
-    "electron-rebuild": "node ../../scripts/electron-rebuild.mjs",
-    "link-modules": "node ../../scripts/link-modules.mjs",
-    "postinstall": "npm run electron-rebuild && npm run link-modules"
+    "electron-rebuild": "esno ../../scripts/electron-rebuild.ts",
+    "link-modules": "esno ../../scripts/link-modules.ts",
+    "postinstall": "pnpm electron-rebuild && pnpm link-modules"
   },
   "dependencies": {
     "better-sqlite3": "^7.6.2"

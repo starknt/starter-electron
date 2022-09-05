@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "vite -c ./app/web/vite.config.ts",
     "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
-    "package": "esno scripts/clean-native.ts && pnpm build && electron-builder",
+    "package": "pnpm build && electron-builder",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "pnpm build && vitest run --passWithNoTests",
@@ -28,7 +28,7 @@
     "test:e2e": "pnpm build && vitest run e2e --passWithNoTests",
     "test:watch": "vitest -u",
     "test:coverage": "rimraf coverage && vitest run --coverage --passWithNoTests",
-    "postinstall": "esno scripts/setup.ts && electron-builder install-app-deps",
+    "postinstall": "electron-builder install-app-deps",
     "typecheck:electron": "npx tsc --noEmit -p app/electron/tsconfig.json",
     "typecheck:web": "vue-tsc --noEmit -p app/web/tsconfig.json",
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.7.3",
     "@types/node-abi": "^3.0.0",
     "@types/rimraf": "^3.0.2",
@@ -57,6 +58,7 @@
     "electron-rebuild": "^3.2.9",
     "eslint": "^8.21.0",
     "esno": "^0.16.3",
+    "fs-extra": "^10.1.0",
     "happy-dom": "^6.0.4",
     "lint-staged": "^13.0.3",
     "node-abi": "^3.24.0",

@@ -1,12 +1,13 @@
 import { join, resolve, sep } from 'path'
-import fs from 'fs'
+import fs from 'fs-extra'
 import nodeAbi from 'node-abi'
+import { rimraf, sequence } from './utils'
 
 const { devDependencies } = JSON.parse(fs.readFileSync(join(process.cwd(), 'package.json'), 'utf-8'))
 
 const node_modules = resolve(process.cwd(), 'release', 'app', 'node_modules')
 
-const modules = fs.readdirSync(node_modules, { withFileTypes: true })
+const nativeModules = fs.readdirSync(node_modules, { withFileTypes: true })
   .filter(d => d.isDirectory() && d.name !== '.pnpm')
   .map(d => d.name)
   .map((d) => {
@@ -20,43 +21,42 @@ const modules = fs.readdirSync(node_modules, { withFileTypes: true })
   .flat(3)
   .filter(d => fs.existsSync(join(node_modules, d, 'binding.gyp')))
 
-function deleteThings(p: string) {
-  if (fs.existsSync(p)) {
-    fs.lstat(p, (err, stats) => {
-      if (err)
-        return
-
-      stats.isDirectory() && fs.rmSync(p, { recursive: true, force: true })
-      stats.isFile() && fs.rmSync(p)
-    })
-  }
-}
-
-modules.forEach((module) => {
+nativeModules.forEach(async (module) => {
   const p = join(node_modules, module)
   const binPath = join(p, 'bin')
   const buildPath = join(p, 'build')
-  const ReleasePath = join(buildPath, 'Release')
+  const releasePath = join(buildPath, 'Release')
+  const depsPath = join(buildPath, 'deps')
+  const tasks: Promise<void>[] = []
 
   if (fs.existsSync(binPath)) {
     const abi = nodeAbi.getAbi(/\d/.test(devDependencies.electron[0]) ? devDependencies.electron : devDependencies.electron.slice(1), 'electron')
+
     if (fs.existsSync(join(binPath, `${process.platform}-${process.arch}-${abi}`)))
-      fs.rmSync(buildPath, { recursive: true, force: true })
-    fs.mkdirSync(buildPath)
+      tasks.push(rimraf(buildPath))
+
+    tasks.push(fs.mkdir(buildPath))
     const m = module.split(sep)
-    fs.copyFileSync(join(binPath, `${process.platform}-${process.arch}-${abi}`, `${m[m.length - 1]}.node`), join(buildPath, `${m[m.length - 1]}.node`))
-    fs.rmSync(binPath, { recursive: true, force: true })
+    tasks.push(fs.copyFile(join(binPath, `${process.platform}-${process.arch}-${abi}`, `${m[m.length - 1]}.node`), join(buildPath, `${m[m.length - 1]}.node`)))
+    tasks.push(rimraf(binPath))
+    tasks.push(rimraf(depsPath))
+
+    await sequence(tasks)
     return
   }
 
-  if (!fs.existsSync(join(p, 'build')) || !fs.existsSync(ReleasePath))
+  if (!fs.existsSync(join(p, 'build')) || !fs.existsSync(releasePath))
     return
 
-  const des = fs.readdirSync(ReleasePath)
+  const des = fs.readdirSync(releasePath)
+
+  tasks.push(rimraf(depsPath))
 
   des.forEach((de) => {
     if (!de.endsWith('.node'))
-      deleteThings(join(ReleasePath, de))
+      tasks.push((rimraf(join(releasePath, de))))
   })
+
+  await Promise.all(tasks)
 })
 

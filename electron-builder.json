@@ -111,5 +111,6 @@
       "from": "buildResources",
       "to": "buildResources"
     }
-  ]
+  ],
+  "beforeBuild": "./scripts/afterAllArtifactBuild.cjs"
 }
