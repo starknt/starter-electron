@@ -20,6 +20,7 @@ async function doMakeInstaller(configuration: Configuration) {
   const result = await builder.build({
     config: {
       ...configuration,
+      copyright: `Copyright © ${new Date().getFullYear()} \$\{author\}`,
       beforeBuild: async () => {
         await cleanNativeModule()
       },
