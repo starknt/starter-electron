@@ -24,11 +24,11 @@
 
 ## 项目结构
 
-```bash
+```typescript
   .
   |-- .github
   |   |-- workflows # Github Actions 工作流
-  |-- .vscode
+  |-- .vscode # Vscode 项目配置文件, 用于 Debug 主进程
   |-- app
   |   |-- electron # electron 相关代码
   |   |   |-- tests # 主进程单元测试文件
@@ -51,8 +51,8 @@
   |-- .gitignore # gitignore
   |-- .npmrc # gitignore
   |-- tsconfig.json # tsconfig.json
-  |-- tsconfig.node.json # tsconfig.node.json
-  |-- tsconfig.test.json # tsconfig.test.json
+  |-- tsconfig.node.json # 项目配置文件的tsconfig
+  |-- tsconfig.test.json # 项目测试文件的tsconfig
   |-- LICENSE # MIT LICENSE
   |-- README_en.md # 英文文档
   |-- README.md # 中文文档
