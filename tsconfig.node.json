@@ -8,9 +8,11 @@
     "allowJs": false,
     "types": [
       "node"
-    ]
+    ],
+    "composite": true
   },
   "include": [
+    "*.json",
     "vite.config.ts",
     "app/web/vite.config.ts",
     "./alias.ts",
