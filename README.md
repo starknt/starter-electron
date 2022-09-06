@@ -4,6 +4,10 @@
 
 ## starter-electron
 
+![node-current](https://img.shields.io/node/v/vite)
+![npm type definitions](https://img.shields.io/npm/types/typescript)
+![GitHub](https://img.shields.io/github/license/starknt/starter-electron)
+
 基于 `Vite` 和 `Esbuild` 用于快速构建 Electron 应用的模板。
 
 ## 特性
@@ -12,12 +16,14 @@
 - ⚡ 主进程快速重载
 - ✈ 多平台构建
 - 🎉 减少构建产物体积(PS: 自动清理 `Native Module` 的无效文件)
-- 🍛 双 `package.json` 结构, 分离原生模块和非原生模块
+- 🍛 双 `package.json` 结构, [点击这里查看更多](https://www.electron.build/tutorials/two-package-structure)
 
 ## 快速开始
 
 ```bash
   degit starknt/starter-electron projectName
+  cd projectName && pnpm install
+  pnpm dev
 ```
 
 或者 [点击此处](https://github.com/starknt/starter-electron/generate)
@@ -28,7 +34,7 @@
   .
   |-- .github
   |   |-- workflows # Github Actions 工作流
-  |-- .vscode # Vscode 项目配置文件, 用于 Debug 主进程
+  |-- .vscode # Vscode 项目配置文件, 用于主进程 Debug
   |-- app
   |   |-- electron # electron 相关代码
   |   |   |-- tests # 主进程单元测试文件
@@ -60,6 +66,6 @@
   |------------------------------------------------------------------------------------------------
 ```
 
-## 开源许可 <img src="https://img.shields.io/badge/license-MIT-green" />
+## 开源许可
 
 [MIT](./LICENSE)

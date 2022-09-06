@@ -17,6 +17,9 @@
     "hot",
     "fast"
   ],
+  "engines": {
+    "node": ">=14.18.0 || >=16.0.0"
+  },
   "scripts": {
     "dev": "vite -c ./app/web/vite.config.ts",
     "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
