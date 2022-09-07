@@ -24,6 +24,7 @@
     "dev": "vite -c ./app/web/vite.config.ts",
     "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
     "package": "pnpm build && esno ./scripts/make-installer.ts",
+    "release": "bumpp package.json release/app/package.json --commit --push --tag",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "pnpm build && vitest run --passWithNoTests",
