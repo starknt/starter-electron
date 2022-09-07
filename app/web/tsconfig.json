@@ -22,6 +22,15 @@
       ]
     }
   },
+  "include": [
+    "auto-imports.d.ts",
+    "components.d.ts",
+    "env.d.ts",
+    "shims.d.ts",
+    "*.ts",
+    "*.vue",
+    "*.tsx"
+  ],
   "exclude": [
     "tests",
     "vite.config.ts"
