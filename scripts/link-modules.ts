@@ -28,7 +28,7 @@ fs.lstat(srcElectronModulesPath)
 fs.lstat(srcElectronPackagePath)
   .then(stat => stat.isSymbolicLink())
   .then(v => !v && linkPackageFile())
-  .catch((e) => {
+  .catch(() => {
     if (!fs.existsSync(srcElectronPackagePath))
       return fs.copyFile(appPackagePath, srcElectronPackagePath)
     else
