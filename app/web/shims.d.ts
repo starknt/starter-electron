@@ -6,8 +6,12 @@ declare module '*.vue' {
   export default Component
 }
 
-declare global {
-  interface Window {
-
-  }
+interface Api {
+  sayHello(): void
 }
+
+declare global {
+  var $api: Api
+}
+
+export {}

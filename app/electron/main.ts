@@ -1,6 +1,6 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
-import { BrowserWindow, app, protocol } from 'electron'
+import { BrowserWindow, app, ipcMain, protocol } from 'electron'
 import { add } from '@starter/shared'
 import { production, web } from 'eevi-is'
 import Database from 'better-sqlite3'
@@ -40,9 +40,19 @@ async function afterReady() {
   })
 
   // eslint-disable-next-line no-console
+  ipcMain.on('sayHello', (e, message) => console.log(e.sender.id, message))
+
+  // eslint-disable-next-line no-console
   console.log(add(1, 2), web())
 
-  const win = new BrowserWindow({
+  const main = new BrowserWindow({
+    webPreferences: {
+      preload: resolve(__dirname, './preload/common.js'),
+    },
+    show: false,
+  })
+
+  const other = new BrowserWindow({
     webPreferences: {
       preload: resolve(__dirname, './preload/common.js'),
     },
@@ -58,15 +68,20 @@ async function afterReady() {
     return isMpa() ? new URL(`${process.env.URL}/${page}/index.html`, `file:///${__dirname}`).toString() : new URL(process.env.URL, `file:///${__dirname}`).toString()
   }
 
-  win.once('ready-to-show', () => {
-    win.show()
-    win.webContents.openDevTools({ mode: 'detach' })
+  main.once('ready-to-show', () => {
+    main.show()
+    main.webContents.openDevTools({ mode: 'detach' })
+  })
+
+  other.once('ready-to-show', () => {
+    other.show()
   })
 
   // eslint-disable-next-line no-console
   console.log(process.env.MODE, resolvePage('main'))
 
-  win.loadURL(resolvePage('main'))
+  main.loadURL(resolvePage('main'))
+  other.loadURL(resolvePage('other'))
 }
 
 bootstrap()
