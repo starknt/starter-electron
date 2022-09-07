@@ -1,37 +1,38 @@
-import { join, resolve } from 'path'
 import fs from 'fs-extra'
-
-const rootPath = resolve(process.cwd(), '../../')
-const srcElectronPath = join(rootPath, 'app', 'electron')
-const appPath = join(process.cwd())
-const srcElectronModulesPath = join(srcElectronPath, 'node_modules')
-const srcElectronPackagePath = join(srcElectronPath, 'package.json')
-const appModulesPath = join(appPath, 'node_modules')
-const appPackagePath = join(appPath, 'package.json')
+import consola from 'consola'
+import { appModulesPath, appPackagePath, srcElectronModulesPath, srcElectronPackagePath } from './utils'
 
 // if dependencies is {}, pnpm can't generate `node_modules`
 if (!fs.existsSync(appModulesPath))
   fs.mkdirSync(appModulesPath)
 
+// delete electron package, try link file
 if (fs.existsSync(srcElectronPackagePath)) {
   if (!fs.lstatSync(srcElectronPackagePath).isSymbolicLink())
     fs.rmSync(srcElectronPackagePath)
 }
 
-if (fs.existsSync(srcElectronModulesPath)) {
-  if (!fs.lstatSync(srcElectronModulesPath).isSymbolicLink())
-    fs.rmSync(srcElectronModulesPath)
+async function linkModules() {
+  return await fs.symlink(appModulesPath, srcElectronModulesPath, 'junction')
 }
 
-if (!fs.existsSync(srcElectronModulesPath) && fs.existsSync(appModulesPath))
-  fs.symlinkSync(appModulesPath, srcElectronModulesPath, 'junction')
+async function linkPackageFile() {
+  return await fs.symlink(appPackagePath, srcElectronPackagePath, 'file')
+}
 
-try {
-  if (!fs.existsSync(srcElectronPackagePath) && fs.existsSync(appPackagePath))
-    fs.symlinkSync(appPackagePath, srcElectronPackagePath, 'file')
-}
-catch (error) {
-  if (!fs.existsSync(srcElectronPackagePath) && fs.existsSync(appPackagePath))
-    fs.copyFileSync(appPackagePath, srcElectronPackagePath)
-}
+fs.lstat(srcElectronModulesPath)
+  .then(stat => stat.isSymbolicLink())
+  .then(v => !v && linkModules())
+  .catch(consola.error)
+
+fs.lstat(srcElectronPackagePath)
+  .then(stat => stat.isSymbolicLink())
+  .then(v => !v && linkPackageFile())
+  .catch((e) => {
+    if (!fs.existsSync(srcElectronPackagePath))
+      return fs.copyFile(appPackagePath, srcElectronPackagePath)
+    else
+      return fs.writeFile(srcElectronPackagePath, fs.readFileSync(appPackagePath, 'utf-8'))
+  })
+  .catch(consola.error)
 

@@ -1,6 +1,17 @@
 import { promisify } from 'util'
+import { join, resolve } from 'path'
 import rm from 'rimraf'
 import consola from 'consola'
+
+export const rootPath = process.cwd().includes('app') ? resolve(process.cwd(), '../../') : process.cwd()
+
+export const srcElectronPath = join(rootPath, 'app', 'electron')
+export const srcElectronModulesPath = join(srcElectronPath, 'node_modules')
+export const srcElectronPackagePath = join(srcElectronPath, 'package.json')
+export const releasePath = join(rootPath, 'release')
+export const appPath = join(releasePath, 'app')
+export const appModulesPath = join(appPath, 'node_modules')
+export const appPackagePath = join(appPath, 'package.json')
 
 const internalRimraf = promisify(rm)
 
@@ -12,6 +23,17 @@ export const rimraf = async function remove(path: string): Promise<void> {
   catch (err) {
     consola.error(`remove ${path} failed, error: ${err}`)
   }
+}
+
+export function taskFactory(paths: (string | null)[]) {
+  const r: Promise<any>[] = []
+
+  for (const task of paths) {
+    if (task)
+      r.push(rimraf(task))
+  }
+
+  return r
 }
 
 export async function sequence<T>(promiseFactories: Promise<T>[]): Promise<T[]> {
@@ -31,8 +53,8 @@ export async function sequence<T>(promiseFactories: Promise<T>[]): Promise<T[]> 
     if (n)
       return n.then(thenHandler)
 
-    return await Promise.resolve(results)
+    return results
   }
 
-  return await Promise.resolve(null).then(thenHandler)
+  return thenHandler(null)
 }

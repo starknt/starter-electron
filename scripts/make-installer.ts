@@ -2,7 +2,7 @@ import consola from 'consola'
 import type { Configuration } from 'electron-builder'
 import builder from 'electron-builder'
 import fileConfiguration from '../$electron-builder.json'
-import { cleanFiles, cleanNativeModule } from './clean-native'
+import { cleanFiles, cleanNativeModule } from './clean'
 
 async function beforeMake() {
   consola.info('before make installer')
