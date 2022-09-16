@@ -82,12 +82,12 @@ export const cleanNativeModule = async () => {
 
 export const cleanFiles = async () => {
   interface IMarkFile {
-    name: string
+    name: string | RegExp
     ext?: string[]
     type?: 'dir' | 'file'
   }
 
-  const tasks: Promise<void>[] = []
+  const markedFiles: string[] = []
   const files: IMarkFile[] = [
     {
       name: 'readme',
@@ -131,7 +131,7 @@ export const cleanFiles = async () => {
     },
   ]
 
-  const findMarkFile = (p: string, markFile: IMarkFile): string | null => {
+  const findMarkedFile = (p: string, markFile: IMarkFile): string | null => {
     if (!markFile.ext)
       markFile.ext = []
     if (!markFile.type)
@@ -163,12 +163,12 @@ export const cleanFiles = async () => {
 
   for (const file of files) {
     modules.forEach((module) => {
-      const markFile = findMarkFile(module, file)
+      const markFile = findMarkedFile(module, file)
 
       if (markFile)
-        tasks.push(rimraf(markFile))
+        markedFiles.push(markFile)
     })
   }
 
-  await Promise.allSettled(tasks)
+  await Promise.allSettled(taskFactory(markedFiles))
 }
