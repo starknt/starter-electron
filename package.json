@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@7.9.0",
+  "packageManager": "pnpm@7.11.0",
   "description": "An electron template based on Vite and Esbuild.",
   "author": "starknt",
   "license": "MIT",
@@ -18,7 +18,8 @@
     "fast"
   ],
   "engines": {
-    "node": ">=14.18.0 || >=16.0.0"
+    "node": ">=14.18.0 || >=16.0.0",
+    "npm": ">=7.0.0"
   },
   "scripts": {
     "dev": "vite -c ./app/web/vite.config.ts",
@@ -37,8 +38,9 @@
     "typecheck:web": "vue-tsc --noEmit -p app/web/tsconfig.json",
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
     "clean": "esno scripts/clean-cli.ts",
-    "prepare": "npx simple-git-hooks",
-    "commit": "git add . && git cz"
+    "prepare": "husky install",
+    "commit": "git add . && git cz",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@vueuse/core": "^9.2.0",
@@ -46,6 +48,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@types/better-sqlite3": "^7.6.0",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.7.18",
@@ -55,9 +58,12 @@
     "bumpp": "^8.2.1",
     "c8": "^7.12.0",
     "commitizen": "^4.2.5",
+    "commitlint": "^17.1.2",
+    "commitlint-config-cz": "^0.13.3",
     "concurrently": "^7.4.0",
     "consola": "^2.15.3",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "eevi": "^0.3.1",
     "electron": "^19.0.17",
     "electron-builder": "^23.3.3",
@@ -66,12 +72,12 @@
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
     "happy-dom": "^6.0.4",
+    "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "node-abi": "^3.24.0",
     "playwright": "^1.25.2",
     "pnpm": "7.11.0",
     "rimraf": "^3.0.2",
-    "simple-git-hooks": "^2.8.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
     "unocss": "^0.45.21",
@@ -80,9 +86,6 @@
     "vite": "^3.1.2",
     "vitest": "^0.23.2",
     "vue-tsc": "^0.40.13"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json}": [
@@ -96,7 +99,10 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.cjs"
     }
   },
   "build": {
