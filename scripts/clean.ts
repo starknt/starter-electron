@@ -7,7 +7,6 @@ export const cleanBuildProduct = async () => {
   const tasks = taskFactory([
     join(appPath, 'dist'),
     join(releasePath, 'build'),
-    join(rootPath, 'coverage'),
   ])
 
   await Promise.allSettled(tasks)
