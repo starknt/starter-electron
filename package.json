@@ -99,7 +99,42 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "node_modules/cz-conventional-changelog",
+      "types": {
+        "feat": {
+          "description": "✨  A new feature"
+        },
+        "fix": {
+          "description": "🐛  A bug fix"
+        },
+        "docs": {
+          "description": "📝  Documentation only changes"
+        },
+        "style": {
+          "description": "🌈  Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+        },
+        "refactor": {
+          "description": "📦  A code change that neither fixes a bug nor adds a feature"
+        },
+        "perf": {
+          "description": "🚀  A code change that improves performance"
+        },
+        "test": {
+          "description": "✅  Adding missing tests or correcting existing tests"
+        },
+        "build": {
+          "description": "👷  Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"
+        },
+        "ci": {
+          "description": "💻  Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"
+        },
+        "chore": {
+          "description": "🎫  Other changes that don't modify src or test files"
+        },
+        "revert": {
+          "description": "⏪  Reverts a previous commit"
+        }
+      }
     },
     "cz-customizable": {
       "config": ".cz-config.cjs"
