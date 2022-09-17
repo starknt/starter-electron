@@ -2,9 +2,17 @@
 
 [中文](./README.md) | [English](./README_en.md)
 
-## starter-electron
+<h1 align="center">Starter Electron</h1>
 
-Vite + Vitest + Esbuild + Electron
+<p align="center">A template for quickly building Electron applications based on Vite and Esbuild.</p>
+
+<div align="center">
+
+![node-current](https://img.shields.io/node/v/vite)
+![npm type definitions](https://img.shields.io/npm/types/typescript)
+![GitHub](https://img.shields.io/github/license/starknt/starter-electron)
+
+</div>
 
 ## Feature
 
