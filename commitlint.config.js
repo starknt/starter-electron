@@ -3,5 +3,5 @@ module.exports = {
   extends: ['cz'],
   rules: {
     // custom rule
-  }
+  },
 }

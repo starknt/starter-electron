@@ -1,7 +1,7 @@
 import { join, sep } from 'path'
 import fs from 'fs-extra'
 import nodeAbi from 'node-abi'
-import { appModulesPath, appPackagePath, appPath, releasePath, rimraf, rootPath, sequence, taskFactory } from './utils'
+import { appModulesPath, appPackagePath, appPath, releasePath, rimraf, sequence, taskFactory } from './utils'
 
 export const cleanBuildProduct = async () => {
   const tasks = taskFactory([

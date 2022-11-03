@@ -84,6 +84,11 @@
     "vitest": "^0.23.2",
     "vue-tsc": "^0.40.13"
   },
+  "pnpm": {
+    "overrides": {
+      "electron-osx-sign": "npm:@electron/osx-sign@latest"
+    }
+  },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json}": [
       "eslint --fix",
@@ -138,11 +143,6 @@
     "directories": {
       "app": "release/app",
       "output": "release/build"
-    }
-  },
-  "pnpm": {
-    "overrides": {
-      "electron-osx-sign": "npm:@electron/osx-sign@latest"
     }
   }
 }
