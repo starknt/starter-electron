@@ -20,6 +20,7 @@
   "include": [
     "tests",
     "./app/electron/tests",
-    "./app/web/tests"
+    "./app/web/tests",
+    "packages"
   ]
 }

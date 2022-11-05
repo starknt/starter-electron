@@ -16,7 +16,8 @@
     "vite.config.ts",
     "app/web/vite.config.ts",
     "./alias.ts",
-    "scripts"
+    "scripts",
+    "packages"
   ],
   "exclude": [
     "release/app",

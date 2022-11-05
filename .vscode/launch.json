@@ -12,6 +12,9 @@
       ],
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
       "windows": {
+        "name": "Debug Main Process",
+        "type": "node",
+        "request": "launch",
         "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
       },
       "args": [
@@ -26,6 +29,9 @@
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest",
       "windows": {
+        "name": "Debug Main Process",
+        "type": "node",
+        "request": "launch",
         "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest.cmd"
       },
       "args": ["run", "unit"]

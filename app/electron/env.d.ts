@@ -6,8 +6,6 @@ declare global {
       URL: string
     }
   }
-
-  const __static: string
 }
 
 export {}
