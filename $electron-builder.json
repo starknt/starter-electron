@@ -10,49 +10,6 @@
     "package.json"
   ],
   "copyright": "Copyright © 2022 ${author}",
-  "win": {
-    "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64",
-          "ia32",
-          "arm64"
-        ]
-      }
-    ],
-    "icon": "buildResources/icons/icon.ico"
-  },
-  "mac": {
-    "target": [
-      {
-        "target": "dmg",
-        "arch": [
-          "x64",
-          "arm64"
-        ]
-      }
-    ],
-    "type": "distribution",
-    "category": "public.app-category.productivity",
-    "gatekeeperAssess": false,
-    "electronLanguages": [
-      "en",
-      "fr",
-      "zh_CN",
-      "de",
-      "ja"
-    ],
-    "hardenedRuntime": true,
-    "entitlements": "./buildResources/entitlements.mac.plist",
-    "entitlementsInherit": "./buildResources/entitlements.mac.plist",
-    "extendInfo": {
-      "ITSAppUsesNonExemptEncryption": false,
-      "CFBundleLocalizations": [],
-      "CFBundleDevelopmentRegion": "en"
-    },
-    "icon": "buildResources/icons/icon.icns"
-  },
   "dmg": {
     "iconSize": 160,
     "window": {
@@ -83,8 +40,51 @@
   "portable": {
     "artifactName": "${productName}_windows_portable_${arch}_${version}.${ext}"
   },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64",
+          "ia32",
+          "arm64"
+        ]
+      }
+    ],
+    "icon": "buildResources/icons/win/icon.ico"
+  },
+  "mac": {
+    "target": [
+      {
+        "target": "dmg",
+        "arch": [
+          "x64",
+          "arm64"
+        ]
+      }
+    ],
+    "type": "distribution",
+    "category": "public.app-category.productivity",
+    "gatekeeperAssess": false,
+    "electronLanguages": [
+      "en",
+      "fr",
+      "zh_CN",
+      "de",
+      "ja"
+    ],
+    "hardenedRuntime": true,
+    "entitlements": "./buildResources/entitlements.mac.plist",
+    "entitlementsInherit": "./buildResources/entitlements.mac.plist",
+    "extendInfo": {
+      "ITSAppUsesNonExemptEncryption": false,
+      "CFBundleLocalizations": [],
+      "CFBundleDevelopmentRegion": "en"
+    },
+    "icon": "buildResources/icons/mac/icon.icns"
+  },
   "linux": {
-    "icon": "assets/app.icns",
+    "icon": "buildResources/icons/png/64x64.png",
     "artifactName": "${productName}_linux_${arch}_${version}(${buildVersion}).${ext}",
     "category": "Utility",
     "synopsis": "An electron template based on Vite and Esbuild.",
