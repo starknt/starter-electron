@@ -29,7 +29,8 @@
     "shims.d.ts",
     "*.ts",
     "*.vue",
-    "*.tsx"
+    "*.tsx",
+    "pages"
   ],
   "exclude": [
     "tests",

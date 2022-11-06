@@ -28,6 +28,10 @@
     "packages"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "tests",
+    "app/web/tests",
+    "app/electron/tests",
+    "release/app"
   ]
 }

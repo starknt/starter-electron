@@ -19,8 +19,12 @@
   },
   "include": [
     "tests",
-    "./app/electron/tests",
-    "./app/web/tests",
+    "app/electron/tests",
+    "app/web/tests",
     "packages"
+  ],
+  "exclude": [
+    "release/app",
+    "node_modules"
   ]
 }

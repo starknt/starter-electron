@@ -1,5 +1,6 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
+import type { UserConfigExport } from 'eevi'
 import { defineConfig } from 'eevi'
 import { esbuildIsPlugin } from 'eevi/esbuild'
 import { alias } from './alias'
@@ -14,7 +15,6 @@ const define = {
 }
 
 if (process.env.NODE_ENV === 'development')
-  // @ts-expect-error delete
   delete define['process.env.URL']
 
 export default defineConfig({
@@ -29,4 +29,4 @@ export default defineConfig({
   tsconfig: 'tsconfig.json',
   define,
   plugin: [esbuildIsPlugin()],
-})
+}) as UserConfigExport

@@ -12,12 +12,13 @@
     "composite": true
   },
   "include": [
-    "*.json",
+    "eevi.config.ts",
     "vite.config.ts",
-    "app/web/vite.config.ts",
-    "./alias.ts",
-    "scripts",
-    "packages"
+    "./app/web/vite.config.ts",
+    "*.json",
+    "alias.ts",
+    "packages",
+    "scripts"
   ],
   "exclude": [
     "release/app",
