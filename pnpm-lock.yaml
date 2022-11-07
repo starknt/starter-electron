@@ -30,6 +30,7 @@ specifiers:
   fs-extra: ^10.1.0
   happy-dom: ^7.6.6
   husky: ^8.0.1
+  json-format: ^1.0.1
   lint-staged: ^13.0.3
   node-abi: ^3.28.0
   playwright: ^1.27.1
@@ -74,6 +75,7 @@ devDependencies:
   fs-extra: 10.1.0
   happy-dom: 7.6.6
   husky: 8.0.1
+  json-format: 1.0.1
   lint-staged: 13.0.3
   node-abi: 3.28.0
   playwright: 1.27.1
@@ -4748,6 +4750,10 @@ packages:
 
   /json-buffer/3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
+    dev: true
+
+  /json-format/1.0.1:
+    resolution: {integrity: sha512-MoKIg/lBeQALqjYnqEanikfo3zBKRwclpXJexdF0FUniYAAN2ypEIXBEtpQb+9BkLFtDK1fyTLAsnGlyGfLGxw==}
     dev: true
 
   /json-parse-even-better-errors/2.3.1:

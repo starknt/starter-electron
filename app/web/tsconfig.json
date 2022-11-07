@@ -13,12 +13,11 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": false,
     "skipLibCheck": true,
-    "types": [
-    ],
+    "types": [],
     "baseUrl": ".",
     "paths": {
       "@starter/shared": [
-        "../../packages/shared/src/index.ts"
+        "..\\..\\packages\\shared\\src\\index.ts"
       ]
     }
   },
