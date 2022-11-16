@@ -84,8 +84,8 @@
     "icon": "buildResources/icons/mac/icon.icns"
   },
   "linux": {
-    "icon": "buildResources/icons/png/64x64.png",
-    "artifactName": "${productName}_linux_${arch}_${version}(${buildVersion}).${ext}",
+    "icon": "buildResources/icons/png/256x256.png",
+    "artifactName": "${productName}_linux_${arch}_${version}.${ext}",
     "category": "Utility",
     "synopsis": "An electron template based on Vite and Esbuild.",
     "desktop": {
