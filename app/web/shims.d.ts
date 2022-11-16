@@ -5,13 +5,3 @@ declare module '*.vue' {
   const Component: DefineComponent<{}, {}, any>
   export default Component
 }
-
-interface Api {
-  sayHello(): void
-}
-
-declare global {
-  var $api: Api
-}
-
-export {}

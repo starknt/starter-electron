@@ -26,7 +26,7 @@ export const rimraf = async function remove(path: string): Promise<void> {
 }
 
 export function taskFactory(paths: (string | null)[]) {
-  const r: Promise<any>[] = []
+  const r: Promise<void>[] = []
 
   for (const task of paths) {
     if (task)
