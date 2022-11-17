@@ -12,7 +12,7 @@
       ],
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
       "windows": {
-        "name": "Debug Main Process",
+        "name": "electron windows configuration",
         "type": "node",
         "request": "launch",
         "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
@@ -29,7 +29,7 @@
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest",
       "windows": {
-        "name": "Debug Main Process",
+        "name": "vitest windows configuration",
         "type": "node",
         "request": "launch",
         "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest.cmd"
