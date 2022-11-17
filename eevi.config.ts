@@ -21,7 +21,9 @@ export default defineConfig({
   root: 'app/electron',
   entry: 'app/electron/main.ts',
   outDir: join(appPath, 'dist'),
-  preloadEntries: ['app/electron/preload/common.ts'],
+  preloadEntries: [
+    'app/electron/preload/*.ts' // eevi v0.3.3
+  ],
   resolve: {
     alias,
   },
