@@ -1,6 +1,6 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
-import { BrowserWindow, app, ipcMain, protocol, Tray, nativeImage, Menu } from 'electron'
+import { BrowserWindow, Menu, Tray, app, ipcMain, nativeImage, protocol } from 'electron'
 import { add } from '@starter/shared'
 import { macOS, production, web, windows } from 'eevi-is'
 import Database from 'better-sqlite3'
@@ -49,13 +49,13 @@ async function setupTray() {
     Menu.buildFromTemplate([
       {
         label: 'about',
-        click: () => app.showAboutPanel()
+        click: () => app.showAboutPanel(),
       },
       {
         label: 'quit',
-        click: () => app.quit()
-      }
-    ])
+        click: () => app.quit(),
+      },
+    ]),
   )
 
   tray.on('double-click', () => app.show())

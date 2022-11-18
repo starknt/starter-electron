@@ -19,7 +19,7 @@ const getIconsUrl = (name: string) => {
       <p>getIconsUrl function expample</p>
 
       <div self-start border rounded-md overflow-hidden p-1 mt-2>
-        <img block object-cover :src="getIconsUrl('32x32.png')" />
+        <img block object-cover :src="getIconsUrl('32x32.png')">
       </div>
     </div>
   </div>

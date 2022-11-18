@@ -6,7 +6,6 @@ import { appModulesPath, appPackagePath, srcElectronModulesPath, srcElectronPack
 if (!fs.existsSync(appModulesPath))
   fs.mkdirSync(appModulesPath)
 
-
 async function linkModules() {
   return await fs.symlink(appModulesPath, srcElectronModulesPath, 'junction')
 }
