@@ -45,6 +45,7 @@
   |   |-- web # web 界面相关代码
   |   |   |-- tests # 组件单元测试文件
   |-- buildResources # 用于构建应用的资源
+  |-- assets # 打包到应用内的资源
   |-- packages # 一个类似于 monorepo 的结构, 用于分享 `electron` 和 `web` 环境中能共享代码
   |-- release # 应用发布相关
   |   |-- app # 应用的原生模块和应用的`package.json`
