@@ -1,9 +1,20 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
-import { BrowserWindow, app, ipcMain, protocol } from 'electron'
+import { BrowserWindow, app, ipcMain, protocol, Tray, nativeImage, Menu } from 'electron'
 import { add } from '@starter/shared'
-import { production, web } from 'eevi-is'
+import { macOS, production, web, windows } from 'eevi-is'
 import Database from 'better-sqlite3'
+
+const rootPath = production() ? process.resourcesPath : process.cwd()
+
+function getIconPath() {
+  if (windows())
+    return join(rootPath, 'assets', 'icons', 'icon.ico')
+  if (macOS())
+    return join(rootPath, 'assets', 'icons', '32x32.png')
+
+  return join(rootPath, 'assets', 'icons', '32x32.png')
+}
 
 async function bootstrap() {
   protocol.registerSchemesAsPrivileged([
@@ -31,20 +42,26 @@ async function beforeReady() {
 
 }
 
-async function afterReady() {
-  protocol.registerStreamProtocol('app', (request, cb) => {
-    const url = new URL(request.url)
-    const rootPath = production() ? process.resourcesPath : process.cwd()
+async function setupTray() {
+  const tray = new Tray(nativeImage.createFromPath(getIconPath()))
 
-    cb(fs.createReadStream(join(rootPath, 'buildResources', url.hostname, url.pathname)))
-  })
+  tray.setContextMenu(
+    Menu.buildFromTemplate([
+      {
+        label: 'about',
+        click: () => app.showAboutPanel()
+      },
+      {
+        label: 'quit',
+        click: () => app.quit()
+      }
+    ])
+  )
 
-  // eslint-disable-next-line no-console
-  ipcMain.on('sayHello', (e, message) => console.log(e.sender.id, message))
+  tray.on('double-click', () => app.show())
+}
 
-  // eslint-disable-next-line no-console
-  console.log(add(1, 2), web())
-
+async function setupWindow() {
   const main = new BrowserWindow({
     webPreferences: {
       preload: resolve(__dirname, './preload/common.js'),
@@ -82,6 +99,22 @@ async function afterReady() {
 
   main.loadURL(resolvePage('main'))
   other.loadURL(resolvePage('other'))
+}
+
+async function afterReady() {
+  protocol.registerStreamProtocol('app', (request, cb) => {
+    const url = new URL(request.url)
+    cb(fs.createReadStream(join(rootPath, 'assets', url.hostname, url.pathname)))
+  })
+
+  // eslint-disable-next-line no-console
+  ipcMain.on('sayHello', (e, message) => console.log(e.sender.id, message))
+
+  // eslint-disable-next-line no-console
+  console.log(add(1, 2), web())
+
+  setupTray()
+  setupWindow()
 }
 
 bootstrap()

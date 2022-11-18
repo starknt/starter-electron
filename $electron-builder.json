@@ -127,8 +127,8 @@
   },
   "extraResources": [
     {
-      "from": "buildResources",
-      "to": "buildResources"
+      "from": "assets",
+      "to": "assets"
     }
   ]
 }
