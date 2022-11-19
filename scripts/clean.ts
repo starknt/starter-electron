@@ -1,6 +1,7 @@
 import { join, sep } from 'path'
 import fs from 'fs-extra'
 import nodeAbi from 'node-abi'
+import markFiles from './markFiles.json'
 import { appModulesPath, appPackagePath, appPath, releasePath, rimraf, sequence, taskFactory } from './utils'
 
 export const cleanBuildProduct = async () => {
@@ -87,48 +88,7 @@ export const cleanFiles = async () => {
   }
 
   const markedFiles: string[] = []
-  const files: IMarkFile[] = [
-    {
-      name: 'readme',
-      ext: ['md', 'html', 'txt'],
-    },
-    {
-      name: 'license',
-      ext: [],
-    },
-    {
-      name: 'changelog',
-      ext: ['md', 'html'],
-    },
-    {
-      name: 'history',
-      ext: ['md', 'html'],
-    },
-    {
-      name: '.github',
-      type: 'dir',
-    },
-    {
-      name: 'CONTRIBUTING',
-      ext: ['md', 'html'],
-    },
-    {
-      name: 'GOVERNANCE',
-      ext: ['md', 'html'],
-    },
-    {
-      name: '.travis',
-      ext: ['yml', 'yaml'],
-    },
-    {
-      name: 'test',
-      type: 'dir',
-    },
-    {
-      name: 'examples?',
-      type: 'dir',
-    },
-  ]
+  const files: IMarkFile[] = markFiles as IMarkFile[]
 
   const findMarkedFile = (p: string, markFile: IMarkFile): string | null => {
     if (!markFile.ext)

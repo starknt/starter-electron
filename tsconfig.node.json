@@ -15,7 +15,7 @@
     "eevi.config.ts",
     "vite.config.ts",
     "./app/web/vite.config.ts",
-    "*.json",
+    "**/*.json",
     "alias.ts",
     "packages",
     "scripts"
