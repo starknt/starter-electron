@@ -10,7 +10,8 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
-  await electronApplication.close()
+  // may cause e2e error
+  // await electronApplication.close()
 })
 
 test('Main window state', async () => {
