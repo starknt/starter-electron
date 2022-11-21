@@ -39,7 +39,7 @@
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
     "clean": "esno scripts/clean-cli.ts",
     "prepare": "husky install",
-    "commit": "git add . && git cz",
+    "commit": "git cz",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
