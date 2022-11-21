@@ -1,4 +1,5 @@
 import { resolve } from 'path'
+import type { BrowserWindow } from 'electron'
 import type { ElectronApplication } from 'playwright'
 import { _electron as electron } from 'playwright'
 
@@ -21,22 +22,34 @@ afterAll(async () => {
 test('Main window state', async () => {
   const windowState: { isVisible: boolean; isDevToolsOpened: boolean; isCrashed: boolean }
     = await electronApplication.evaluate(({ BrowserWindow }) => {
-      const mainWindow = BrowserWindow.getAllWindows()[0]
+      const windows = BrowserWindow.getAllWindows()
+      let window: BrowserWindow
+      for (const win of windows) {
+        if (win) {
+          window = win
+          break
+        }
+      }
 
-      if (!mainWindow)
-        return
+      if (!window) {
+        return {
+          isVisible: false,
+          isDevToolsOpened: false,
+          isCrashed: true,
+        }
+      }
+
       const getState = () => ({
-        isVisible: mainWindow.isVisible(),
-        isDevToolsOpened: mainWindow.webContents.isDevToolsOpened(),
-        isCrashed: mainWindow.webContents.isCrashed(),
+        isVisible: window.isVisible(),
+        isDevToolsOpened: window.webContents.isDevToolsOpened(),
+        isCrashed: window.webContents.isCrashed(),
       })
 
       return new Promise((resolve) => {
-        if (mainWindow.isVisible())
+        if (window.isVisible())
           resolve(getState())
-
         else
-          mainWindow.once('ready-to-show', () => setTimeout(() => resolve(getState()), 0))
+          window.once('ready-to-show', () => setTimeout(() => resolve(getState()), 0))
       })
     })
 
