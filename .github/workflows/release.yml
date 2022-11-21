@@ -2,8 +2,8 @@ name: release application
 
 on:
   push:
-    branches:
-      - "release v*"
+    tags:
+      - "v*"
 
 jobs:
   build:

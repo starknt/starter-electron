@@ -1,7 +1,7 @@
 {
   "name": "@electron/boilerplate",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@7.14.2",
   "description": "An electron template based on Vite and Esbuild.",
@@ -25,7 +25,7 @@
     "dev": "vite -c ./app/web/vite.config.ts",
     "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
     "package": "pnpm build && esno ./scripts/make-installer.ts",
-    "release": "bumpp package.json release/app/package.json --commit --push --tag && pnpm package",
+    "release": "bumpp package.json release/app/package.json --commit --push --tag",
     "sync:alias": "esno ./scripts/sync-alias.ts ./tsconfig.json ./tsconfig.test.json ./app/electron/tsconfig.json ./app/web/tsconfig.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
