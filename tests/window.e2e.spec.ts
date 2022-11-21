@@ -1,17 +1,21 @@
-import { join, resolve } from 'path'
+import { resolve } from 'path'
 import type { ElectronApplication } from 'playwright'
 import { _electron as electron } from 'playwright'
 
 let electronApplication: ElectronApplication
 
 beforeAll(async () => {
-  // TODO: bundle file path
-  electronApplication = await electron.launch({ args: [join(process.cwd(), 'release', 'app', 'dist', 'main.js')], cwd: resolve(process.cwd(), 'release', 'app') })
+  process.env.PLAYWRIGHT = 'true'
+  electronApplication = await electron.launch({
+    args: [resolve(process.cwd(), 'release', 'app', 'dist', 'main.js')],
+    cwd: resolve(process.cwd(), 'release', 'app'),
+    env: process.env,
+  })
 })
 
 afterAll(async () => {
   // may cause e2e error
-  // await electronApplication.close()
+  await electronApplication.close()
 })
 
 test('Main window state', async () => {
@@ -19,6 +23,8 @@ test('Main window state', async () => {
     = await electronApplication.evaluate(({ BrowserWindow }) => {
       const mainWindow = BrowserWindow.getAllWindows()[0]
 
+      if (!mainWindow)
+        return
       const getState = () => ({
         isVisible: mainWindow.isVisible(),
         isDevToolsOpened: mainWindow.webContents.isDevToolsOpened(),

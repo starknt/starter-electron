@@ -16,30 +16,26 @@ function getIconPath() {
   return join(rootPath, 'assets', 'icons', '32x32.png')
 }
 
-async function bootstrap() {
-  protocol.registerSchemesAsPrivileged([
-    {
-      scheme: 'app',
-      privileges: {
-        secure: true,
-        standard: true,
-        stream: true,
-        bypassCSP: true,
-        supportFetchAPI: true,
-        corsEnabled: true,
+async function beforeReady() {
+  if (!process.env.PLAYWRIGHT) {
+    protocol.registerSchemesAsPrivileged([
+      {
+        scheme: 'app',
+        privileges: {
+          secure: true,
+          standard: true,
+          stream: true,
+          bypassCSP: true,
+          supportFetchAPI: true,
+          corsEnabled: true,
+        },
       },
-    },
-  ])
+    ])
+  }
 
   // sqlite 3 code test
-  if (production()) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const dbInstance = new Database(join(process.resourcesPath, 'sqlite.db'))
-  }
-}
-
-async function beforeReady() {
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const dbInstance = new Database(join(process.resourcesPath, 'sqlite.db'))
 }
 
 async function setupTray() {
@@ -102,10 +98,12 @@ async function setupWindow() {
 }
 
 async function afterReady() {
-  protocol.registerStreamProtocol('app', (request, cb) => {
-    const url = new URL(request.url)
-    cb(fs.createReadStream(join(rootPath, 'assets', url.hostname, url.pathname)))
-  })
+  if (!process.env.PLAYWRIGHT) {
+    protocol.registerStreamProtocol('app', (request, cb) => {
+      const url = new URL(request.url)
+      cb(fs.createReadStream(join(rootPath, 'assets', url.hostname, url.pathname)))
+    })
+  }
 
   // eslint-disable-next-line no-console
   ipcMain.on('sayHello', (e, message) => console.log(e.sender.id, message))
@@ -117,10 +115,10 @@ async function afterReady() {
   setupWindow()
 }
 
-bootstrap()
-  .then(async () => await beforeReady())
-  .then(async () => await app.whenReady())
-  .then(async () => await afterReady())
+Promise.resolve()
+  .then(beforeReady)
+  .then(app.whenReady)
+  .then(afterReady)
   .catch((err) => {
     console.error(err)
     process.exit(0)
