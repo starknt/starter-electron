@@ -30,10 +30,7 @@ jobs:
         run: pnpm run lint
 
   typecheck:
-    env:
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
-
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -43,7 +40,7 @@ jobs:
           cache: pnpm
 
       - name: Install
-        run: pnpm install
+        run: export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=true pnpm install
 
       - name: Typecheck
         run: pnpm run typecheck
