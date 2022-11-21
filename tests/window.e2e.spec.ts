@@ -1,35 +1,55 @@
-import { join, resolve } from 'path'
+import { resolve } from 'path'
+import type { BrowserWindow } from 'electron'
 import type { ElectronApplication } from 'playwright'
 import { _electron as electron } from 'playwright'
 
 let electronApplication: ElectronApplication
 
 beforeAll(async () => {
-  // TODO: bundle file path
-  electronApplication = await electron.launch({ args: [join(process.cwd(), 'release', 'app', 'dist', 'main.js')], cwd: resolve(process.cwd(), 'release', 'app') })
+  process.env.PLAYWRIGHT = 'true'
+  electronApplication = await electron.launch({
+    args: [resolve(process.cwd(), 'release', 'app', 'dist', 'main.js')],
+    cwd: resolve(process.cwd(), 'release', 'app'),
+    env: process.env,
+  })
 })
 
 afterAll(async () => {
+  // may cause e2e error
   await electronApplication.close()
 })
 
 test('Main window state', async () => {
   const windowState: { isVisible: boolean; isDevToolsOpened: boolean; isCrashed: boolean }
     = await electronApplication.evaluate(({ BrowserWindow }) => {
-      const mainWindow = BrowserWindow.getAllWindows()[0]
+      const windows = BrowserWindow.getAllWindows()
+      let window: BrowserWindow
+      for (const win of windows) {
+        if (win) {
+          window = win
+          break
+        }
+      }
+
+      if (!window) {
+        return {
+          isVisible: false,
+          isDevToolsOpened: false,
+          isCrashed: true,
+        }
+      }
 
       const getState = () => ({
-        isVisible: mainWindow.isVisible(),
-        isDevToolsOpened: mainWindow.webContents.isDevToolsOpened(),
-        isCrashed: mainWindow.webContents.isCrashed(),
+        isVisible: window.isVisible(),
+        isDevToolsOpened: window.webContents.isDevToolsOpened(),
+        isCrashed: window.webContents.isCrashed(),
       })
 
       return new Promise((resolve) => {
-        if (mainWindow.isVisible())
+        if (window.isVisible())
           resolve(getState())
-
         else
-          mainWindow.once('ready-to-show', () => setTimeout(() => resolve(getState()), 0))
+          window.once('ready-to-show', () => setTimeout(() => resolve(getState()), 0))
       })
     })
 
