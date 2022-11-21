@@ -37,10 +37,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: pnpm
 
       - name: Install
-        run: export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=true pnpm install
+        run: export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=true && pnpm install
 
       - name: Typecheck
         run: pnpm run typecheck
