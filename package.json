@@ -94,7 +94,11 @@
       "eslint --fix",
       "git add"
     ],
-    "*.{json, yml, yaml}": [
+    "*.{json}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{yml, yaml}": [
       "eslint --fix",
       "git add"
     ]
