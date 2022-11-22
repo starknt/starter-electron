@@ -27,6 +27,7 @@ async function doMakeInstaller(configuration: Configuration) {
         await cleanNativeModule()
       },
     },
+    publish: 'always',
   })
 
   consola.info('make installer done!')

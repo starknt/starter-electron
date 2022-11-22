@@ -3,10 +3,17 @@
   "productName": "boilerplate",
   "appId": "com.electron.starknt",
   "asar": true,
-  "asarUnpack": "**\\*.{dll}",
+  "asarUnpack": "**\\*.{dll, node}",
   "files": [
     "dist",
     "node_modules",
+    "!node_modules/**/*.js.map",
+    "!node_modules/**/*.cjs.map",
+    "!node_modules/**/*.mjs.map",
+    "!node_modules/**/*.ts.map",
+    "!node_modules/**/{*.vcxproj,*.vcxproj.filters}",
+    "!node_modules/**/build/Release/{*.lib,*.exp,*.ilk,*.pdb,*.iobj,*.ipdb}",
+    "!node_modules/**/build/Release/obj",
     "package.json"
   ],
   "copyright": "Copyright © 2022 ${author}",
@@ -35,7 +42,8 @@
     "createStartMenuShortcut": true,
     "perMachine": true,
     "allowToChangeInstallationDirectory": true,
-    "artifactName": "${productName}_windows_installer_${arch}_${version}.${ext}"
+    "artifactName": "${productName}_windows_installer_${arch}_${version}.${ext}",
+    "include": "buildResources/windows/installer.nsh"
   },
   "portable": {
     "artifactName": "${productName}_windows_portable_${arch}_${version}.${ext}"
@@ -129,6 +137,12 @@
     {
       "from": "assets",
       "to": "assets"
+    }
+  ],
+  "publish": [
+    {
+      "provider": "github",
+      "releaseType": "release"
     }
   ]
 }
