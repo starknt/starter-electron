@@ -26,11 +26,8 @@ async function doMakeInstaller(configuration: Configuration) {
       beforeBuild: async () => {
         await cleanNativeModule()
       },
-      releaseInfo: {
-        releaseNotes: process.env.NOTES ?? null,
-      },
     },
-    publish: 'always',
+    publish: process.env.BUILDER__PUBLISH as any,
   })
 
   consola.info('make installer done!')
