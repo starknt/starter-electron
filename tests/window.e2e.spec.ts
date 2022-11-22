@@ -1,5 +1,4 @@
 import { resolve } from 'path'
-import type { BrowserWindow } from 'electron'
 import type { ElectronApplication } from 'playwright'
 import { _electron as electron } from 'playwright'
 
@@ -20,38 +19,28 @@ afterAll(async () => {
 })
 
 test('Main window state', async () => {
-  const windowState: { isVisible: boolean; isDevToolsOpened: boolean; isCrashed: boolean }
-    = await electronApplication.evaluate(({ BrowserWindow }) => {
-      const windows = BrowserWindow.getAllWindows()
-      let window: BrowserWindow
-      for (const win of windows) {
-        if (win) {
-          window = win
-          break
-        }
-      }
+  let windowState: { isVisible: boolean; isDevToolsOpened: boolean; isCrashed: boolean } = {
+    isVisible: false,
+    isDevToolsOpened: false,
+    isCrashed: true,
+  }
+  await electronApplication.firstWindow()
+  windowState = await electronApplication.evaluate(({ BrowserWindow }) => {
+    const window = BrowserWindow.getAllWindows()[0]
 
-      if (!window) {
-        return {
-          isVisible: false,
-          isDevToolsOpened: false,
-          isCrashed: true,
-        }
-      }
-
-      const getState = () => ({
-        isVisible: window.isVisible(),
-        isDevToolsOpened: window.webContents.isDevToolsOpened(),
-        isCrashed: window.webContents.isCrashed(),
-      })
-
-      return new Promise((resolve) => {
-        if (window.isVisible())
-          resolve(getState())
-        else
-          window.once('ready-to-show', () => setTimeout(() => resolve(getState()), 0))
-      })
+    const getState = () => ({
+      isVisible: window.isVisible(),
+      isDevToolsOpened: window.webContents.isDevToolsOpened(),
+      isCrashed: window.webContents.isCrashed(),
     })
+
+    return new Promise((resolve) => {
+      if (window.isVisible())
+        resolve(getState())
+      else
+        window.once('ready-to-show', () => setTimeout(() => resolve(getState()), 0))
+    })
+  })
 
   expect(windowState.isCrashed, 'The app has crashed').toBeFalsy()
   expect(windowState.isVisible, 'The main window was not visible').toBeTruthy()
