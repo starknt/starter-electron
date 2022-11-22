@@ -86,7 +86,6 @@
   },
   "pnpm": {
     "overrides": {
-      "electron-osx-sign": "npm:@electron/osx-sign@latest",
       "asar": "npm:@electron/asar@latest"
     }
   },
