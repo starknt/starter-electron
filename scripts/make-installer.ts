@@ -36,7 +36,7 @@ async function doMakeInstaller(configuration: Configuration) {
 
 async function afterMake(result: string[]) {
   for (const r of result)
-    consola.success(`make ${r} successfully`)
+    consola.success(`\x1B[32m\x1B[1mMake ${r} successfully\x1B[0m`)
 }
 
 Promise.resolve()

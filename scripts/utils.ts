@@ -18,10 +18,10 @@ const internalRimraf = promisify(rm)
 export const rimraf = async function remove(path: string): Promise<void> {
   try {
     await internalRimraf(path)
-    consola.success(`remove ${path} successfully`)
+    consola.success(`\x1B[91m Remove\x1B[0m\x1B[96m\x1B[1m ${path}\x1B[0m successfully`)
   }
   catch (err) {
-    consola.error(`remove ${path} failed, error: ${err}`)
+    consola.error(`\x1B[91m\x1B[1m Remove ${path} failed \x1B[0m, error: ${err}`)
   }
 }
 
