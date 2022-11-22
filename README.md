@@ -35,7 +35,7 @@
 ## 项目结构
 
 ```typescript
-  .
+  .-- 根路径
   |-- .github
   |   |-- workflows # Github Actions 工作流
   |-- .vscode # Vscode 项目配置文件, 用于主进程 Debug
