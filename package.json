@@ -91,16 +91,13 @@
   },
   "lint-staged": {
     "*.{ts, tsx, js, jsx}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
-    "*.{json}": [
-      "eslint --fix",
-      "git add"
+    "*.json": [
+      "eslint --fix"
     ],
-    "*.{yml, yaml}": [
-      "eslint --fix",
-      "git add"
+    "*.yml": [
+      "eslint --fix"
     ]
   },
   "config": {
