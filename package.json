@@ -60,7 +60,7 @@
     "concurrently": "^7.5.0",
     "consola": "^2.15.3",
     "cz-conventional-changelog": "^3.3.0",
-    "eevi": "^0.3.3",
+    "eevi": "^0.3.4",
     "electron": "^19.0.17",
     "electron-builder": "^23.6.0",
     "electron-rebuild": "^3.2.9",

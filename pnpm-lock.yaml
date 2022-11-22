@@ -18,7 +18,7 @@ specifiers:
   concurrently: ^7.5.0
   consola: ^2.15.3
   cz-conventional-changelog: ^3.3.0
-  eevi: ^0.3.3
+  eevi: ^0.3.4
   electron: ^19.0.17
   electron-builder: ^23.6.0
   electron-rebuild: ^3.2.9
@@ -61,7 +61,7 @@ devDependencies:
   concurrently: 7.5.0
   consola: 2.15.3
   cz-conventional-changelog: 3.3.0
-  eevi: 0.3.3_electron@19.1.5+vite@3.2.4
+  eevi: 0.3.4_electron@19.1.5+vite@3.2.4
   electron: 19.1.5
   electron-builder: 23.6.0
   electron-rebuild: 3.2.9
@@ -324,12 +324,12 @@ packages:
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
 
-  /@eevi/config/0.3.3_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-bREiIsbrdTZKL/G6/nsN5w2so7eexqAE1QvDtUW9J05ASCuTNrwktBkeFDGq9qWO8mkQoLv+LRr2mUXeR0TDnw==}
+  /@eevi/config/0.3.4_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-5nnbJlb9ji3BKeuf1Bf0qWGVEeuJSOJ8n/7JUYpKdxj8annMPgRmweMYl6F6+ENbCeSSr6lp3S3EcbFS+usGUQ==}
     peerDependencies:
-      vite: ~3.0.4
+      vite: '>=3.0.0'
     dependencies:
-      '@eevi/core': 0.3.3_electron@19.1.5
+      '@eevi/core': 0.3.4_electron@19.1.5
       fast-glob: 3.2.12
       unconfig: 0.3.7
       vite: 3.2.4_@types+node@18.11.9
@@ -337,8 +337,8 @@ packages:
       - electron
     dev: true
 
-  /@eevi/core/0.3.3_electron@19.1.5:
-    resolution: {integrity: sha512-c35gWdvEuXzwrZryGYkRJcqzCkZvpg+w49Tderb8gKteIHlU1L30+9oz5sULmsYWgSvBFPVoWqXEmgu6P7+n2w==}
+  /@eevi/core/0.3.4_electron@19.1.5:
+    resolution: {integrity: sha512-TJs2j0YJY6R3hWUIfrBCjR0mfpsJwGJ3opp7eIvVOhNL32upTzsILKzHZIvFUdxcYjSPY2PjK6ujubq0NGY8Yg==}
     peerDependencies:
       electron: '*'
     dependencies:
@@ -351,8 +351,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /@eevi/vite-plugin-mpa/0.3.3_vite@3.2.4:
-    resolution: {integrity: sha512-+lB75VRCNDBkz3XzyVOa9a+mZpIcbmdvUelleu0tCrufhAKQDxYd1kPUA69h/NNxSIJ7T/8XhHjE+G25F6yAKg==}
+  /@eevi/vite-plugin-mpa/0.3.4_vite@3.2.4:
+    resolution: {integrity: sha512-InG9peYlAB9Itg4NluwZF5Gf4MU44LaPVdjbo2dIKQCbcnVUh1jkSmFrDjIyQJZPSA61uTNlJn/+1/fNcSwPjw==}
     peerDependencies:
       vite: ~3.0.4
     dependencies:
@@ -2495,14 +2495,14 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /eevi/0.3.3_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-CiHz5qW77VGsudDB9NqxFZcxOsfx9PMOqG6H2jxhGRmu8KtCIch1iA8nwAfW2TAjhYlCSJs0Y0bqYxSCloqVUg==}
+  /eevi/0.3.4_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-qdhBgZf1Sy+c+PkGTylQAMQ9FhFiT3fOcsN0Jw5z0AZO8uqAJcXLIrxc35KKCOAtmHAKWTDLzaGrA02zxX4cyA==}
     peerDependencies:
       vite: ~3.0.1
     dependencies:
-      '@eevi/config': 0.3.3_electron@19.1.5+vite@3.2.4
-      '@eevi/core': 0.3.3_electron@19.1.5
-      '@eevi/vite-plugin-mpa': 0.3.3_vite@3.2.4
+      '@eevi/config': 0.3.4_electron@19.1.5+vite@3.2.4
+      '@eevi/core': 0.3.4_electron@19.1.5
+      '@eevi/vite-plugin-mpa': 0.3.4_vite@3.2.4
       vite: 3.2.4_@types+node@18.11.9
     transitivePeerDependencies:
       - electron
