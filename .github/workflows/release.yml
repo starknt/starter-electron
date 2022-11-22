@@ -75,16 +75,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Archive Build Artifacts
-        uses: LabhanshAgrawal/upload-artifact@v3
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
         with:
           path: |
-            release/build/*.dmg
-            release/build/*.snap
-            release/build/*.AppImage
-            release/build/*.deb
-            release/build/*.rpm
-            release/build/*.exe
+            release/build
+            !release/*-unpacked
+            !release/builder-*.yml
+            !release/builder-*.yaml
 
   changelog:
     runs-on: ubuntu-latest
