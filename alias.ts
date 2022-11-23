@@ -9,5 +9,5 @@ if (!global.__dirname) {
 const r = (...paths: string[]) => resolve(__dirname, 'packages', ...paths)
 
 export const alias: Record<string, string> = {
-  '@starter/shared': r('shared', 'src', 'index.ts'),
+  '@starter/shared': r('shared', 'index.ts'),
 }
