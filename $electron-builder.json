@@ -7,6 +7,9 @@
   "files": [
     "dist",
     "node_modules",
+    "!node_modules/.modules.yaml",
+    "!node_modules/**/.pnpm",
+    "!node_modules/**/.bin",
     "!node_modules/**/*.js.map",
     "!node_modules/**/*.cjs.map",
     "!node_modules/**/*.mjs.map",
@@ -18,15 +21,11 @@
   ],
   "copyright": "Copyright © 2022 ${author}",
   "dmg": {
-    "iconSize": 160,
-    "window": {
-      "width": 600,
-      "height": 420
-    },
     "contents": [
       {
         "x": 150,
-        "y": 200
+        "y": 200,
+        "type": "file"
       },
       {
         "x": 450,
@@ -34,34 +33,39 @@
         "type": "link",
         "path": "/Applications"
       }
-    ],
-    "artifactName": "${productName}_mac_${arch}_${version}.${ext}"
+    ]
   },
   "nsis": {
     "oneClick": false,
     "createStartMenuShortcut": true,
-    "perMachine": true,
+    "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "artifactName": "${productName}_windows_installer_${arch}_${version}.${ext}",
+    "artifactName": "${productName}_win_setup_${arch}_${version}.${ext}",
     "include": "buildResources/windows/installer.nsh"
   },
-  "portable": {
-    "artifactName": "${productName}_windows_portable_${arch}_${version}.${ext}"
-  },
   "win": {
+    "icon": "buildResources/icons/win/icon.ico",
+    "artifactName": "${productName}-win-${arch}-${version}.${ext}",
     "target": [
       {
         "target": "nsis",
         "arch": [
           "x64",
-          "ia32",
-          "arm64"
+          "ia32"
+        ]
+      },
+      {
+        "target": "zip",
+        "arch": [
+          "x64",
+          "ia32"
         ]
       }
-    ],
-    "icon": "buildResources/icons/win/icon.ico"
+    ]
   },
   "mac": {
+    "icon": "buildResources/icons/mac/icon.icns",
+    "artifactName": "${productName}-mac-${arch}-${version}.${ext}",
     "target": [
       {
         "target": "dmg",
@@ -88,12 +92,11 @@
       "ITSAppUsesNonExemptEncryption": false,
       "CFBundleLocalizations": [],
       "CFBundleDevelopmentRegion": "en"
-    },
-    "icon": "buildResources/icons/mac/icon.icns"
+    }
   },
   "linux": {
     "icon": "buildResources/icons/png/256x256.png",
-    "artifactName": "${productName}_linux_${arch}_${version}.${ext}",
+    "artifactName": "${productName}-linux-${arch}-${version}.${ext}",
     "category": "Utility",
     "synopsis": "An electron template based on Vite and Esbuild.",
     "desktop": {
@@ -102,30 +105,10 @@
       "GenericName": "An electron template based on Vite and Esbuild."
     },
     "target": [
-      {
-        "target": "deb",
-        "arch": [
-          "x64",
-          "arm64",
-          "armv7l"
-        ]
-      },
-      {
-        "target": "AppImage",
-        "arch": [
-          "x64",
-          "arm64",
-          "armv7l"
-        ]
-      },
-      {
-        "target": "rpm",
-        "arch": [
-          "x64",
-          "arm64",
-          "armv7l"
-        ]
-      }
+      "deb",
+      "AppImage",
+      "rpm",
+      "tar.gz"
     ]
   },
   "directories": {
