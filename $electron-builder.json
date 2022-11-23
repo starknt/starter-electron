@@ -10,6 +10,7 @@
     "!node_modules/.modules.yaml",
     "!node_modules/**/.pnpm",
     "!node_modules/**/.bin",
+    "!node_modules/**/*.d.ts",
     "!node_modules/**/*.js.map",
     "!node_modules/**/*.cjs.map",
     "!node_modules/**/*.mjs.map",
