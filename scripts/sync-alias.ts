@@ -18,7 +18,9 @@ for (let i = 0; i < configPaths.length; i++) {
   for (const key of aliasKeys) {
     const value = alias[key]
 
-    target[key] = [relative(p, value)]
+    target[key] = [
+      process.platform === 'win32' ? relative(p, value).replace(/\\/g, '/') : relative(p, value),
+    ]
   }
   r[configPaths[i]] = target
 }

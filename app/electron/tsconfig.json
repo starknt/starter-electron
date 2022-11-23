@@ -18,7 +18,7 @@
     ],
     "paths": {
       "@starter/shared": [
-        "..\\..\\packages\\shared\\src\\index.ts"
+        "../../packages/shared/src/index.ts"
       ]
     }
   },
