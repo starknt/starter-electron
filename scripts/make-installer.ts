@@ -1,13 +1,23 @@
+import fs from 'node:fs'
+import { join } from 'node:path'
 import consola from 'consola'
 import type { Configuration } from 'electron-builder'
 import builder from 'electron-builder'
 import fileConfiguration from '../$electron-builder.json'
 import { cleanFiles, cleanNativeModule } from './clean'
+import { buildResourcePath } from './utils'
 
 async function beforeMake() {
   consola.info('before make installer')
 
   await cleanFiles()
+
+  const nshFilePath = join(buildResourcePath, 'windows', 'installer.nsh')
+  if (fileConfiguration?.nsis?.include && fs.existsSync(nshFilePath)) {
+    const productName = fileConfiguration.productName ?? ''
+
+    fs.writeFileSync(nshFilePath, fs.readFileSync(nshFilePath, 'utf-8').replace('$1', productName))
+  }
 
   const configuration: Configuration = {
     ...fileConfiguration as any,

@@ -12,6 +12,7 @@ export const releasePath = join(rootPath, 'release')
 export const appPath = join(releasePath, 'app')
 export const appModulesPath = join(appPath, 'node_modules')
 export const appPackagePath = join(appPath, 'package.json')
+export const buildResourcePath = join(rootPath, 'buildResources')
 
 const internalRimraf = promisify(rm)
 
