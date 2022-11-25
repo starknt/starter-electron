@@ -22,8 +22,8 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite -c ./app/web/vite.config.ts",
-    "build": "cross-env NODE_ENV=production pnpm clean && vite -c ./app/web/vite.config.ts build",
+    "dev": "vite -c ./app/web/vite.config.ts",
+    "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
     "package": "pnpm build && esno ./scripts/make-installer.ts",
     "release": "bumpp package.json release/app/package.json --commit --push --tag",
     "sync:alias": "esno ./scripts/sync-alias.ts ./tsconfig.json ./tsconfig.test.json ./app/electron/tsconfig.json ./app/web/tsconfig.json",
@@ -60,7 +60,7 @@
     "consola": "^2.15.3",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "eevi": "^0.4.0",
+    "eevi": "^0.4.3",
     "electron": "^19.0.17",
     "electron-builder": "^23.6.0",
     "electron-rebuild": "^3.2.9",

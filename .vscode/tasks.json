@@ -10,7 +10,7 @@
       ],
       "options": {
         "env": {
-          "DEBUG": "true"
+          "__DEV__": "true"
         }
       }
     },

@@ -5,7 +5,7 @@
       "name": "Debug Main Process",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/release/app",
+      "cwd": "${workspaceFolder}",
       "skipFiles": [
         "<node_internals>/**",
         "**/node_modules/**"
@@ -18,11 +18,10 @@
         "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
       },
       "args": [
-        "dist/main.js"
+        "release/app/dist/main.js"
       ],
       "env": {
-        "NODE_ENV": "debug"
-        // "DEBUG": "true"
+        "__DEV__": "true"
       },
       "preLaunchTask": "Build"
     },
