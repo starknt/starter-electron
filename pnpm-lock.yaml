@@ -16,8 +16,9 @@ specifiers:
   commitlint-config-cz: ^0.13.3
   concurrently: ^7.5.0
   consola: ^2.15.3
+  cross-env: ^7.0.3
   cz-conventional-changelog: ^3.3.0
-  eevi: ^0.3.4
+  eevi: ^0.4.0
   electron: ^19.0.17
   electron-builder: ^23.6.0
   electron-rebuild: ^3.2.9
@@ -58,8 +59,9 @@ devDependencies:
   commitlint-config-cz: 0.13.3
   concurrently: 7.5.0
   consola: 2.15.3
+  cross-env: 7.0.3
   cz-conventional-changelog: 3.3.0
-  eevi: 0.3.4_electron@19.1.5+vite@3.2.4
+  eevi: 0.4.0_electron@19.1.5+vite@3.2.4
   electron: 19.1.5
   electron-builder: 23.6.0
   electron-rebuild: 3.2.9
@@ -322,12 +324,12 @@ packages:
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
 
-  /@eevi/config/0.3.4_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-5nnbJlb9ji3BKeuf1Bf0qWGVEeuJSOJ8n/7JUYpKdxj8annMPgRmweMYl6F6+ENbCeSSr6lp3S3EcbFS+usGUQ==}
+  /@eevi/config/0.4.0_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-NalHBdMXar7Qsr8G6dZAPuM7VjWPBw0ytkHA64RCmOTDTVqWRncF7eNM9yiewwebcgadoTEXYtzD94+SGzPTlg==}
     peerDependencies:
       vite: '>=3.0.0'
     dependencies:
-      '@eevi/core': 0.3.4_electron@19.1.5
+      '@eevi/core': 0.4.0_electron@19.1.5+vite@3.2.4
       fast-glob: 3.2.12
       unconfig: 0.3.7
       vite: 3.2.4_@types+node@18.11.9
@@ -335,22 +337,34 @@ packages:
       - electron
     dev: true
 
-  /@eevi/core/0.3.4_electron@19.1.5:
-    resolution: {integrity: sha512-TJs2j0YJY6R3hWUIfrBCjR0mfpsJwGJ3opp7eIvVOhNL32upTzsILKzHZIvFUdxcYjSPY2PjK6ujubq0NGY8Yg==}
+  /@eevi/core/0.4.0_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-FO68hcCNmGbcrKjpPaZrJ3jEwE/0UuM1weHjzzR816JrCTWDPgTgaa1OPSuCn2/283uGMgHbiMwn+rnqRFRSbg==}
     peerDependencies:
       electron: '*'
     dependencies:
       '@anatine/esbuild-decorators': 0.2.19_esbuild@0.14.54
-      asar: /@electron/asar/3.2.2
+      '@eevi/elexpose': 0.4.0_vite@3.2.4
       consola: 2.15.3
       electron: 19.1.5
       esbuild: 0.14.54
       esbuild-plugin-alias-path: 1.1.1_esbuild@0.14.54
       picocolors: 1.0.0
+    transitivePeerDependencies:
+      - vite
     dev: true
 
-  /@eevi/vite-plugin-mpa/0.3.4_vite@3.2.4:
-    resolution: {integrity: sha512-InG9peYlAB9Itg4NluwZF5Gf4MU44LaPVdjbo2dIKQCbcnVUh1jkSmFrDjIyQJZPSA61uTNlJn/+1/fNcSwPjw==}
+  /@eevi/elexpose/0.4.0_vite@3.2.4:
+    resolution: {integrity: sha512-hIfVhvb3kSv8mQXePfo4YF0eX14uzYRX2ugYd0CQzOVbY9Q36SJ4nBcWQpqHty36kXOXA+0ActBb5DktQYPzRQ==}
+    peerDependencies:
+      vite: '>=3.0.0'
+    dependencies:
+      magic-string: 0.26.7
+      mlly: 1.0.0
+      vite: 3.2.4_@types+node@18.11.9
+    dev: true
+
+  /@eevi/vite-plugin-mpa/0.4.0_vite@3.2.4:
+    resolution: {integrity: sha512-jXo09IufnvPGov5Vv4zDVtSnN0Ck8ImErTcMaqrNSgDGdTI2Im0rG6/QWFwo97SgTvcZX46kbb/nWh1ccBbJkw==}
     peerDependencies:
       vite: ~3.0.4
     dependencies:
@@ -1329,6 +1343,12 @@ packages:
     hasBin: true
     dev: true
 
+  /acorn/8.8.1:
+    resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+    dev: true
+
   /agent-base/6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
@@ -2160,6 +2180,14 @@ packages:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
     dev: true
 
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
+    dev: true
+
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -2468,14 +2496,15 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /eevi/0.3.4_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-qdhBgZf1Sy+c+PkGTylQAMQ9FhFiT3fOcsN0Jw5z0AZO8uqAJcXLIrxc35KKCOAtmHAKWTDLzaGrA02zxX4cyA==}
+  /eevi/0.4.0_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-4SUQR4AFESxR/zX3QpEhSDqlBoLATgyn5+EixDiZAf4KkD32N3w1qihMyO4w+OsISLu/moSFAh7d6BMZv6mExw==}
     peerDependencies:
       vite: ~3.0.1
     dependencies:
-      '@eevi/config': 0.3.4_electron@19.1.5+vite@3.2.4
-      '@eevi/core': 0.3.4_electron@19.1.5
-      '@eevi/vite-plugin-mpa': 0.3.4_vite@3.2.4
+      '@eevi/config': 0.4.0_electron@19.1.5+vite@3.2.4
+      '@eevi/core': 0.4.0_electron@19.1.5+vite@3.2.4
+      '@eevi/elexpose': 0.4.0_vite@3.2.4
+      '@eevi/vite-plugin-mpa': 0.4.0_vite@3.2.4
       vite: 3.2.4_@types+node@18.11.9
     transitivePeerDependencies:
       - electron
@@ -5004,10 +5033,19 @@ packages:
   /mlly/0.5.16:
     resolution: {integrity: sha512-LaJ8yuh4v0zEmge/g3c7jjFlhoCPfQn6RCjXgm9A0Qiuochq4BcuOxVfWmdnCoLTlg2MV+hqhOek+W2OhG0Lwg==}
     dependencies:
-      acorn: 8.8.0
+      acorn: 8.8.1
       pathe: 0.3.9
       pkg-types: 0.3.5
       ufo: 0.8.6
+    dev: true
+
+  /mlly/1.0.0:
+    resolution: {integrity: sha512-QL108Hwt+u9bXdWgOI0dhzZfACovn5Aen4Xvc8Jasd9ouRH4NjnrXEiyP3nVvJo91zPlYjVRckta0Nt2zfoR6g==}
+    dependencies:
+      acorn: 8.8.1
+      pathe: 1.0.0
+      pkg-types: 1.0.1
+      ufo: 1.0.0
     dev: true
 
   /mrmime/1.0.1:
@@ -5418,6 +5456,10 @@ packages:
     resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
     dev: true
 
+  /pathe/1.0.0:
+    resolution: {integrity: sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg==}
+    dev: true
+
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: true
@@ -5456,6 +5498,14 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 0.5.16
       pathe: 0.3.9
+    dev: true
+
+  /pkg-types/1.0.1:
+    resolution: {integrity: sha512-jHv9HB+Ho7dj6ItwppRDDl0iZRYBD0jsakHXtFgoLr+cHSF6xC+QL54sJmWxyGxOLYSHm0afhXhXcQDQqH9z8g==}
+    dependencies:
+      jsonc-parser: 3.2.0
+      mlly: 1.0.0
+      pathe: 1.0.0
     dev: true
 
   /playwright-core/1.28.0:
@@ -6153,7 +6203,7 @@ packages:
   /strip-literal/0.4.2:
     resolution: {integrity: sha512-pv48ybn4iE1O9RLgCAN0iU4Xv7RlBTiit6DKmMiErbs9x1wH6vXBs45tWc0H5wUIF6TLTrKweqkmYF/iraQKNw==}
     dependencies:
-      acorn: 8.8.0
+      acorn: 8.8.1
     dev: true
 
   /sumchecker/3.0.1:
@@ -6490,6 +6540,10 @@ packages:
     resolution: {integrity: sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==}
     dev: true
 
+  /ufo/1.0.0:
+    resolution: {integrity: sha512-DRty0ZBNlJ2R59y4mEupJRKLbkLQsc4qtxjpQv78AwEDuBkaUogMc2LkeqW3HddFlw6NwnXYfdThEZOiNgkmmQ==}
+    dev: true
+
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
     dependencies:
@@ -6642,7 +6696,7 @@ packages:
   /unplugin/0.10.2:
     resolution: {integrity: sha512-6rk7GUa4ICYjae5PrAllvcDeuT8pA9+j5J5EkxbMFaV+SalHhxZ7X2dohMzu6C3XzsMT+6jwR/+pwPNR3uK9MA==}
     dependencies:
-      acorn: 8.8.0
+      acorn: 8.8.1
       chokidar: 3.5.3
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.5

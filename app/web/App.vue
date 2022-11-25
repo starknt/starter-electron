@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const sayHello = () => $api.sayHello()
+import { sayHello } from '#common'
 
 const getIconsUrl = (name: string) => {
   return `app://icons/${name}`
@@ -11,7 +11,7 @@ const getIconsUrl = (name: string) => {
     <Counter />
     <div mt-2>
       <button @click="sayHello">
-        sayHello
+        SayHello
       </button>
     </div>
 

@@ -20,6 +20,10 @@
       "args": [
         "dist/main.js"
       ],
+      "env": {
+        "NODE_ENV": "debug"
+        // "DEBUG": "true"
+      },
       "preLaunchTask": "Build"
     },
     {

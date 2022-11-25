@@ -4,7 +4,7 @@ import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
-import { EeviCorePlugin, EeviIsPlugin, EeviMpaPlugin } from 'eevi/vite'
+import { eevi, mpa } from 'eevi'
 import { alias } from '../../alias'
 
 export default defineConfig({
@@ -33,9 +33,9 @@ export default defineConfig({
         './components',
       ],
     }),
-    EeviCorePlugin(),
+    eevi(),
     // SPA remove it and pages dir, MPA require it
-    EeviMpaPlugin({
+    mpa({
       template: './public/index.html',
       pages: [
         {
@@ -54,7 +54,6 @@ export default defineConfig({
         },
       ],
     }),
-    EeviIsPlugin(),
   ],
   build: {
     rollupOptions: {

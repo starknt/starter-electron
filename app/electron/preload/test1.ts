@@ -1,7 +1,5 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { ipcRenderer } from 'electron'
 
-contextBridge.exposeInMainWorld('$test1', {
-  sayHello() {
-    ipcRenderer.send('sayHello', 'test1')
-  },
-})
+export function sayHello() {
+  ipcRenderer.send('sayHello', 'hello')
+}
