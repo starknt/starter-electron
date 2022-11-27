@@ -27,8 +27,17 @@ for (let i = 0; i < configPaths.length; i++) {
 
 for (const key of Object.keys(r)) {
   const value = r[key]
+  // read
   const tsconfig = fs.readJSONSync(join(rootPath, key))
-  tsconfig.compilerOptions.paths = value
+  // diff merge
+  if (!tsconfig.compilerOptions.paths)
+    tsconfig.compilerOptions.paths = {}
+  for (const pathKey of Object.keys(value)) {
+    if (tsconfig.compilerOptions.paths[pathKey])
+      continue
+
+    tsconfig.compilerOptions.paths[pathKey] = value[pathKey]
+  }
   fs.writeFileSync(join(rootPath, key), format(tsconfig))
 }
 
