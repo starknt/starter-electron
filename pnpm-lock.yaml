@@ -18,7 +18,7 @@ specifiers:
   consola: ^2.15.3
   cross-env: ^7.0.3
   cz-conventional-changelog: ^3.3.0
-  eevi: ^0.5.2
+  eevi: ^0.5.3
   electron: ^19.0.17
   electron-builder: ^23.6.0
   electron-rebuild: ^3.2.9
@@ -61,7 +61,7 @@ devDependencies:
   consola: 2.15.3
   cross-env: 7.0.3
   cz-conventional-changelog: 3.3.0
-  eevi: 0.5.2_electron@19.1.5+vite@3.2.4
+  eevi: 0.5.3_electron@19.1.5+vite@3.2.4
   electron: 19.1.5
   electron-builder: 23.6.0
   electron-rebuild: 3.2.9
@@ -324,12 +324,12 @@ packages:
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
 
-  /@eevi/config/0.5.2_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-wA2/zMLQRlxkd7sD4guFzpQ2w3kGV0iuRLPwHc2bDm4FGKD6hYqv6zYjXkP/fgonM1On8xT5P2YB5dYbN3ME1g==}
+  /@eevi/config/0.5.3_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-oeLJqboB2bRgZdU+sx1paBGVXqLIxlNEuAtzwtm4CrHPshxmP3jJk69kTr0prMh88Ar7neTi2SIupAxdvLZ1Mg==}
     peerDependencies:
       vite: '>=3.0.0'
     dependencies:
-      '@eevi/core': 0.5.2_electron@19.1.5+vite@3.2.4
+      '@eevi/core': 0.5.3_electron@19.1.5+vite@3.2.4
       fast-glob: 3.2.12
       unconfig: 0.3.7
       vite: 3.2.4_@types+node@18.11.9
@@ -337,14 +337,14 @@ packages:
       - electron
     dev: true
 
-  /@eevi/core/0.5.2_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-d+y1Sk+NSnzD5DaH65ulHMXdmzDrG2r8qqHaNCrujSoj4ss29ncm3mXwg7Dl56QwOXEcy37nBxFo61eVY0+5uA==}
+  /@eevi/core/0.5.3_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-rYF0sHoIx2CyuaJbSQigv0amtoJaa39XBlsr9i//X87KWNvDKsEhsYKgYdxHY9G+Z/3tGbLMgm4Cm1vdKmzZLg==}
     peerDependencies:
       electron: '*'
       vite: '>=3.0.0'
     dependencies:
       '@anatine/esbuild-decorators': 0.2.19_esbuild@0.14.54
-      '@eevi/elexpose': 0.5.2_esbuild@0.14.54+vite@3.2.4
+      '@eevi/elexpose': 0.5.3_esbuild@0.14.54+vite@3.2.4
       consola: 2.15.3
       electron: 19.1.5
       esbuild: 0.14.54
@@ -353,8 +353,8 @@ packages:
       vite: 3.2.4_@types+node@18.11.9
     dev: true
 
-  /@eevi/elexpose/0.5.2_esbuild@0.14.54+vite@3.2.4:
-    resolution: {integrity: sha512-09e/a0lg6c2ZHOWb4z3WMzlnbbtJRbJY6rJAOqpePbx/E7KJLDD4wUALiTi4GPOrUhnUsK+O33HrGE/YsbHXrQ==}
+  /@eevi/elexpose/0.5.3_esbuild@0.14.54+vite@3.2.4:
+    resolution: {integrity: sha512-en3fmoSHI85TFEs9eNM4U/fFnHqiAchAromb+OMYy1RrAsN9z20KOuin3MEpgYuLePxOKmZoYDV4uEtMqsrYWA==}
     peerDependencies:
       esbuild: '*'
       vite: '>=3.0.0'
@@ -366,8 +366,8 @@ packages:
       vite: 3.2.4_@types+node@18.11.9
     dev: true
 
-  /@eevi/elexpose/0.5.2_vite@3.2.4:
-    resolution: {integrity: sha512-09e/a0lg6c2ZHOWb4z3WMzlnbbtJRbJY6rJAOqpePbx/E7KJLDD4wUALiTi4GPOrUhnUsK+O33HrGE/YsbHXrQ==}
+  /@eevi/elexpose/0.5.3_vite@3.2.4:
+    resolution: {integrity: sha512-en3fmoSHI85TFEs9eNM4U/fFnHqiAchAromb+OMYy1RrAsN9z20KOuin3MEpgYuLePxOKmZoYDV4uEtMqsrYWA==}
     peerDependencies:
       esbuild: '*'
       vite: '>=3.0.0'
@@ -378,8 +378,8 @@ packages:
       vite: 3.2.4_@types+node@18.11.9
     dev: true
 
-  /@eevi/vite-plugin-mpa/0.5.2_vite@3.2.4:
-    resolution: {integrity: sha512-p4nOo6RwF9vKOJ4hEt0pd5TCLigx3MlyedZe7+MAKnjcvU85a63am8uyUXNkvSFx3gptOTJqSc6co0RGsqOmeA==}
+  /@eevi/vite-plugin-mpa/0.5.3_vite@3.2.4:
+    resolution: {integrity: sha512-TMUQexN5PNMl/mr0/25bMLlsTfFEAR8w04xX8uUiZMmHYiDJCdBdnqT1lIynUQFrZb1tuyaPx6rOpZ/2TATs1A==}
     peerDependencies:
       vite: ~3.0.4
     dependencies:
@@ -2511,15 +2511,15 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /eevi/0.5.2_electron@19.1.5+vite@3.2.4:
-    resolution: {integrity: sha512-GLyompWTq13tqixv7Ij59yxdmjxn6xFZhDtbR0bBsFkispEJTaCYmOVB5RSgfzCfLarJvO4mBk0lVGKQ6SxhxQ==}
+  /eevi/0.5.3_electron@19.1.5+vite@3.2.4:
+    resolution: {integrity: sha512-K5O+hCoI8C63MM5Zq0pOFIcPfYj1QLNSDCXBIrsNTw8zcvErCKmWMa9XY+OD5npIR/7J5KzqklI+lOdvHRNNKg==}
     peerDependencies:
       vite: ~3.0.1
     dependencies:
-      '@eevi/config': 0.5.2_electron@19.1.5+vite@3.2.4
-      '@eevi/core': 0.5.2_electron@19.1.5+vite@3.2.4
-      '@eevi/elexpose': 0.5.2_vite@3.2.4
-      '@eevi/vite-plugin-mpa': 0.5.2_vite@3.2.4
+      '@eevi/config': 0.5.3_electron@19.1.5+vite@3.2.4
+      '@eevi/core': 0.5.3_electron@19.1.5+vite@3.2.4
+      '@eevi/elexpose': 0.5.3_vite@3.2.4
+      '@eevi/vite-plugin-mpa': 0.5.3_vite@3.2.4
       vite: 3.2.4_@types+node@18.11.9
     transitivePeerDependencies:
       - electron

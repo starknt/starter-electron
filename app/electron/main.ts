@@ -1,6 +1,6 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
-import { BrowserWindow, Menu, Tray, app, ipcMain, nativeImage, protocol } from 'electron'
+import { BrowserWindow, Menu, Tray, app, ipcMain, nativeImage, protocol, session } from 'electron'
 import { add } from '@starter/shared'
 import { macOS, production, web, windows } from 'eevi-is'
 import Database from 'better-sqlite3'
@@ -58,6 +58,10 @@ async function setupTray() {
 }
 
 async function setupWindow() {
+  session.defaultSession.setPreloads([
+    resolve(__dirname, './preload/test1.js'),
+  ])
+
   const main = new BrowserWindow({
     webPreferences: {
       preload: resolve(__dirname, './preload/common.js'),

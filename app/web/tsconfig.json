@@ -24,6 +24,9 @@
       ],
       "#preload/common": [
         "../electron/preload/common.ts"
+      ],
+      "#preload/test1": [
+        "../electron/preload/test1.ts"
       ]
     }
   },
