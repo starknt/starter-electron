@@ -7,16 +7,18 @@ import fileConfiguration from '../$electron-builder.json'
 import { cleanFiles, cleanNativeModule } from './clean'
 import { buildResourcePath } from './utils'
 
+let nshContent: string
+const nshFilePath = join(buildResourcePath, 'windows', 'installer.nsh')
+
 async function beforeMake() {
   consola.info('before make installer')
 
   await cleanFiles()
 
-  const nshFilePath = join(buildResourcePath, 'windows', 'installer.nsh')
   if (fileConfiguration?.nsis?.include && fs.existsSync(nshFilePath)) {
     const productName = fileConfiguration.productName ?? ''
-
-    fs.writeFileSync(nshFilePath, fs.readFileSync(nshFilePath, 'utf-8').replace('$1', productName))
+    nshContent = fs.readFileSync(nshFilePath, 'utf-8')
+    fs.writeFileSync(nshFilePath, nshContent.slice().replace('$1', productName))
   }
 
   const configuration: Configuration = {
@@ -48,6 +50,9 @@ async function doMakeInstaller(configuration: Configuration) {
 async function afterMake(result: string[]) {
   for (const r of result)
     consola.success(`\x1B[32m\x1B[1mMake ${r} successfully\x1B[0m`)
+
+  if (nshContent)
+    fs.writeFileSync(nshFilePath, nshContent)
 }
 
 Promise.resolve()
