@@ -33,7 +33,7 @@
     "test:unit": "vitest run unit --passWithNoTests",
     "test:e2e": "pnpm build && vitest run e2e --passWithNoTests",
     "test:watch": "vitest -u",
-    "postinstall": "electron-builder install-app-deps && esno ./scripts/link-modules.ts && esno ./scripts/electron-rebuild.ts",
+    "postinstall": "electron-builder install-app-deps && concurrently \"esno ./scripts/link-modules.ts\" \"esno ./scripts/electron-rebuild.ts\"",
     "typecheck:electron": "npx tsc --noEmit -p app/electron/tsconfig.json",
     "typecheck:web": "vue-tsc --noEmit -p app/web/tsconfig.json",
     "typecheck": "concurrently \"pnpm typecheck:electron\" \"pnpm typecheck:web\"",
@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.33.1",
+    "@electron/rebuild": "^3.2.10",
     "@types/better-sqlite3": "^7.6.2",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.10",
@@ -62,7 +63,6 @@
     "eevi": "^0.5.7",
     "electron": "^19.0.17",
     "electron-builder": "^23.6.0",
-    "electron-rebuild": "^3.2.9",
     "eslint": "^8.28.0",
     "esno": "^0.16.3",
     "fs-extra": "^11.1.0",
@@ -84,7 +84,8 @@
   },
   "pnpm": {
     "overrides": {
-      "asar": "npm:@electron/asar@latest"
+      "asar": "npm:@electron/asar@latest",
+      "@npmcli/move-file": "@npm:@npmcli/fs"
     }
   },
   "lint-staged": {
