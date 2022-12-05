@@ -17,6 +17,9 @@ function getIconPath() {
 }
 
 async function beforeReady() {
+  // perf ISSUE: https://github.com/electron/electron/issues/35512
+  Menu.setApplicationMenu(null)
+
   if (!process.env.PLAYWRIGHT) {
     protocol.registerSchemesAsPrivileged([
       {
@@ -123,7 +126,5 @@ Promise.resolve()
   .then(beforeReady)
   .then(app.whenReady)
   .then(afterReady)
-  .catch((err) => {
-    console.error(err)
-    process.exit(0)
-  })
+  .catch(console.error)
+  .catch(() => process.exit(0))
