@@ -33,6 +33,9 @@
       ],
       "@app/compat-node": [
         "../compat/node/index.ts"
+      ],
+      "@app/compat-i18n": [
+        "../compat/i18n/index.ts"
       ]
     }
   },

@@ -19,6 +19,9 @@
       ],
       "@app/compat-node": [
         "app/compat/node/index.ts"
+      ],
+      "@app/compat-i18n": [
+        "app/compat/i18n/index.ts"
       ]
     },
     "composite": true

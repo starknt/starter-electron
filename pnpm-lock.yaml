@@ -27,6 +27,8 @@ specifiers:
   fs-extra: ^11.1.0
   happy-dom: ^7.7.2
   husky: ^8.0.2
+  i18next: ^22.1.4
+  i18next-vue: ^2.1.1
   json-format: ^1.0.1
   lint-staged: ^13.1.0
   node-abi: ^3.30.0
@@ -43,6 +45,8 @@ specifiers:
   vue-tsc: ^1.0.11
 
 dependencies:
+  i18next: 22.1.4
+  i18next-vue: 2.1.1_i18next@22.1.4+vue@3.2.45
   vue: 3.2.45
 
 devDependencies:
@@ -238,6 +242,13 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.19.0
+
+  /@babel/runtime/7.20.6:
+    resolution: {integrity: sha512-Q+8MqP7TiHMWzSfwiJwXCjyf4GYA4Dgw3emg/7xmwsdLJOZUp+nMqcOwOzzYheuM1rhDu8FSj2l0aoMygEuXuA==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.11
+    dev: false
 
   /@babel/types/7.19.0:
     resolution: {integrity: sha512-YuGopBq3ke25BVSiS6fgF49Ul9gH1x70Bcr6bqRLjWCkcX8Hre1/5+z+IiWOIerRMSSEfGZVB9z9kyq7wVs9YA==}
@@ -4209,6 +4220,22 @@ packages:
     hasBin: true
     dev: true
 
+  /i18next-vue/2.1.1_i18next@22.1.4+vue@3.2.45:
+    resolution: {integrity: sha512-1JKLKkd+WxBhbYadTQi2fK0UoWgHimn0dU5XTnpfCur9sQ1oEBKd5sGyF4eu6DyIM1hnPrEdrivT/wLGaueUXg==}
+    peerDependencies:
+      i18next: '>=19'
+      vue: ^3.2.43
+    dependencies:
+      i18next: 22.1.4
+      vue: 3.2.45
+    dev: false
+
+  /i18next/22.1.4:
+    resolution: {integrity: sha512-MCDtNRyovLY22rgLoZdCzg2QIza1V1A/3Hxb99akJzTDjcqCRWEsglTpFUt0vUjOxSxz+WmxmFETLHORRS+n6Q==}
+    dependencies:
+      '@babel/runtime': 7.20.6
+    dev: false
+
   /iconv-corefoundation/1.1.7:
     resolution: {integrity: sha512-T10qvkw0zz4wnm560lOEg0PovVqUXuOFhhHAkixw8/sycy7TJt7v/RrkEKEQnAw2viPSJu6iAkErxnzR0g8PpQ==}
     engines: {node: ^8.11.2 || >=10}
@@ -5711,6 +5738,10 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /regenerator-runtime/0.13.11:
+    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+    dev: false
 
   /regexp-tree/0.1.24:
     resolution: {integrity: sha512-s2aEVuLhvnVJW6s/iPgEGK6R+/xngd2jNQ+xy4bXNDKxZKJH6jpPHY6kVeVv1IeLCHgswRj+Kl3ELaDjG6V1iw==}

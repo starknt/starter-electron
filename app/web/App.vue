@@ -11,7 +11,7 @@ const getIconsUrl = (name: string) => {
     <Counter />
     <div mt-2>
       <button @click="sayHello">
-        SayHello
+        {{ $t('sayHello') }}
       </button>
     </div>
 

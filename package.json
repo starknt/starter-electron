@@ -18,7 +18,7 @@
     "fast"
   ],
   "engines": {
-    "node": ">=14.18.0 || >=16.0.0",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "scripts": {
@@ -43,6 +43,8 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
+    "i18next": "^22.1.4",
+    "i18next-vue": "^2.1.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {
