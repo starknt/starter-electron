@@ -4,7 +4,8 @@
     "module": "ES2022",
     "moduleResolution": "Node",
     "lib": [
-      "ESNext"
+      "ESNext",
+      "DOM"
     ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -15,20 +16,6 @@
       "node",
       "eevi/eevi-is",
       "electron"
-    ],
-    "paths": {
-      "@app/compat-common": [
-        "../compat/common/index.ts"
-      ],
-      "@app/compat-browser": [
-        "../compat/browser/index.ts"
-      ],
-      "@app/compat-node": [
-        "../compat/node/index.ts"
-      ]
-    }
-  },
-  "exclude": [
-    "tests"
-  ]
+    ]
+  }
 }

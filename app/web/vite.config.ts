@@ -1,7 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Unocss from 'unocss/vite'
+import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
 import { eevi, mpa } from 'eevi'
@@ -16,7 +16,7 @@ export default defineConfig({
   },
   plugins: [
     Vue({ reactivityTransform: true }),
-    Unocss(),
+    UnoCSS(),
     AutoImport({
       dts: './auto-imports.d.ts',
       dirs: [
@@ -33,7 +33,7 @@ export default defineConfig({
         './components',
       ],
     }),
-    eevi(),
+    eevi({ configFile: '../electron/eevi.config.ts' }),
     // SPA remove it and pages dir, MPA require it
     mpa({
       template: './public/index.html',

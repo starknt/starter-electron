@@ -11,8 +11,14 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@starter/shared": [
-        "packages/shared/index.ts"
+      "@app/compat-common": [
+        "app/compat/common/index.ts"
+      ],
+      "@app/compat-browser": [
+        "app/compat/browser/index.ts"
+      ],
+      "@app/compat-node": [
+        "app/compat/node/index.ts"
       ]
     },
     "composite": true

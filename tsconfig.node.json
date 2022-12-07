@@ -12,12 +12,11 @@
     "composite": true
   },
   "include": [
-    "eevi.config.ts",
-    "vite.config.ts",
+    "./app/electron/eevi.config.ts",
     "./app/web/vite.config.ts",
+    "vite.config.ts",
     "**/*.json",
     "alias.ts",
-    "packages",
     "scripts"
   ],
   "exclude": [

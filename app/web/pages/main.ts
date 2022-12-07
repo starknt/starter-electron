@@ -1,12 +1,13 @@
 import { createApp } from 'vue'
 import { web } from 'eevi-is'
+import { add } from '@app/compat-common'
 import AppVue from '../App.vue'
 import { sum } from '#preload/common'
 import { sha256sum } from '#preload/test1'
 import 'uno.css'
 
 // eslint-disable-next-line no-console
-console.log(web())
+console.log(web(), add(1, 1))
 
 // eslint-disable-next-line no-console
 console.log('#preload/common sum function', sum(1, 2, 3, 4, 5))
