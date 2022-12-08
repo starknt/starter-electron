@@ -1,5 +1,17 @@
 <script setup lang="ts">
+import { BroadcastDataChannel } from '@app/compat-browser/broadcast'
 import { sayHello } from '#common'
+
+onMounted(() => {
+  const channel = new BroadcastDataChannel<string>('channel')
+
+  channel.onDidReceiveData = (data) => {
+    // eslint-disable-next-line no-console
+    console.log('channel message: ', data)
+  }
+
+  channel.postData('Hello!')
+})
 
 const getIconsUrl = (name: string) => {
   return `app://icons/${name}`

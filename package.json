@@ -26,7 +26,7 @@
     "build": "pnpm clean && vite -c ./app/web/vite.config.ts build",
     "package": "pnpm build && esno ./scripts/make-installer.ts",
     "release": "bumpp package.json release/app/package.json --commit --push --tag",
-    "sync:alias": "esno ./scripts/sync-alias.ts ./tsconfig.json ./tsconfig.test.json ./app/electron/tsconfig.json ./app/web/tsconfig.json",
+    "sync:alias": "esno ./scripts/sync-alias.ts ./tsconfig.json ./tsconfig.test.json ./app/electron/tsconfig.json ./app/web/tsconfig.json ./app/compat/tsconfig.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "pnpm build && vitest run --passWithNoTests",

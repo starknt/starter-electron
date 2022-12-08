@@ -2,19 +2,9 @@ import { join, resolve } from 'path'
 import fs from 'fs'
 import { BrowserWindow, Menu, Tray, app, ipcMain, nativeImage, protocol, session } from 'electron'
 import { add } from '@app/compat-common/add'
-import { macOS, production, web, windows } from 'eevi-is'
+import { web } from 'eevi-is'
+import { getIconPath, rootPath } from '@app/compat-node/utils'
 import Database from 'better-sqlite3'
-
-const rootPath = production() ? process.resourcesPath : process.cwd()
-
-function getIconPath() {
-  if (windows())
-    return join(rootPath, 'assets', 'icons', 'icon.ico')
-  if (macOS())
-    return join(rootPath, 'assets', 'icons', '32x32.png')
-
-  return join(rootPath, 'assets', 'icons', '32x32.png')
-}
 
 async function beforeReady() {
   // perf ISSUE: https://github.com/electron/electron/issues/35512

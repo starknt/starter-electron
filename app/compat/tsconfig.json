@@ -17,6 +17,20 @@
       "node",
       "eevi/eevi-is",
       "electron"
-    ]
+    ],
+    "paths": {
+      "@app/compat-common/*": [
+        "common/*"
+      ],
+      "@app/compat-browser/*": [
+        "browser/*"
+      ],
+      "@app/compat-node/*": [
+        "node/*"
+      ],
+      "@app/compat-i18n": [
+        "i18n/index.ts"
+      ]
+    }
   }
 }
