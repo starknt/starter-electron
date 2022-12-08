@@ -3,7 +3,7 @@ import i18next from 'i18next'
 import I18NextVue from 'i18next-vue'
 
 import { web } from 'eevi-is'
-import { add } from '@app/compat-common'
+import { add } from '@app/compat-common/add'
 import AppVue from '../App.vue'
 import { sum } from '#preload/common'
 import { sha256sum } from '#preload/test1'

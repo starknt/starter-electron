@@ -15,7 +15,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   // may cause e2e error
-  await electronApplication.close()
+  electronApplication.close()
 })
 
 test('Main window state', async () => {

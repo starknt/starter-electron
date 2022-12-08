@@ -17,14 +17,14 @@
       "electron"
     ],
     "paths": {
-      "@app/compat-common": [
-        "../compat/common/index.ts"
+      "@app/compat-common/*": [
+        "../compat/common/*"
       ],
-      "@app/compat-browser": [
-        "../compat/browser/index.ts"
+      "@app/compat-browser/*": [
+        "../compat/browser/*"
       ],
-      "@app/compat-node": [
-        "../compat/node/index.ts"
+      "@app/compat-node/*": [
+        "../compat/node/*"
       ],
       "@app/compat-i18n": [
         "../compat/i18n/index.ts"

@@ -1,7 +1,7 @@
 import { join, resolve } from 'path'
 import fs from 'fs'
 import { BrowserWindow, Menu, Tray, app, ipcMain, nativeImage, protocol, session } from 'electron'
-import { add } from '@app/compat-common'
+import { add } from '@app/compat-common/add'
 import { macOS, production, web, windows } from 'eevi-is'
 import Database from 'better-sqlite3'
 
