@@ -61,5 +61,8 @@
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true // this allows ESLint to auto fix on save
-  }
+  },
+  "i18n-ally.localesPaths": [
+    "./app/compat/i18n/locales"
+  ]
 }
