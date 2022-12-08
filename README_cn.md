@@ -1,6 +1,6 @@
 # 文档
 
-[中文](./README.md) | [English](./README_en.md)
+[中文](./README_cn.md) | [English](./README.md)
 
 <h1 align="center">Starter Electron</h1>
 
