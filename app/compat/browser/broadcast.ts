@@ -7,7 +7,7 @@ export class BroadcastDataChannel<T> {
     this.broadcastChannel = new BroadcastChannel(channelName)
 
     const listener = (event: MessageEvent<T>) => {
-      this?.onDidReceiveData(event.data)
+      this?.onDidReceiveData?.(event.data)
     }
 
     this.broadcastChannel.addEventListener('message', listener)
