@@ -32,15 +32,9 @@
       "path": "./tsconfig.node.json"
     }
   ],
-  "include": [
-    "app/web",
-    "packages"
-  ],
   "exclude": [
     "node_modules",
     "tests",
-    "app/web/tests",
-    "app/electron/tests",
     "release/app"
   ]
 }

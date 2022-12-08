@@ -22,18 +22,23 @@
       ],
       "@app/compat-i18n": [
         "app/compat/i18n/index.ts"
+      ],
+      "@app-electron/*": [
+        "app/electron/*"
+      ],
+      "@app-web/*": [
+        "app/web/*"
       ]
     },
     "composite": true
   },
   "include": [
     "tests",
-    "app/electron/tests",
-    "app/web/tests",
-    "packages"
+    "app"
   ],
   "exclude": [
     "release/app",
-    "node_modules"
+    "node_modules",
+    "**/*.d.ts"
   ]
 }
