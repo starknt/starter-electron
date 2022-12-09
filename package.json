@@ -62,7 +62,7 @@
     "concurrently": "^7.6.0",
     "consola": "^2.15.3",
     "cz-conventional-changelog": "^3.3.0",
-    "eevi": "^0.5.7",
+    "eevi": "^0.5.8",
     "electron": "^19.0.17",
     "electron-builder": "^23.6.0",
     "eslint": "^8.29.0",
@@ -86,8 +86,7 @@
   },
   "pnpm": {
     "overrides": {
-      "asar": "npm:@electron/asar@latest",
-      "@npmcli/move-file": "@npm:@npmcli/fs"
+      "asar": "npm:@electron/asar@latest"
     }
   },
   "lint-staged": {
