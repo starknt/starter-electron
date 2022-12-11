@@ -21,13 +21,6 @@ export class BroadcastDataChannel<T> {
   }
 
   postData(data: T): void {
-    if (this.broadcastChannel) {
-      this.broadcastChannel.postMessage(data)
-    }
-    else {
-      // remove previous changes so that event is triggered even if new changes are same as old changes
-      window.localStorage.removeItem(this.channelName)
-      window.localStorage.setItem(this.channelName, JSON.stringify(data))
-    }
+    this.broadcastChannel.postMessage(data)
   }
 }
