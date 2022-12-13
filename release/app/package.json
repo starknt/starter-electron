@@ -9,6 +9,6 @@
   "license": "GPL-2.0",
   "main": "./dist/main.js",
   "dependencies": {
-    "better-sqlite3": "^7.6.2"
+    "better-sqlite3": "^8.0.1"
   }
 }
