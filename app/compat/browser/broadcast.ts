@@ -1,10 +1,10 @@
 export class BroadcastDataChannel<T> {
-  private broadcastChannel: BroadcastChannel | undefined
+  private broadcastChannel: BroadcastChannel
 
   onDidReceiveData?: (data: T) => void
 
   constructor(private readonly channelName: string) {
-    this.broadcastChannel = new BroadcastChannel(channelName)
+    this.broadcastChannel = new BroadcastChannel(this.channelName)
 
     const listener = (event: MessageEvent<T>) => {
       this?.onDidReceiveData?.(event.data)
