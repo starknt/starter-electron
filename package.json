@@ -43,7 +43,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "i18next": "^22.4.3",
+    "i18next": "^22.4.5",
     "i18next-vue": "^2.1.1",
     "vue": "^3.2.45"
   },
@@ -52,7 +52,7 @@
     "@electron/rebuild": "^3.2.10",
     "@types/better-sqlite3": "^7.6.3",
     "@types/fs-extra": "^9.0.13",
-    "@types/node": "^18.11.14",
+    "@types/node": "^18.11.15",
     "@types/node-abi": "^3.0.0",
     "@types/rimraf": "^3.0.2",
     "@vitejs/plugin-vue": "^3.2.0",
@@ -62,7 +62,7 @@
     "concurrently": "^7.6.0",
     "consola": "^2.15.3",
     "cz-conventional-changelog": "^3.3.0",
-    "eevi": "^0.5.8",
+    "eevi": "^0.5.10",
     "electron": "^19.0.17",
     "electron-builder": "^23.6.0",
     "eslint": "^8.29.0",
