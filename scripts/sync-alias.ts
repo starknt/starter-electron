@@ -1,7 +1,7 @@
 // auto patch `tsconfig.json` path options from alias.ts
 import { join, relative } from 'node:path'
 import { exec } from 'node:child_process'
-import fs from 'fs-extra'
+import fs from 'fs'
 import consola from 'consola'
 import format from 'json-format'
 import { alias } from '../alias'
@@ -36,7 +36,7 @@ for (let i = 0; i < configPaths.length; i++) {
 for (const key of Object.keys(r)) {
   const value = r[key]
   // read
-  const tsconfig = fs.readJSONSync(join(rootPath, key))
+  const tsconfig = JSON.parse(fs.readFileSync(join(rootPath, key), 'utf-8'))
   // diff merge
   if (!tsconfig.compilerOptions.paths)
     tsconfig.compilerOptions.paths = {}

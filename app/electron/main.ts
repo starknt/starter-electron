@@ -2,11 +2,14 @@ import { join, resolve } from 'path'
 import fs from 'fs'
 import { BrowserWindow, Menu, Tray, app, ipcMain, nativeImage, protocol, session } from 'electron'
 import { add } from '@app/compat-common/add'
-import { web } from 'eevi-is'
+import { dev, web } from 'eevi-is'
 import { getIconPath, rootPath } from '@app/compat-node/utils'
 import Database from 'better-sqlite3'
 
 async function beforeReady() {
+  if (dev())
+    (await import('source-map-support')).install()
+
   // perf ISSUE: https://github.com/electron/electron/issues/35512
   Menu.setApplicationMenu(null)
 

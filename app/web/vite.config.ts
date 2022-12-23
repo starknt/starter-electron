@@ -4,7 +4,9 @@ import Vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoImportComponent from 'unplugin-vue-components/vite'
-import { eevi, mpa } from 'eevi'
+import ElectronVitePlugin from 'eevi'
+import { ElectronRendererPlugin } from '@eevi/elexpose/vite'
+import ViteMpaPlugin from '@eevi/vite-plugin-mpa'
 import { alias } from '../../alias'
 
 export default defineConfig({
@@ -33,9 +35,13 @@ export default defineConfig({
         './components',
       ],
     }),
-    eevi({ configFile: '../electron/eevi.config.ts' }),
+    ElectronVitePlugin({ configFile: '../electron/eevi.config.ts' }),
+    ElectronRendererPlugin([
+      'test1',
+      'common',
+    ]),
     // SPA remove it and pages dir, MPA require it
-    mpa({
+    ViteMpaPlugin({
       template: './public/index.html',
       pages: [
         {
