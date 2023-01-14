@@ -3,7 +3,7 @@ import fs from 'fs'
 import type { UserConfigExport } from 'eevi'
 import { defineConfig } from 'eevi'
 import { ElectronPreloadPlugin } from '@eevi/elexpose/esbuild'
-import { alias } from '../../alias'
+import { alias } from './alias'
 
 const appPath = resolve(process.cwd(), 'release', 'app')
 const packagePath = resolve(appPath, 'package.json')
@@ -21,9 +21,8 @@ export default defineConfig({
   root: 'app/electron',
   entry: 'main.ts',
   outDir: join(appPath, 'dist'),
-  preloadEntriesDir: '../compat/preload',
   preloadEntries: [
-    '*.ts', // eevi v0.3.3
+    '../compat/preload/*.ts', // eevi v0.7.0
   ],
   preloadPlugins: [ElectronPreloadPlugin()],
   resolve: {

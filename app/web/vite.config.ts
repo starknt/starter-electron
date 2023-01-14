@@ -35,7 +35,7 @@ export default defineConfig({
         './components',
       ],
     }),
-    ElectronVitePlugin({ configFile: '../electron/eevi.config.ts' }),
+    ElectronVitePlugin(),
     ElectronRendererPlugin([
       'test1',
       'common',
