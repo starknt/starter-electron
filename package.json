@@ -29,8 +29,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "pnpm build && vitest run --passWithNoTests",
-    "test:unit": "vitest run unit --passWithNoTests",
-    "test:e2e": "pnpm build && vitest run e2e --passWithNoTests",
     "test:watch": "vitest -u",
     "postinstall": "electron-builder install-app-deps && concurrently \"esno ./scripts/link-modules.ts\" \"esno ./scripts/electron-rebuild.ts\"",
     "typecheck:electron": "npx tsc --noEmit -p app/electron/tsconfig.json",
