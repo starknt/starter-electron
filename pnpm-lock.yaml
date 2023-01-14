@@ -17,7 +17,6 @@ specifiers:
   commitizen: ^4.2.6
   commitlint-config-cz: ^0.13.3
   concurrently: ^7.6.0
-  consola: ^2.15.3
   cz-conventional-changelog: ^3.3.0
   eevi: ^0.7.0-beta.1
   electron: ^19.0.17
@@ -28,7 +27,6 @@ specifiers:
   husky: ^8.0.3
   i18next: ^22.4.9
   i18next-vue: ^2.1.1
-  json-format: ^1.0.1
   lint-staged: ^13.1.0
   node-abi: ^3.31.0
   playwright: ^1.29.2
@@ -63,7 +61,6 @@ devDependencies:
   commitizen: 4.2.6
   commitlint-config-cz: 0.13.3
   concurrently: 7.6.0
-  consola: 2.15.3
   cz-conventional-changelog: 3.3.0
   eevi: 0.7.0-beta.1_electron@19.1.5+vite@4.0.3
   electron: 19.1.5
@@ -72,7 +69,6 @@ devDependencies:
   esno: 0.16.3
   happy-dom: 8.1.4
   husky: 8.0.3
-  json-format: 1.0.1
   lint-staged: 13.1.0
   node-abi: 3.31.0
   playwright: 1.29.2
@@ -4556,10 +4552,6 @@ packages:
 
   /json-buffer/3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
-    dev: true
-
-  /json-format/1.0.1:
-    resolution: {integrity: sha512-MoKIg/lBeQALqjYnqEanikfo3zBKRwclpXJexdF0FUniYAAN2ypEIXBEtpQb+9BkLFtDK1fyTLAsnGlyGfLGxw==}
     dev: true
 
   /json-parse-even-better-errors/2.3.1:
