@@ -89,13 +89,10 @@
     }
   },
   "lint-staged": {
-    "*.{ts, tsx, js, jsx}": [
+    "*.{ts, tsx, vue}": [
       "eslint --fix"
     ],
-    "*.json": [
-      "eslint --fix"
-    ],
-    "*.{yml, yaml}": [
+    "*.{json, yaml, yml}": [
       "eslint --fix"
     ]
   },
