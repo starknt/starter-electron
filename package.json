@@ -84,7 +84,8 @@
   },
   "pnpm": {
     "overrides": {
-      "asar": "npm:@electron/asar@latest"
+      "asar": "npm:@electron/asar@latest",
+      "@npmcli/move-file": "npm:@npmcli/fs@latest"
     }
   },
   "lint-staged": {

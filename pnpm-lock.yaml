@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 overrides:
   asar: npm:@electron/asar@latest
+  '@npmcli/move-file': npm:@npmcli/fs@latest
 
 specifiers:
   '@antfu/eslint-config': ^0.34.1
@@ -880,13 +881,11 @@ packages:
       semver: 7.3.8
     dev: true
 
-  /@npmcli/move-file/2.0.1:
-    resolution: {integrity: sha512-mJd2Z5TjYWq/ttPLLGqArdtnC74J6bOzg4rMDnN+p1xTacZ2yPRCk2y0oSWQtygLR9YVQXgOcONrwtnk3JupxQ==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
-    deprecated: This functionality has been moved to @npmcli/fs
+  /@npmcli/fs/3.1.0:
+    resolution: {integrity: sha512-7kZUAaLscfgbwBQRbvdMYaZOWyMEcPTH/tJjnyAWJ/dvvs9Ef+CERx/qJb9GExJpl1qipaDGn7KqHnFGGixd0w==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
-      mkdirp: 1.0.4
-      rimraf: 3.0.2
+      semver: 7.3.8
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -1947,7 +1946,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     dependencies:
       '@npmcli/fs': 2.1.2
-      '@npmcli/move-file': 2.0.1
+      '@npmcli/move-file': /@npmcli/fs/3.1.0
       chownr: 2.0.0
       fs-minipass: 2.1.0
       glob: 8.0.3
